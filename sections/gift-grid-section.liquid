@@ -1,0 +1,82 @@
+{% comment %} Git And Event Section {% endcomment %}
+
+<div class="container m-auto py-[60px] laptop:px-4">
+  <div class="grid grid-cols-3 gap-10 laptop:gap-4 tablet:grid-cols-1">
+    {% for block in section.blocks %}
+      <div class="boxShadow text-center bg-[#fafafa] pt-12 pb-20 px-8 rounded-[5px] grid relative ">
+        <div>
+          <img
+            src="{{ block.settings.gift_image | img_url: 'original' }}"
+            width="120"
+            alt="gift"
+            class="text-center inline-block"
+          >
+        </div>
+        <h3 class="section-title">{{ block.settings.gift_title }}</h3>
+        <p class="content">
+          {{ block.settings.gift_description }}
+        </p>
+        <a
+          href="{{ block.settings.gift_link }}"
+          class="h-[55px] flex items-center justify-center absolute bottom-0 w-full bg-primary text-white text-[20px] leading-[30px] font-semibold hover:bg-secondary"
+        >
+          {{ block.settings.gift_button_text }}
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Gift Section",
+  "settings": [],
+  "blocks": [
+    {
+      "name": "Hero Slider",
+      "type": "slider",
+      "settings": [
+        {
+          "type": "text",
+          "id": "gift_title",
+          "label": "Title",
+          "default": "Gift"
+        },
+        {
+          "type": "text",
+          "id": "gift_description",
+          "label": "Gift Description",
+          "default": "When words just won’t do it-say it with chocolate. Delightful,delicious and, discerning- you’ll make their day."
+        },
+        {
+          "type": "image_picker",
+          "id": "gift_image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "gift_link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "gift_button_text",
+          "label": "Button Text",
+          "default": "I want to make their day"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Gift Section",
+      "blocks": [
+        {
+          "type": "slider"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

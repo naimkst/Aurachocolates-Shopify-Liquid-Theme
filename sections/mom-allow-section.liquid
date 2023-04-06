@@ -1,0 +1,42 @@
+{% comment %} When mom allowed {% endcomment %}
+
+<div
+  class="py-20 bg-[#FAFAFA] bg-[url('https://chocolate-eight.vercel.app/assets/images/home-bg.svg')] bg-no-repeat bg-right-top "
+>
+  <div class="container m-auto">
+    <div class="text-center max-w-[80%] m-auto phone:max-w-full phone:px-4">
+      <h2 class="section-title border-b-primary border-b-4 inline-block mb-11 capitalize">
+        {{ section.settings.allowed_title }}
+      </h2>
+      <p class="section-content font-light leading-[1.7]">
+        {{ section.settings.allowed_description }}
+      </p>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Mom Allowed Kitchen",
+  "settings": [
+    {
+      "type": "text",
+      "id": "allowed_title",
+      "label": "Title",
+      "default": "It All Started When My Mom Allowed Me In Her Kitchen."
+    },
+    {
+      "type": "text",
+      "id": "allowed_description",
+      "label": "Description",
+      "default": "Delicious homemade treats and entertaining were always on the agenda in my childhood home. My mom, a party planner par excellence with a discerning taste for gourmet food graciously let me be at her side while preparing for her parties. It was these adventures that developed my interest in creating a gourmet product with my favorite dessert-chocolate."
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Mom Allowed Kitchen"
+    }
+  ]
+}
+{% endschema %}

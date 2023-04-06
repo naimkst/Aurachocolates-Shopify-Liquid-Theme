@@ -1,0 +1,86 @@
+{% comment %} our Promise Section {% endcomment %}
+
+<div class="py-20 tablet:px-3 phone:overflow-hidden laptop:px-4">
+  <div class="container m-auto">
+    <div class="text-center max-w-[750px] m-auto">
+      <h2 class="section-title border-b-primary border-b-4 inline-block mb-11">{{ section.settings.promise_title }}</h2>
+      <p class="section-content font-light leading-[1.7]">
+        {{ section.settings.promise_description }}
+      </p>
+    </div>
+    <div class="pt-[40px] grid grid-cols-3 items-stretch gap-10 text-center laptop:gap-4 tablet:grid-cols-1">
+      {% for block in section.blocks %}
+        <div class="boxShadow bg-white py-14 rounded-lg px-7">
+          <div>
+            <img
+              src="{{ block.settings.promise_item_image | img_url: 'original' }}"
+              width="120"
+              alt="gift"
+              class="text-center inline-block"
+            >
+          </div>
+          <h3 class="section-title !text-[35px] !font-bold">{{ block.settings.promise_item_title }}</h3>
+          <p class="content !text-[22px]">
+            {{ block.settings.promise_item_description }}
+          </p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Promise Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "promise_title",
+      "label": "Title",
+      "default": "Our Promise"
+    },
+    {
+      "type": "text",
+      "id": "promise_description",
+      "label": "Description",
+      "default": "There is a reason we have established a strong following in Montreal and all over the world for our beloved Kosher artisanal Belgium chocolates."
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Promise Item",
+      "type": "slider",
+      "settings": [
+        {
+          "type": "text",
+          "id": "promise_item_title",
+          "label": "Promise Title",
+          "default": "Sensational Selection"
+        },
+        {
+          "type": "text",
+          "id": "promise_item_description",
+          "label": "Promise Description",
+          "default": "Have an occasion? Have a particular taste or color in mind? Trying to stay within budget? Our vast selection boasts many options that will surely fit your needs."
+        },
+        {
+          "type": "image_picker",
+          "id": "promise_item_image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Promise Section",
+      "blocks": [
+        {
+          "type": "slider"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

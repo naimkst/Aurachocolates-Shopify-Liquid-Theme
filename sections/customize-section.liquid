@@ -1,0 +1,72 @@
+{% comment %} Customization Section {% endcomment %}
+
+<div
+  class="py-20 bg-[url('/assets/images/home-bg.svg')] bg-no-repeat bg-cover bg-center bg-white/10 bg-blend-overlay laptop:px-4"
+  style="background-image: url({{ section.settings.customize_image | img_url: 'original' }})"
+>
+  <div class="container m-auto">
+    <div class="text-left max-w-[60%] phone:max-w-full phone:text-center">
+      <h2 class="section-title border-b-primary border-b-4 inline-block mb-11">
+        {{ section.settings.customize_title }}
+      </h2>
+      <p class="section-content font-light leading-[1.7]">
+        {{ section.settings.customize_subtitle }}
+      </p>
+      <div class="text-left mt-10 phone:text-center">
+        <a href="{{ section.settings.customize_button_link }}" class="button">
+          {{- section.settings.cutomize_button_text -}}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": {
+    "en": "Customization Section",
+    "fr": "Section de personnalisation"
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "customize_title",
+      "label": {
+        "en": "Customize Title",
+        "fr": "Titre de personnalisation"
+      },
+      "default": "Looking to match everything at your next event-like even the chocolates."
+    },
+    {
+      "type": "text",
+      "id": "customize_subtitle",
+      "label": {
+        "en": "Customize Subtitle",
+        "fr": "Sous-titre de personnalisation"
+      },
+      "default": "We offer 4 box sizes with 7 different colors and patterns to choose from. As simple as that! Make it customized to your liking!"
+    },
+    {
+      "type": "text",
+      "id": "cutomize_button_text",
+      "label": "Button Text",
+      "default": "Click Here To Customize Your Tray"
+    },
+    {
+      "type": "url",
+      "id": "customize_button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "customize_image",
+      "label": "Customize Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Customization Section"
+    }
+  ]
+}
+{% endschema %}

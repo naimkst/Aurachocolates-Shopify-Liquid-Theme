@@ -1,0 +1,5 @@
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
+  content: "next";
+  color: #ea5329;
+}

@@ -1,0 +1,1317 @@
+{% comment %} Shop Hero Section {% endcomment %}
+<style>
+  .tabcontents {
+    display: none;
+  }
+</style>
+<div
+  class="pt-[180px] pb-10 flex items-center flex-col text-center bg-no-repeat bg-cover bg-white/50 bg-blend-overlay"
+  style="background-image: url(&quot;https://cdn.shopify.com/s/files/1/0696/0110/0049/files/hero_image.webp?v=1673852374&quot;);"
+>
+  <div class="container">
+    <div class="mt-5 flex items-center justify-center gap-10 phone:gap-2 phone:px-4">
+      {% for link in section.settings.tab_menu.links %}
+        <div
+          role="presentation"
+          class=" tablink  bg-primary py-4 inline-block w-[200px] rounded-md cursor-pointer phone:w-auto phone:px-4 phone:py-3"
+          onclick="openPages('prdtabs{{ forloop.index }}', this, 'red')"
+          {% if forloop.index == 1 %}
+            id="defaultOpen"
+          {% endif %}
+        >
+          <p class="text-white text-[18px] phone:text-[14px]">{{ link.title }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="pt-5 phone:px-4 container overflow-auto m-auto overFlowNone">
+    {% for link in section.settings.tab_menu.links %}
+      {% if link.links.size > 0 %}
+        <div
+          id="prdtabs{{ forloop.index }}"
+          class="tabcontents"
+        >
+          <div class="flex gap-[50px] items-start justify-center phone:justify-start tablet:gap-2">
+            {% for child_link in link.links %}
+              {% assign collection = child_link.object %}
+              <div class="cursor-pointer flex flex-col items-center">
+                <div class="border-2 border-secondary rounded-full overflow-hidden w-[90px] h-[90px]">
+                  <span
+                    style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 90px; height: 90px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                    ><img
+                      src="{{ collection.image.src | img_url: 'original' }}"
+                      loading="lazy"
+                      alt="{{ collection.title }}"
+                      style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                    >
+                  </span>
+                </div>
+                <h3 class="text-center mt-2">{{ child_link.title }}</h3>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+{% comment %} Shop Main Layout {% endcomment %}
+
+<div class="relative mt-7 left-0 tablet:px-3 laptop:px-4">
+  <div class="container m-auto">
+    <div class="text-center hidden phone:block"><button class="button">Filters</button></div>
+    <div class="flex phone:flex-col gap-10">
+      <div class="phone:hidden">
+        <div class="sticky top-0 w-[250px] tablet:w-full overflow-scroll h-[100vh] pr-4">
+          <div class="flex items-center justify-between mb-[30px] mt-10">
+            <p class="text-[18px] text-content">Short By:</p>
+            <div class="">
+              <select
+                class="w-[160px] h-[50px] bg-white border-[1px] border-solid border-gray-300 p-[10px] text-[16px]"
+                name=""
+                id=""
+              >
+                <option value="TITLE">Default Sorting</option>
+                <option value="BEST_SELLING">Best Selling</option>
+                <option value="PRICE">Price</option>
+              </select>
+            </div>
+          </div>
+          <div class="mb-10">
+            <h3 class="font-bold text-content filterTitle !text-[20px]">All Products</h3>
+            <ul class="pl-5 mt-2"></ul>
+            <h3 class="font-bold text-content filterTitle !text-[20px]">Categories</h3>
+            <ul class="pl-5 mt-2">
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Dairy Chocolate</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Dark Chocolate (Parve)</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Platters &amp; Trays</a></li>
+            </ul>
+            <h3 class="font-bold text-content filterTitle !text-[20px]">Holidays</h3>
+            <ul class="pl-5 mt-2">
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Shabbos</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Tu B'shvat</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Purim</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Valentine's Day</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Mother's Day</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Father's Day</a></li>
+            </ul>
+            <h3 class="font-bold text-content filterTitle !text-[20px]">Occassions</h3>
+            <ul class="pl-5 mt-2">
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Anniversary</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Baby Boy/Girl</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Bar/Bat Mitzvah</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Birthday</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Congrats</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Engagement</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Get Well Soon</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Graduation</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Miss You</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Sympathy</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Thank You</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Wedding</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Welcome/ Good Bye</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Thinking Of You</a></li>
+            </ul>
+            <h3 class="font-bold text-content filterTitle !text-[20px]">Size</h3>
+            <ul class="pl-5 mt-2">
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">15 Piece Box</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">20 Piece Box</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">30 Piece Box</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">45 Piece Box</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">60 Piece Box</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">90 Piece Box</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">1-Tier Platter</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">2-Tier Platter</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">3-Tier Platter</a></li>
+            </ul>
+            <h3 class="font-bold text-content filterTitle !text-[20px]">Color</h3>
+            <ul class="pl-5 mt-2">
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Classic</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Multi Colored</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Blue</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Pink</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Red</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Green</a></li>
+              <li class="mb-3 cursor-pointer"><a class="font-bold hover:text-primary">Yellow</a></li>
+            </ul>
+            <div class="mt-5">
+              <h3 class="font-bold text-content filterTitle !text-[20px]">Price</h3>
+              <div class="productFilterRadio pb-[25px] text-[16px] font-light">
+                <div class=" flex justify-between items-center">
+                  <label for="huey2">Min($0)</label><label for="huey2">Max ($99.99 Of $99.99)</label>
+                </div>
+                <input
+                  class="w-full"
+                  type="range"
+                  id="huey2"
+                  name="drone"
+                  min="0"
+                  step=".1"
+                  max="99.99"
+                  value="99.99"
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <div class="w-full">
+          <div class="py-[60px] w-full">
+            <div class="grid grid-cols-4 gap-12 tablet:grid-cols-2 phone:grid-cols-2 laptop:grid-cols-3 tablet:gap-2">
+              <div class="group rounded-[10px] relative py-[40px] hover:cursor-pointer">
+                <div class="">
+                  <div class="right-0 relative text-right -top-[50px] group-hover:bg-white">
+                    <div class="imageSpan">
+                      <span
+                        style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                        ><span
+                          style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 120% 0px 0px;"
+                        ></span
+                        ><img
+                          alt="product"
+                          src="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7019-Edit.png%3Fv%3D1676949051&amp;w=3840&amp;q=75"
+                          decoding="async"
+                          data-nimg="responsive"
+                          class="img-full"
+                          style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+                          sizes="100vw"
+                          srcset="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7019-Edit.png%3Fv%3D1676949051&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7019-Edit.png%3Fv%3D1676949051&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7019-Edit.png%3Fv%3D1676949051&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7019-Edit.png%3Fv%3D1676949051&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7019-Edit.png%3Fv%3D1676949051&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7019-Edit.png%3Fv%3D1676949051&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7019-Edit.png%3Fv%3D1676949051&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7019-Edit.png%3Fv%3D1676949051&amp;w=3840&amp;q=75 3840w"
+                        ><noscript></noscript
+                      ></span>
+                    </div>
+                    <div class="hidden group-hover:block absolute bottom-0 w-full">
+                      <button
+                        class="w-full bg-primary text-white py-3"
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
+                  </div>
+                  <div class=" -mt-5">
+                    <div class="phone:text-center">
+                      <h4 class="text-[22px] leading-[27px] capitalize hover:text-primary tablet:text-[18px]">
+                        12 pieces- Dairy Truffles
+                      </h4>
+                      <span class="text-black py-3 tablet:py-0 tablet:text-[12px]">12 Piece Box</span>
+                      <p class="text-[18px] leading-[30px] tablet:text-[14px] tablet:leading-6">Price: $42.99 CAD</p>
+                    </div>
+                    <div class="absolute top-1 right-1">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        color="#f13131"
+                        height="25"
+                        width="25"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style="color: rgb(241, 49, 49);"
+                      >
+                        <path
+                          d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z">
+                        </path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group rounded-[10px] relative py-[40px] hover:cursor-pointer">
+                <div class="">
+                  <div class="right-0 relative text-right -top-[50px] group-hover:bg-white">
+                    <div class="imageSpan">
+                      <span
+                        style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                        ><span
+                          style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 120% 0px 0px;"
+                        ></span
+                        ><img
+                          alt="product"
+                          src="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7024-Edit.png%3Fv%3D1676948492&amp;w=3840&amp;q=75"
+                          decoding="async"
+                          data-nimg="responsive"
+                          class="img-full"
+                          style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+                          sizes="100vw"
+                          srcset="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7024-Edit.png%3Fv%3D1676948492&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7024-Edit.png%3Fv%3D1676948492&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7024-Edit.png%3Fv%3D1676948492&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7024-Edit.png%3Fv%3D1676948492&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7024-Edit.png%3Fv%3D1676948492&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7024-Edit.png%3Fv%3D1676948492&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7024-Edit.png%3Fv%3D1676948492&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7024-Edit.png%3Fv%3D1676948492&amp;w=3840&amp;q=75 3840w"
+                        ><noscript></noscript
+                      ></span>
+                    </div>
+                    <div class="hidden group-hover:block absolute bottom-0 w-full">
+                      <button
+                        class="w-full bg-primary text-white py-3"
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
+                  </div>
+                  <div class=" -mt-5">
+                    <div class="phone:text-center">
+                      <h4 class="text-[22px] leading-[27px] capitalize hover:text-primary tablet:text-[18px]">
+                        3 Compartment Candy
+                      </h4>
+                      <span
+                        class="text-black py-3 tablet:py-0 tablet:text-[12px]"
+                        >Sectional</span
+                      >
+                      <p class="text-[18px] leading-[30px] tablet:text-[14px] tablet:leading-6">Price: $21.99 CAD</p>
+                    </div>
+                    <div class="absolute top-1 right-1">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        color="#f13131"
+                        height="25"
+                        width="25"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style="color: rgb(241, 49, 49);"
+                      >
+                        <path
+                          d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z">
+                        </path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group rounded-[10px] relative py-[40px] hover:cursor-pointer">
+                <div class="">
+                  <div class="right-0 relative text-right -top-[50px] group-hover:bg-white">
+                    <div class="imageSpan">
+                      <span
+                        style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                        ><span
+                          style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 120% 0px 0px;"
+                        ></span
+                        ><img
+                          alt="product"
+                          src="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Mixed3Tray.png%3Fv%3D1675789552&amp;w=3840&amp;q=75"
+                          decoding="async"
+                          data-nimg="responsive"
+                          class="img-full"
+                          style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+                          sizes="100vw"
+                          srcset="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Mixed3Tray.png%3Fv%3D1675789552&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Mixed3Tray.png%3Fv%3D1675789552&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Mixed3Tray.png%3Fv%3D1675789552&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Mixed3Tray.png%3Fv%3D1675789552&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Mixed3Tray.png%3Fv%3D1675789552&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Mixed3Tray.png%3Fv%3D1675789552&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Mixed3Tray.png%3Fv%3D1675789552&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Mixed3Tray.png%3Fv%3D1675789552&amp;w=3840&amp;q=75 3840w"
+                        ><noscript></noscript
+                      ></span>
+                    </div>
+                    <div class="hidden group-hover:block absolute bottom-0 w-full">
+                      <button
+                        class="w-full bg-primary text-white py-3"
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
+                  </div>
+                  <div class=" -mt-5">
+                    <div class="phone:text-center">
+                      <h4 class="text-[22px] leading-[27px] capitalize hover:text-primary tablet:text-[18px]">
+                        3 Tray - Large Chocolate Truffles Box - Assorted Flavors
+                      </h4>
+                      <span
+                        class="text-black py-3 tablet:py-0 tablet:text-[12px]"
+                        >45 Piece Box</span
+                      >
+                      <p class="text-[18px] leading-[30px] tablet:text-[14px] tablet:leading-6">Price: $82.99 CAD</p>
+                    </div>
+                    <div class="absolute top-1 right-1">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        color="#f13131"
+                        height="25"
+                        width="25"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style="color: rgb(241, 49, 49);"
+                      >
+                        <path
+                          d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z">
+                        </path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group rounded-[10px] relative py-[40px] hover:cursor-pointer">
+                <div class="">
+                  <div class="right-0 relative text-right -top-[50px] group-hover:bg-white">
+                    <div class="imageSpan">
+                      <span
+                        style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                        ><span
+                          style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 120% 0px 0px;"
+                        ></span
+                        ><img
+                          alt="product"
+                          src="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7005-Edit.png%3Fv%3D1676949577&amp;w=3840&amp;q=75"
+                          decoding="async"
+                          data-nimg="responsive"
+                          class="img-full"
+                          style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+                          sizes="100vw"
+                          srcset="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7005-Edit.png%3Fv%3D1676949577&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7005-Edit.png%3Fv%3D1676949577&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7005-Edit.png%3Fv%3D1676949577&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7005-Edit.png%3Fv%3D1676949577&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7005-Edit.png%3Fv%3D1676949577&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7005-Edit.png%3Fv%3D1676949577&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7005-Edit.png%3Fv%3D1676949577&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7005-Edit.png%3Fv%3D1676949577&amp;w=3840&amp;q=75 3840w"
+                        ><noscript></noscript
+                      ></span>
+                    </div>
+                    <div class="hidden group-hover:block absolute bottom-0 w-full">
+                      <button
+                        class="w-full bg-primary text-white py-3"
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
+                  </div>
+                  <div class=" -mt-5">
+                    <div class="phone:text-center">
+                      <h4 class="text-[22px] leading-[27px] capitalize hover:text-primary tablet:text-[18px]">
+                        4 pieces-Dairy Truffles
+                      </h4>
+                      <span class="text-black py-3 tablet:py-0 tablet:text-[12px]">4 piece box</span>
+                      <p class="text-[18px] leading-[30px] tablet:text-[14px] tablet:leading-6">Price: $16.99 CAD</p>
+                    </div>
+                    <div class="absolute top-1 right-1">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        color="#f13131"
+                        height="25"
+                        width="25"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style="color: rgb(241, 49, 49);"
+                      >
+                        <path
+                          d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z">
+                        </path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group rounded-[10px] relative py-[40px] hover:cursor-pointer">
+                <div class="">
+                  <div class="right-0 relative text-right -top-[50px] group-hover:bg-white">
+                    <div class="imageSpan">
+                      <span
+                        style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                        ><span
+                          style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 120% 0px 0px;"
+                        ></span
+                        ><img
+                          alt="product"
+                          src="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6994-Edit.png%3Fv%3D1676950427&amp;w=3840&amp;q=75"
+                          decoding="async"
+                          data-nimg="responsive"
+                          class="img-full"
+                          style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+                          sizes="100vw"
+                          srcset="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6994-Edit.png%3Fv%3D1676950427&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6994-Edit.png%3Fv%3D1676950427&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6994-Edit.png%3Fv%3D1676950427&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6994-Edit.png%3Fv%3D1676950427&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6994-Edit.png%3Fv%3D1676950427&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6994-Edit.png%3Fv%3D1676950427&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6994-Edit.png%3Fv%3D1676950427&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6994-Edit.png%3Fv%3D1676950427&amp;w=3840&amp;q=75 3840w"
+                        ><noscript></noscript
+                      ></span>
+                    </div>
+                    <div class="hidden group-hover:block absolute bottom-0 w-full">
+                      <button
+                        class="w-full bg-primary text-white py-3"
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
+                  </div>
+                  <div class=" -mt-5">
+                    <div class="phone:text-center">
+                      <h4 class="text-[22px] leading-[27px] capitalize hover:text-primary tablet:text-[18px]">
+                        4 pieces-Dark Chocolate Truffles
+                      </h4>
+                      <span
+                        class="text-black py-3 tablet:py-0 tablet:text-[12px]"
+                        >4 piece box</span
+                      >
+                      <p class="text-[18px] leading-[30px] tablet:text-[14px] tablet:leading-6">Price: $9.99 CAD</p>
+                    </div>
+                    <div class="absolute top-1 right-1">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        color="#f13131"
+                        height="25"
+                        width="25"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style="color: rgb(241, 49, 49);"
+                      >
+                        <path
+                          d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z">
+                        </path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group rounded-[10px] relative py-[40px] hover:cursor-pointer">
+                <div class="">
+                  <div class="right-0 relative text-right -top-[50px] group-hover:bg-white">
+                    <div class="imageSpan">
+                      <span
+                        style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                        ><span
+                          style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 120% 0px 0px;"
+                        ></span
+                        ><img
+                          alt="product"
+                          src="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Mixed4Tray.png%3Fv%3D1675789854&amp;w=3840&amp;q=75"
+                          decoding="async"
+                          data-nimg="responsive"
+                          class="img-full"
+                          style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+                          sizes="100vw"
+                          srcset="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Mixed4Tray.png%3Fv%3D1675789854&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Mixed4Tray.png%3Fv%3D1675789854&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Mixed4Tray.png%3Fv%3D1675789854&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Mixed4Tray.png%3Fv%3D1675789854&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Mixed4Tray.png%3Fv%3D1675789854&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Mixed4Tray.png%3Fv%3D1675789854&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Mixed4Tray.png%3Fv%3D1675789854&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Mixed4Tray.png%3Fv%3D1675789854&amp;w=3840&amp;q=75 3840w"
+                        ><noscript></noscript
+                      ></span>
+                    </div>
+                    <div class="hidden group-hover:block absolute bottom-0 w-full">
+                      <button
+                        class="w-full bg-primary text-white py-3"
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
+                  </div>
+                  <div class=" -mt-5">
+                    <div class="phone:text-center">
+                      <h4 class="text-[22px] leading-[27px] capitalize hover:text-primary tablet:text-[18px]">
+                        4 Tray - Large Chocolate Truffles Box - Assorted Flavors
+                      </h4>
+                      <span
+                        class="text-black py-3 tablet:py-0 tablet:text-[12px]"
+                        >60 Piece Box</span
+                      >
+                      <p class="text-[18px] leading-[30px] tablet:text-[14px] tablet:leading-6">Price: $109.99 CAD</p>
+                    </div>
+                    <div class="absolute top-1 right-1">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        color="#f13131"
+                        height="25"
+                        width="25"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style="color: rgb(241, 49, 49);"
+                      >
+                        <path
+                          d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z">
+                        </path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group rounded-[10px] relative py-[40px] hover:cursor-pointer">
+                <div class="">
+                  <div class="right-0 relative text-right -top-[50px] group-hover:bg-white">
+                    <div class="imageSpan">
+                      <span
+                        style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                        ><span
+                          style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 120% 0px 0px;"
+                        ></span
+                        ><img
+                          alt="product"
+                          src="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6989-Edit.png%3Fv%3D1676990437&amp;w=3840&amp;q=75"
+                          decoding="async"
+                          data-nimg="responsive"
+                          class="img-full"
+                          style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+                          sizes="100vw"
+                          srcset="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6989-Edit.png%3Fv%3D1676990437&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6989-Edit.png%3Fv%3D1676990437&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6989-Edit.png%3Fv%3D1676990437&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6989-Edit.png%3Fv%3D1676990437&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6989-Edit.png%3Fv%3D1676990437&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6989-Edit.png%3Fv%3D1676990437&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6989-Edit.png%3Fv%3D1676990437&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6989-Edit.png%3Fv%3D1676990437&amp;w=3840&amp;q=75 3840w"
+                        ><noscript></noscript
+                      ></span>
+                    </div>
+                    <div class="hidden group-hover:block absolute bottom-0 w-full">
+                      <button
+                        class="w-full bg-primary text-white py-3"
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
+                  </div>
+                  <div class=" -mt-5">
+                    <div class="phone:text-center">
+                      <h4 class="text-[22px] leading-[27px] capitalize hover:text-primary tablet:text-[18px]">
+                        6 pieces-Dairy Truffles
+                      </h4>
+                      <span class="text-black py-3 tablet:py-0 tablet:text-[12px]">6 piece box</span>
+                      <p class="text-[18px] leading-[30px] tablet:text-[14px] tablet:leading-6">Price: $22.99 CAD</p>
+                    </div>
+                    <div class="absolute top-1 right-1">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        color="#f13131"
+                        height="25"
+                        width="25"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style="color: rgb(241, 49, 49);"
+                      >
+                        <path
+                          d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z">
+                        </path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group rounded-[10px] relative py-[40px] hover:cursor-pointer">
+                <div class="">
+                  <div class="right-0 relative text-right -top-[50px] group-hover:bg-white">
+                    <div class="imageSpan">
+                      <span
+                        style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                        ><span
+                          style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 120% 0px 0px;"
+                        ></span
+                        ><img
+                          alt="product"
+                          src="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6990-Edit.png%3Fv%3D1676949249&amp;w=3840&amp;q=75"
+                          decoding="async"
+                          data-nimg="responsive"
+                          class="img-full"
+                          style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+                          sizes="100vw"
+                          srcset="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6990-Edit.png%3Fv%3D1676949249&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6990-Edit.png%3Fv%3D1676949249&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6990-Edit.png%3Fv%3D1676949249&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6990-Edit.png%3Fv%3D1676949249&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6990-Edit.png%3Fv%3D1676949249&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6990-Edit.png%3Fv%3D1676949249&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6990-Edit.png%3Fv%3D1676949249&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6990-Edit.png%3Fv%3D1676949249&amp;w=3840&amp;q=75 3840w"
+                        ><noscript></noscript
+                      ></span>
+                    </div>
+                    <div class="hidden group-hover:block absolute bottom-0 w-full">
+                      <button
+                        class="w-full bg-primary text-white py-3"
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
+                  </div>
+                  <div class=" -mt-5">
+                    <div class="phone:text-center">
+                      <h4 class="text-[22px] leading-[27px] capitalize hover:text-primary tablet:text-[18px]">
+                        9 pieces-Dairy Truffles
+                      </h4>
+                      <span class="text-black py-3 tablet:py-0 tablet:text-[12px]">9 piece box</span>
+                      <p class="text-[18px] leading-[30px] tablet:text-[14px] tablet:leading-6">Price: $32.99 CAD</p>
+                    </div>
+                    <div class="absolute top-1 right-1">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        color="#f13131"
+                        height="25"
+                        width="25"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style="color: rgb(241, 49, 49);"
+                      >
+                        <path
+                          d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z">
+                        </path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group rounded-[10px] relative py-[40px] hover:cursor-pointer">
+                <div class="">
+                  <div class="right-0 relative text-right -top-[50px] group-hover:bg-white">
+                    <div class="imageSpan">
+                      <span
+                        style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                        ><span
+                          style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 120% 0px 0px;"
+                        ></span
+                        ><img
+                          alt="product"
+                          src="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6995-Edit.png%3Fv%3D1676990614&amp;w=3840&amp;q=75"
+                          decoding="async"
+                          data-nimg="responsive"
+                          class="img-full"
+                          style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+                          sizes="100vw"
+                          srcset="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6995-Edit.png%3Fv%3D1676990614&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6995-Edit.png%3Fv%3D1676990614&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6995-Edit.png%3Fv%3D1676990614&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6995-Edit.png%3Fv%3D1676990614&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6995-Edit.png%3Fv%3D1676990614&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6995-Edit.png%3Fv%3D1676990614&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6995-Edit.png%3Fv%3D1676990614&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6995-Edit.png%3Fv%3D1676990614&amp;w=3840&amp;q=75 3840w"
+                        ><noscript></noscript
+                      ></span>
+                    </div>
+                    <div class="hidden group-hover:block absolute bottom-0 w-full">
+                      <button
+                        class="w-full bg-primary text-white py-3"
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
+                  </div>
+                  <div class=" -mt-5">
+                    <div class="phone:text-center">
+                      <h4 class="text-[22px] leading-[27px] capitalize hover:text-primary tablet:text-[18px]">
+                        9 pieces-Dark Chocolate Truffles
+                      </h4>
+                      <span
+                        class="text-black py-3 tablet:py-0 tablet:text-[12px]"
+                        >9 piece box</span
+                      >
+                      <p class="text-[18px] leading-[30px] tablet:text-[14px] tablet:leading-6">Price: $19.99 CAD</p>
+                    </div>
+                    <div class="absolute top-1 right-1">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        color="#f13131"
+                        height="25"
+                        width="25"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style="color: rgb(241, 49, 49);"
+                      >
+                        <path
+                          d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z">
+                        </path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group rounded-[10px] relative py-[40px] hover:cursor-pointer">
+                <div class="">
+                  <div class="right-0 relative text-right -top-[50px] group-hover:bg-white">
+                    <div class="imageSpan">
+                      <span
+                        style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                        ><span
+                          style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 120% 0px 0px;"
+                        ></span
+                        ><img
+                          alt="product"
+                          src="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7009-Edit.png%3Fv%3D1676950089&amp;w=3840&amp;q=75"
+                          decoding="async"
+                          data-nimg="responsive"
+                          class="img-full"
+                          style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+                          sizes="100vw"
+                          srcset="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7009-Edit.png%3Fv%3D1676950089&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7009-Edit.png%3Fv%3D1676950089&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7009-Edit.png%3Fv%3D1676950089&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7009-Edit.png%3Fv%3D1676950089&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7009-Edit.png%3Fv%3D1676950089&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7009-Edit.png%3Fv%3D1676950089&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7009-Edit.png%3Fv%3D1676950089&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7009-Edit.png%3Fv%3D1676950089&amp;w=3840&amp;q=75 3840w"
+                        ><noscript></noscript
+                      ></span>
+                    </div>
+                    <div class="hidden group-hover:block absolute bottom-0 w-full">
+                      <button
+                        class="w-full bg-primary text-white py-3"
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
+                  </div>
+                  <div class=" -mt-5">
+                    <div class="phone:text-center">
+                      <h4 class="text-[22px] leading-[27px] capitalize hover:text-primary tablet:text-[18px]">Barks</h4>
+                      <span class="text-black py-3 tablet:py-0 tablet:text-[12px]">Lucite box</span>
+                      <p class="text-[18px] leading-[30px] tablet:text-[14px] tablet:leading-6">Price: $27.99 CAD</p>
+                    </div>
+                    <div class="absolute top-1 right-1">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        color="#f13131"
+                        height="25"
+                        width="25"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style="color: rgb(241, 49, 49);"
+                      >
+                        <path
+                          d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z">
+                        </path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group rounded-[10px] relative py-[40px] hover:cursor-pointer">
+                <div class="">
+                  <div class="right-0 relative text-right -top-[50px] group-hover:bg-white">
+                    <div class="imageSpan">
+                      <span
+                        style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                        ><span
+                          style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 120% 0px 0px;"
+                        ></span
+                        ><img
+                          alt="product"
+                          src="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Classic2Tray.png%3Fv%3D1675736393&amp;w=3840&amp;q=75"
+                          decoding="async"
+                          data-nimg="responsive"
+                          class="img-full"
+                          style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+                          sizes="100vw"
+                          srcset="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Classic2Tray.png%3Fv%3D1675736393&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Classic2Tray.png%3Fv%3D1675736393&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Classic2Tray.png%3Fv%3D1675736393&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Classic2Tray.png%3Fv%3D1675736393&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Classic2Tray.png%3Fv%3D1675736393&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Classic2Tray.png%3Fv%3D1675736393&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Classic2Tray.png%3Fv%3D1675736393&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles-Classic2Tray.png%3Fv%3D1675736393&amp;w=3840&amp;q=75 3840w"
+                        ><noscript></noscript
+                      ></span>
+                    </div>
+                    <div class="hidden group-hover:block absolute bottom-0 w-full">
+                      <button
+                        class="w-full bg-primary text-white py-3"
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
+                  </div>
+                  <div class=" -mt-5">
+                    <div class="phone:text-center">
+                      <h4 class="text-[22px] leading-[27px] capitalize hover:text-primary tablet:text-[18px]">
+                        Double Tray - Choose Your Colors
+                      </h4>
+                      <span class="text-black py-3 tablet:py-0 tablet:text-[12px]">30 Piece Box</span>
+                      <p class="text-[18px] leading-[30px] tablet:text-[14px] tablet:leading-6">Price: $56.99 CAD</p>
+                    </div>
+                    <div class="absolute top-1 right-1">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        color="#f13131"
+                        height="25"
+                        width="25"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style="color: rgb(241, 49, 49);"
+                      >
+                        <path
+                          d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z">
+                        </path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group rounded-[10px] relative py-[40px] hover:cursor-pointer">
+                <div class="">
+                  <div class="right-0 relative text-right -top-[50px] group-hover:bg-white">
+                    <div class="imageSpan">
+                      <span
+                        style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                        ><span
+                          style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 120% 0px 0px;"
+                        ></span
+                        ><img
+                          alt="product"
+                          src="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7025-Edit.png%3Fv%3D1676948208&amp;w=3840&amp;q=75"
+                          decoding="async"
+                          data-nimg="responsive"
+                          class="img-full"
+                          style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+                          sizes="100vw"
+                          srcset="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7025-Edit.png%3Fv%3D1676948208&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7025-Edit.png%3Fv%3D1676948208&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7025-Edit.png%3Fv%3D1676948208&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7025-Edit.png%3Fv%3D1676948208&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7025-Edit.png%3Fv%3D1676948208&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7025-Edit.png%3Fv%3D1676948208&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7025-Edit.png%3Fv%3D1676948208&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7025-Edit.png%3Fv%3D1676948208&amp;w=3840&amp;q=75 3840w"
+                        ><noscript></noscript
+                      ></span>
+                    </div>
+                    <div class="hidden group-hover:block absolute bottom-0 w-full">
+                      <button
+                        class="w-full bg-primary text-white py-3"
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
+                  </div>
+                  <div class=" -mt-5">
+                    <div class="phone:text-center">
+                      <h4 class="text-[22px] leading-[27px] capitalize hover:text-primary tablet:text-[18px]">
+                        Edible Roses
+                      </h4>
+                      <span class="text-black py-3 tablet:py-0 tablet:text-[12px]">Roses</span>
+                      <p class="text-[18px] leading-[30px] tablet:text-[14px] tablet:leading-6">Price: $24.99 CAD</p>
+                    </div>
+                    <div class="absolute top-1 right-1">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        color="#f13131"
+                        height="25"
+                        width="25"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style="color: rgb(241, 49, 49);"
+                      >
+                        <path
+                          d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z">
+                        </path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group rounded-[10px] relative py-[40px] hover:cursor-pointer">
+                <div class="">
+                  <div class="right-0 relative text-right -top-[50px] group-hover:bg-white">
+                    <div class="imageSpan">
+                      <span
+                        style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                        ><span
+                          style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 120% 0px 0px;"
+                        ></span
+                        ><img
+                          alt="product"
+                          sizes="100vw"
+                          srcset="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6400-Edit_websize.jpg%3Fv%3D1675720368&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6400-Edit_websize.jpg%3Fv%3D1675720368&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6400-Edit_websize.jpg%3Fv%3D1675720368&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6400-Edit_websize.jpg%3Fv%3D1675720368&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6400-Edit_websize.jpg%3Fv%3D1675720368&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6400-Edit_websize.jpg%3Fv%3D1675720368&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6400-Edit_websize.jpg%3Fv%3D1675720368&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6400-Edit_websize.jpg%3Fv%3D1675720368&amp;w=3840&amp;q=75 3840w"
+                          src="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6400-Edit_websize.jpg%3Fv%3D1675720368&amp;w=3840&amp;q=75"
+                          decoding="async"
+                          data-nimg="responsive"
+                          class="img-full"
+                          style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+                      ></span>
+                    </div>
+                    <div class="hidden group-hover:block absolute bottom-0 w-full">
+                      <button
+                        class="w-full bg-primary text-white py-3"
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
+                  </div>
+                  <div class=" -mt-5">
+                    <div class="phone:text-center">
+                      <h4 class="text-[22px] leading-[27px] capitalize hover:text-primary tablet:text-[18px]">
+                        Gorgeous Greens
+                      </h4>
+                      <span class="text-black py-3 tablet:py-0 tablet:text-[12px]">1-Tier Platter</span>
+                      <p class="text-[18px] leading-[30px] tablet:text-[14px] tablet:leading-6">Price: $209.99 CAD</p>
+                    </div>
+                    <div class="absolute top-1 right-1">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        color="#f13131"
+                        height="25"
+                        width="25"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style="color: rgb(241, 49, 49);"
+                      >
+                        <path
+                          d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z">
+                        </path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group rounded-[10px] relative py-[40px] hover:cursor-pointer">
+                <div class="">
+                  <div class="right-0 relative text-right -top-[50px] group-hover:bg-white">
+                    <div class="imageSpan">
+                      <span
+                        style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                        ><span
+                          style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 120% 0px 0px;"
+                        ></span
+                        ><img
+                          alt="product"
+                          src="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7032-Edit.png%3Fv%3D1677090451&amp;w=3840&amp;q=75"
+                          decoding="async"
+                          data-nimg="responsive"
+                          class="img-full"
+                          style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+                          sizes="100vw"
+                          srcset="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7032-Edit.png%3Fv%3D1677090451&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7032-Edit.png%3Fv%3D1677090451&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7032-Edit.png%3Fv%3D1677090451&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7032-Edit.png%3Fv%3D1677090451&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7032-Edit.png%3Fv%3D1677090451&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7032-Edit.png%3Fv%3D1677090451&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7032-Edit.png%3Fv%3D1677090451&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7032-Edit.png%3Fv%3D1677090451&amp;w=3840&amp;q=75 3840w"
+                        ><noscript></noscript
+                      ></span>
+                    </div>
+                    <div class="hidden group-hover:block absolute bottom-0 w-full">
+                      <button
+                        class="w-full bg-primary text-white py-3"
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
+                  </div>
+                  <div class=" -mt-5">
+                    <div class="phone:text-center">
+                      <h4 class="text-[22px] leading-[27px] capitalize hover:text-primary tablet:text-[18px]">
+                        Heart Chocolate - Large
+                      </h4>
+                      <span class="text-black py-3 tablet:py-0 tablet:text-[12px]">Hearts</span>
+                      <p class="text-[18px] leading-[30px] tablet:text-[14px] tablet:leading-6">Price: $10.99 CAD</p>
+                    </div>
+                    <div class="absolute top-1 right-1">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        color="#f13131"
+                        height="25"
+                        width="25"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style="color: rgb(241, 49, 49);"
+                      >
+                        <path
+                          d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z">
+                        </path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group rounded-[10px] relative py-[40px] hover:cursor-pointer">
+                <div class="">
+                  <div class="right-0 relative text-right -top-[50px] group-hover:bg-white">
+                    <div class="imageSpan">
+                      <span
+                        style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                        ><span
+                          style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 120% 0px 0px;"
+                        ></span
+                        ><img
+                          alt="product"
+                          src="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles20Piece.jpg%3Fv%3D1675790174&amp;w=3840&amp;q=75"
+                          decoding="async"
+                          data-nimg="responsive"
+                          class="img-full"
+                          style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+                          sizes="100vw"
+                          srcset="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles20Piece.jpg%3Fv%3D1675790174&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles20Piece.jpg%3Fv%3D1675790174&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles20Piece.jpg%3Fv%3D1675790174&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles20Piece.jpg%3Fv%3D1675790174&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles20Piece.jpg%3Fv%3D1675790174&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles20Piece.jpg%3Fv%3D1675790174&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles20Piece.jpg%3Fv%3D1675790174&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FChocolateTruffles20Piece.jpg%3Fv%3D1675790174&amp;w=3840&amp;q=75 3840w"
+                        ><noscript></noscript
+                      ></span>
+                    </div>
+                    <div class="hidden group-hover:block absolute bottom-0 w-full">
+                      <button
+                        class="w-full bg-primary text-white py-3"
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
+                  </div>
+                  <div class=" -mt-5">
+                    <div class="phone:text-center">
+                      <h4 class="text-[22px] leading-[27px] capitalize hover:text-primary tablet:text-[18px]">
+                        Long Tray - Mixed Flavors
+                      </h4>
+                      <span class="text-black py-3 tablet:py-0 tablet:text-[12px]">20 Piece Box</span>
+                      <p class="text-[18px] leading-[30px] tablet:text-[14px] tablet:leading-6">Price: $39.99 CAD</p>
+                    </div>
+                    <div class="absolute top-1 right-1">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        color="#f13131"
+                        height="25"
+                        width="25"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style="color: rgb(241, 49, 49);"
+                      >
+                        <path
+                          d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z">
+                        </path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group rounded-[10px] relative py-[40px] hover:cursor-pointer">
+                <div class="">
+                  <div class="right-0 relative text-right -top-[50px] group-hover:bg-white">
+                    <div class="imageSpan">
+                      <span
+                        style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                        ><span
+                          style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 120% 0px 0px;"
+                        ></span
+                        ><img
+                          alt="product"
+                          sizes="100vw"
+                          srcset="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6233-Edit.jpg%3Fv%3D1675355749&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6233-Edit.jpg%3Fv%3D1675355749&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6233-Edit.jpg%3Fv%3D1675355749&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6233-Edit.jpg%3Fv%3D1675355749&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6233-Edit.jpg%3Fv%3D1675355749&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6233-Edit.jpg%3Fv%3D1675355749&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6233-Edit.jpg%3Fv%3D1675355749&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6233-Edit.jpg%3Fv%3D1675355749&amp;w=3840&amp;q=75 3840w"
+                          src="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6233-Edit.jpg%3Fv%3D1675355749&amp;w=3840&amp;q=75"
+                          decoding="async"
+                          data-nimg="responsive"
+                          class="img-full"
+                          style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+                      ></span>
+                    </div>
+                    <div class="hidden group-hover:block absolute bottom-0 w-full">
+                      <button
+                        class="w-full bg-primary text-white py-3"
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
+                  </div>
+                  <div class=" -mt-5">
+                    <div class="phone:text-center">
+                      <h4 class="text-[22px] leading-[27px] capitalize hover:text-primary tablet:text-[18px]">
+                        Lucite Tray
+                      </h4>
+                      <span class="text-black py-3 tablet:py-0 tablet:text-[12px]">1-Tier Platter</span>
+                      <p class="text-[18px] leading-[30px] tablet:text-[14px] tablet:leading-6">Price: $199.99 CAD</p>
+                    </div>
+                    <div class="absolute top-1 right-1">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        color="#f13131"
+                        height="25"
+                        width="25"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style="color: rgb(241, 49, 49);"
+                      >
+                        <path
+                          d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z">
+                        </path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group rounded-[10px] relative py-[40px] hover:cursor-pointer">
+                <div class="">
+                  <div class="right-0 relative text-right -top-[50px] group-hover:bg-white">
+                    <div class="imageSpan">
+                      <span
+                        style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                        ><span
+                          style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 120% 0px 0px;"
+                        ></span
+                        ><img
+                          alt="product"
+                          src="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7018-Edit.png%3Fv%3D1676991486&amp;w=3840&amp;q=75"
+                          decoding="async"
+                          data-nimg="responsive"
+                          class="img-full"
+                          style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+                          sizes="100vw"
+                          srcset="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7018-Edit.png%3Fv%3D1676991486&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7018-Edit.png%3Fv%3D1676991486&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7018-Edit.png%3Fv%3D1676991486&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7018-Edit.png%3Fv%3D1676991486&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7018-Edit.png%3Fv%3D1676991486&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7018-Edit.png%3Fv%3D1676991486&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7018-Edit.png%3Fv%3D1676991486&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_7018-Edit.png%3Fv%3D1676991486&amp;w=3840&amp;q=75 3840w"
+                        ><noscript></noscript
+                      ></span>
+                    </div>
+                    <div class="hidden group-hover:block absolute bottom-0 w-full">
+                      <button
+                        class="w-full bg-primary text-white py-3"
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
+                  </div>
+                  <div class=" -mt-5">
+                    <div class="phone:text-center">
+                      <h4 class="text-[22px] leading-[27px] capitalize hover:text-primary tablet:text-[18px]">
+                        Mini Logs
+                      </h4>
+                      <span class="text-black py-3 tablet:py-0 tablet:text-[12px]">Aura Delices</span>
+                      <p class="text-[18px] leading-[30px] tablet:text-[14px] tablet:leading-6">Price: $31.99 CAD</p>
+                    </div>
+                    <div class="absolute top-1 right-1">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        color="#f13131"
+                        height="25"
+                        width="25"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style="color: rgb(241, 49, 49);"
+                      >
+                        <path
+                          d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z">
+                        </path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group rounded-[10px] relative py-[40px] hover:cursor-pointer">
+                <div class="">
+                  <div class="right-0 relative text-right -top-[50px] group-hover:bg-white">
+                    <div class="imageSpan">
+                      <span
+                        style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                        ><span
+                          style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 120% 0px 0px;"
+                        ></span
+                        ><img
+                          alt="product"
+                          src="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FBoxedChocolateTruffles-Red1Tray.png%3Fv%3D1675723825&amp;w=3840&amp;q=75"
+                          decoding="async"
+                          data-nimg="responsive"
+                          class="img-full"
+                          style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+                          sizes="100vw"
+                          srcset="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FBoxedChocolateTruffles-Red1Tray.png%3Fv%3D1675723825&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FBoxedChocolateTruffles-Red1Tray.png%3Fv%3D1675723825&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FBoxedChocolateTruffles-Red1Tray.png%3Fv%3D1675723825&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FBoxedChocolateTruffles-Red1Tray.png%3Fv%3D1675723825&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FBoxedChocolateTruffles-Red1Tray.png%3Fv%3D1675723825&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FBoxedChocolateTruffles-Red1Tray.png%3Fv%3D1675723825&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FBoxedChocolateTruffles-Red1Tray.png%3Fv%3D1675723825&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FBoxedChocolateTruffles-Red1Tray.png%3Fv%3D1675723825&amp;w=3840&amp;q=75 3840w"
+                        ><noscript></noscript
+                      ></span>
+                    </div>
+                    <div class="hidden group-hover:block absolute bottom-0 w-full">
+                      <button
+                        class="w-full bg-primary text-white py-3"
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
+                  </div>
+                  <div class=" -mt-5">
+                    <div class="phone:text-center">
+                      <h4 class="text-[22px] leading-[27px] capitalize hover:text-primary tablet:text-[18px]">
+                        Single Tray - Choose Your Colors
+                      </h4>
+                      <span class="text-black py-3 tablet:py-0 tablet:text-[12px]">15 Piece Box</span>
+                      <p class="text-[18px] leading-[30px] tablet:text-[14px] tablet:leading-6">Price: $28.99 CAD</p>
+                    </div>
+                    <div class="absolute top-1 right-1">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        color="#f13131"
+                        height="25"
+                        width="25"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style="color: rgb(241, 49, 49);"
+                      >
+                        <path
+                          d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z">
+                        </path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="group rounded-[10px] relative py-[40px] hover:cursor-pointer">
+                <div class="">
+                  <div class="right-0 relative text-right -top-[50px] group-hover:bg-white">
+                    <div class="imageSpan">
+                      <span
+                        style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                        ><span
+                          style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 120% 0px 0px;"
+                        ></span
+                        ><img
+                          alt="product"
+                          src="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6294-Edit_websize.jpg%3Fv%3D1675387618&amp;w=3840&amp;q=75"
+                          decoding="async"
+                          data-nimg="responsive"
+                          class="img-full"
+                          style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+                          sizes="100vw"
+                          srcset="/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6294-Edit_websize.jpg%3Fv%3D1675387618&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6294-Edit_websize.jpg%3Fv%3D1675387618&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6294-Edit_websize.jpg%3Fv%3D1675387618&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6294-Edit_websize.jpg%3Fv%3D1675387618&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6294-Edit_websize.jpg%3Fv%3D1675387618&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6294-Edit_websize.jpg%3Fv%3D1675387618&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6294-Edit_websize.jpg%3Fv%3D1675387618&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0696%2F0110%2F0049%2Fproducts%2FARD_6294-Edit_websize.jpg%3Fv%3D1675387618&amp;w=3840&amp;q=75 3840w"
+                        ><noscript></noscript
+                      ></span>
+                    </div>
+                    <div class="hidden group-hover:block absolute bottom-0 w-full">
+                      <button
+                        class="w-full bg-primary text-white py-3"
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
+                  </div>
+                  <div class=" -mt-5">
+                    <div class="phone:text-center">
+                      <h4 class="text-[22px] leading-[27px] capitalize hover:text-primary tablet:text-[18px]">
+                        Wine Bottle Tray
+                      </h4>
+                      <span class="text-black py-3 tablet:py-0 tablet:text-[12px]">1-Tier Platter</span>
+                      <p class="text-[18px] leading-[30px] tablet:text-[14px] tablet:leading-6">Price: $19.99 CAD</p>
+                    </div>
+                    <div class="absolute top-1 right-1">
+                      <svg
+                        stroke="currentColor"
+                        fill="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 1024 1024"
+                        color="#f13131"
+                        height="25"
+                        width="25"
+                        xmlns="http://www.w3.org/2000/svg"
+                        style="color: rgb(241, 49, 49);"
+                      >
+                        <path
+                          d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z">
+                        </path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collection Section",
+  "settings": [
+    {
+      "type": "url",
+      "id": "prd_tab_link",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "prd_button_text",
+      "label": "Button Text",
+      "default": "I want to make their day"
+    },
+    {
+      "type": "link_list",
+      "id": "tab_menu",
+      "label": "Tab Menu"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Collection Tab",
+      "type": "product",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Seasonal"
+        },
+        {
+          "type": "collection",
+          "id": "tab_collection",
+          "label": "Tab Collection"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Collection Section",
+      "blocks": [
+        {
+          "type": "product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,218 @@
+{% comment %} Product Tab Section {% endcomment %}
+
+<script>
+  window.product = {{ product | json }} || {}
+</script>
+<script type="application/json">
+  {{ product.variants | json }}
+</script>
+
+<div class="pt-[100px] tablet:py-[60px] tablet:px-3 bg-[#FAFAFA] laptop:px-4 py-[60px]">
+  <div class="container m-auto text-center">
+    <div class="" data-rttabs="true">
+      <ul
+        class="bestSellerTab flex justify-center text-center items-center phone:flex-row tablet:sticky tablet:top-0 tablet:z-30"
+        id="myTab"
+        data-tabs-toggle="#myTabContent"
+        role="tablist"
+      >
+        {% for block in section.blocks %}
+          <li
+            role="presentation"
+            class="react-tabs__tab tablink"
+            onclick="openPage('tabs{{ forloop.index }}', this, 'react-tabs__tab--selected')"
+            {% if forloop.index == 1 %}
+              id="defaultOpen"
+            {% endif %}
+          >
+            {{ block.settings.tab_title }}
+          </li>
+        {% endfor %}
+        {% comment %}
+          <li class="react-tabs__tab" role="presentation">
+            <button
+              id="contacts-tab"
+              data-tabs-target="#contacts"
+              type="button"
+              role="tab"
+              aria-controls="contacts"
+              aria-selected="false"
+            >
+              Best Sellers
+            </button>
+          </li>
+          <li class="react-tabs__tab" role="presentation">
+            <button
+              id="settings-tab"
+              data-tabs-target="#settings"
+              type="button"
+              role="tab"
+              aria-controls="settings"
+              aria-selected="false"
+            >
+              New Arrivals
+            </button>
+          </li>
+        {% endcomment %}
+      </ul>
+
+      <div
+        class="react-tabs__tab-panel react-tabs__tab-panel--selected mt-[20px]"
+        role="tabpanel"
+        id="panel:r0:0"
+        aria-labelledby="tab:r0:0"
+      >
+        <div>
+          <div class="" id="myTabContent">
+            {% for block in section.blocks %}
+              <div
+                id="tabs{{ forloop.index }}"
+                class="tabcontent"
+              >
+                <p class="section-content mt-[20px] max-w-[880px] m-auto tablet:max-w-full">
+                  {{ block.settings.tab_description }}
+                </p>
+                <form class="form" action="/cart/add" method="post" enctype="multipart/form-data" id="addToCart">
+                  <div class="grid grid-cols-4 gap-12 tablet:grid-cols-2 phone:grid-cols-2 laptop:grid-cols-3 tablet:gap-3 mt-[50px]">
+                    {% for product in collections[block.settings.tab_collection].products %}
+                      <input
+                        type="hidden"
+                        class="variant-idss"
+                        id="variant-id"
+                        name="id"
+                        value="{{ product.variants.first.id }}"
+                      >
+                      <div class="group rounded-[10px] relative py-[0px] hover:cursor-pointer tablet:py-0">
+                        <div class="">
+                          <div class="right-0 relative text-right -top-[0px] tablet:-top-3">
+                            <a href="{{ product.url }}">
+                              <span
+                                style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                                ><span
+                                  style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 120% 0px 0px;"
+                                ></span
+                                ><img
+                                  alt="product"
+                                  src="{{ product.featured_image | product_img_url: 'medium' }}"
+                                  class="img-full tablet:h-[195px]"
+                                  style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"
+                                >
+                              </span>
+                            </a>
+
+                            <div class="hidden group-hover:block absolute bottom-[35px] w-full tablet:bottom-[20px]">
+                              <button
+                                class="w-full bg-primary text-white py-3"
+                              >
+                                Add To Cart
+                              </button>
+                            </div>
+                          </div>
+                          <div class="flex justify-between items-center -mt-5">
+                            <div>
+                              <h4
+                                class="text-[22px] leading-[27px] capitalize mr-[20px] text-left tablet:text-[18px] tablet:mr-0"
+                              >
+                                <a href="{{ product.url }}">
+                                  {{ product.title }}
+                                </a>
+                              </h4>
+                              <p class="text-black py-3 text-left tablet:py-0 tablet:text-[12px]">
+                                {{ product.vendor }}
+                              </p>
+                              <p class="text-[18px] leading-[30px] text-left tablet:text-[14px] tablet:leading-6">
+                                Price: {{ product.price | money }}
+                              </p>
+                            </div>
+                            <div class="absolute top-10 right-1 tablet:top-3">
+                              <svg
+                                stroke="currentColor"
+                                fill="currentColor"
+                                stroke-width="0"
+                                viewBox="0 0 1024 1024"
+                                color="#f13131"
+                                height="25"
+                                width="25"
+                                xmlns="http://www.w3.org/2000/svg"
+                                style="color: rgb(241, 49, 49);"
+                              >
+                                <path
+                                  d="M923 283.6a260.04 260.04 0 0 0-56.9-82.8 264.4 264.4 0 0 0-84-55.5A265.34 265.34 0 0 0 679.7 125c-49.3 0-97.4 13.5-139.2 39-10 6.1-19.5 12.8-28.5 20.1-9-7.3-18.5-14-28.5-20.1-41.8-25.5-89.9-39-139.2-39-35.5 0-69.9 6.8-102.4 20.3-31.4 13-59.7 31.7-84 55.5a258.44 258.44 0 0 0-56.9 82.8c-13.9 32.3-21 66.6-21 101.9 0 33.3 6.8 68 20.3 103.3 11.3 29.5 27.5 60.1 48.2 91 32.8 48.9 77.9 99.9 133.9 151.6 92.8 85.7 184.7 144.9 188.6 147.3l23.7 15.2c10.5 6.7 24 6.7 34.5 0l23.7-15.2c3.9-2.5 95.7-61.6 188.6-147.3 56-51.7 101.1-102.7 133.9-151.6 20.7-30.9 37-61.5 48.2-91 13.5-35.3 20.3-70 20.3-103.3.1-35.3-7-69.6-20.9-101.9zM512 814.8S156 586.7 156 385.5C156 283.6 240.3 201 344.3 201c73.1 0 136.5 40.8 167.7 100.4C543.2 241.8 606.6 201 679.7 201c104 0 188.3 82.6 188.3 184.5 0 201.2-356 429.3-356 429.3z">
+                                </path>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    {% endfor %}
+                  </div>
+                </form>
+
+                <div class="mt-[70px] text-center">
+                  <a href="{{ section.settings.prd_tab_link }}" class="button">
+                    {{- section.settings.prd_button_text -}}
+                  </a>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Tab Section",
+  "settings": [
+    {
+      "type": "url",
+      "id": "prd_tab_link",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "prd_button_text",
+      "label": "Button Text",
+      "default": "I want to make their day"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Collection Tab",
+      "type": "product",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Seasonal"
+        },
+        {
+          "type": "text",
+          "id": "tab_description",
+          "label": "Tag Description",
+          "default": "Check out our seasonal selection below.. these are the hot items that occasionally show up!"
+        },
+        {
+          "type": "collection",
+          "id": "tab_collection",
+          "label": "Tab Collection"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Product Tab Section",
+      "blocks": [
+        {
+          "type": "product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

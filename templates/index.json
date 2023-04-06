@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "image_banner": {
+      "type": "home-heroslider",
+      "settings": {
+      }
+    },
+    "5439497d-a770-4e7e-9224-1c5f2b02ef45": {
+      "type": "cat-slider",
+      "settings": {
+        "category_limit": "10"
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "5439497d-a770-4e7e-9224-1c5f2b02ef45"
+  ]
+}

@@ -1,0 +1,98 @@
+<div class="relative pt-[200px] min-h-screen pb-32 flex justify-center items-center text-center phone:pb-0 phone:min-h-[600px] phone:h-[600px]">
+  <div class=" container m-auto">
+    <div class="swiper swiper-initialized swiper-horizontal swiper-pointer-events heroSlider swiper-backface-hidden">
+      <div class="max-w-[65%] m-auto tablet:max-w-full tablet:px-3">
+        <mark class="font-sans font-bold text-[62px] bg-white text-secondary leading-[1.4] phone:text-[29px]">
+          {{- section.settings.first_title -}}
+        </mark>
+        <br>
+        <mark class="font-sans font-bold text-[62px] bg-secondary text-white leading-[1.4] phone:text-[29px]">
+          {{- section.settings.second_title -}}
+        </mark>
+        <div>
+          <a href="{{ section.settings.button_link }}" class="button mt-9 inline-block uppercase">
+            {{- section.settings.button_text -}}
+          </a>
+        </div>
+        <div class="mt-10">
+          <a href="{{ section.settings.hero_collection }}">
+            <mark class="font-sans font-bold text-[38px] bg-secondary text-white leading-[1.4] phone:text-[29px] hover:text-primary cursor-pointer">
+              {{- section.settings.conllection_text -}}
+            </mark>
+          </a>
+        </div>
+      </div>
+
+      <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;"
+        ><img
+          alt="Bg Image"
+          src="{{ section.settings.hero_image | img_url: 'original' }}"
+          decoding="async"
+          data-nimg="fill"
+          class="absolute top-0 left-0 h-full w-full object-cover -z-50 phone:object-right"
+          style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+          sizes="100vw"
+          srcset="{{ section.settings.hero_image | img_url: 'original' }}"
+
+        ><noscript></noscript>
+      </span>
+      <span
+        class="swiper-notification"
+        aria-live="assertive"
+        aria-atomic="true"
+      ></span>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "first_title",
+      "label": "First White Title",
+      "default": "BIENVENUE, WELCOME!"
+    },
+    {
+      "type": "text",
+      "id": "second_title",
+      "label": "Second Grat Title",
+      "default": "BIENVENUE, WELCOME! KOSHER, ARTISANAL BELGIAN CHOCOLATES CREATED IN MONTRÉAL"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "conllection_text",
+      "label": "Collection Text",
+      "default": "SEE OUR PURIM COLLECTION"
+    },
+    {
+      "type": "collection",
+      "id": "hero_collection",
+      "label": "Hero Collection Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Background Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Section"
+    }
+  ]
+}
+{% endschema %}

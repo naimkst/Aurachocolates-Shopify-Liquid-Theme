@@ -1,0 +1,88 @@
+{% comment %} Instagram section {% endcomment %}
+
+<div class="pt-[60px] tablet:px-3">
+  <div class="m-auto text-center">
+    <div class="max-w-[880px] m-auto">
+      <span
+        class="content underline underline-offset-[8px] decoration-primary"
+      >
+        {{- section.settings.instagram_slug -}}
+      </span>
+      <h2 class="section-title my-2">{{ section.settings.instagram_title }}</h2>
+      <p class="section-content">
+        {{ section.settings.instagram_description }}
+      </p>
+    </div>
+    <div class="flex mt-[50px]">
+      {% for block in section.blocks %}
+        <div class="imageFull cursor-pointer">
+          <a href="{{ section.settings.instagram_link }}">
+            <span
+              style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;"
+              ><img
+                alt="instagram"
+                src="{{ block.settings.instagram_image | img_url: 'original' }}"
+                style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+              >
+            </span>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Instagram Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "instagram_slug",
+      "label": "Slug",
+      "default": "Instagram"
+    },
+    {
+      "type": "text",
+      "id": "instagram_title",
+      "label": "Title",
+      "default": "Follow us on Instagram"
+    },
+    {
+      "type": "text",
+      "id": "instagram_description",
+      "label": "Description",
+      "default": "Check us out on instagram, we love to see our follower base grow! We constantly work on showing you our latest chocolate trends.. come check us out!"
+    },
+    {
+      "type": "url",
+      "id": "instagram_link",
+      "label": "Instagram Link"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Promise Item",
+      "type": "slider",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "instagram_image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Instagram Section",
+      "blocks": [
+        {
+          "type": "slider"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
