@@ -48,8 +48,8 @@
                     <label for="huey2">Min: $0</label
                     ><label for="huey2"
                       >Max:
+                      {{- cart.currency.symbol -}}
                       <span id="maxValue">
-                        {{- cart.currency.symbol -}}
                         {{- filter.range_max | money_without_currency | replace: ',', '' -}}
                       </span></label
                     >
