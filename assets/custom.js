@@ -61,6 +61,7 @@
   console.log(max);
 
   $("#priceSlider").on("input change", function (e) {
+    const max = $("#maxValue").data(e);
     console.log("priceSlider", e.target.value);
   });
 })(window.jQuery);

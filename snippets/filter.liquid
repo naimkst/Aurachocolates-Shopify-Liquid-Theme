@@ -46,7 +46,7 @@
                 <div class="productFilterRadio pb-[25px] text-[16px] font-light">
                   <div class=" flex justify-between items-center">
                     <label for="huey2">Min($0)</label
-                    ><label for="huey2"
+                    ><label id="maxValue" for="huey2"
                       >Max ({{ cart.currency.symbol -}}
                       {{- filter.range_max | money_without_currency | replace: ',', '' }})</label
                     >
@@ -60,7 +60,6 @@
                     min="0"
                     step="1"
                     value="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
-                    onchange="this.form.submit()"
                   >
 
                   <button type="submit">Apply</button>
