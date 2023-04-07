@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="mt-5 flex items-center justify-center gap-10 phone:gap-2 phone:px-4">
+    {% for link in menu.links %}
+      <div
+        role="presentation"
+        class=" tablink  bg-primary py-4 inline-block w-[200px] rounded-md cursor-pointer phone:w-auto phone:px-4 phone:py-3"
+        onclick="openPages('prdtabs{{ forloop.index }}', this, 'red')"
+        {% if forloop.index == 1 %}
+          id="defaultOpen"
+        {% endif %}
+      >
+        <p class="text-white text-[18px] phone:text-[14px]">{{ link.title }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+<div class="pt-5 phone:px-4 container overflow-auto m-auto overFlowNone">
+  {% for link in menu.links %}
+    {% if link.links.size > 0 %}
+      <div
+        id="prdtabs{{ forloop.index }}"
+        class="tabcontents"
+      >
+        <div class="flex gap-[50px] items-start justify-center phone:justify-start tablet:gap-2">
+          {% for child_link in link.links %}
+            {% assign collection = child_link.object %}
+            <div class="cursor-pointer flex flex-col items-center">
+              <div class="border-2 border-secondary rounded-full overflow-hidden w-[90px] h-[90px]">
+                <a href="{{ collection.url }}?view=all">
+                  <span
+                    style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 90px; height: 90px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                    ><img
+                      src="{{ collection.image.src | img_url: 'original' }}"
+                      loading="lazy"
+                      alt="{{ collection.title }}"
+                      style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                    >
+                  </span>
+                </a>
+              </div>
+              <h3 class="text-center mt-2">
+                <a href="{{ collection.url }}?view=all">{{ child_link.title }}</a>
+              </h3>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
