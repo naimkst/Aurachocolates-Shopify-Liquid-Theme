@@ -51,14 +51,16 @@
                       {{- filter.range_max | money_without_currency | replace: ',', '' }})</label
                     >
                   </div>
+                  <input class="hidden" type="text" name="{{ filter.min_value.param_name }}" value="0">
                   <input
                     class="w-full"
                     type="range"
                     id="priceSlider"
-                    name="drone"
+                    name="{{ filter.max_value.param_name }}"
                     min="0"
                     step="1"
-                    value="99.99"
+                    value="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                    onchange="this.form.submit()"
                   >
                 </div>
               </div>
