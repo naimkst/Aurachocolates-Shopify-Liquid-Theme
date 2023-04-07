@@ -59,10 +59,11 @@
                     name="{{ filter.max_value.param_name }}"
                     min="0"
                     step="1"
+                    max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
                     value="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
                   >
 
-                  <button type="submit">Apply</button>
+                  <button type="submit" class="">Apply</button>
                 </div>
               </div>
           {%- endcase -%}
