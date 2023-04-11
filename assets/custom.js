@@ -76,7 +76,7 @@
       asNavFor: ".slider-nav",
     });
     $(".slider-nav").slick({
-      slidesToShow: 4,
+      slidesToShow: 5,
       slidesToScroll: 1,
       asNavFor: ".slider-for",
       focusOnSelect: true,
@@ -98,4 +98,19 @@
       ],
     });
   }
+
+  const zoom = mediumZoom("img[data-zoomable]", {
+    // Options
+  });
+
+  const zoomableImage = document.getElementById("zoomable-image");
+  zoomableImage.addEventListener("click", function () {
+    console.log
+    zoom.open();
+  });
+
+  $("#clickhere").click(function () {
+    alert("The paragraph was clicked.");
+    zoom.open();
+  });
 })(window.jQuery);
