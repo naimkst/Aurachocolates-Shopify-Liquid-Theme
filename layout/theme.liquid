@@ -7,15 +7,18 @@
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    <link href="{{ 'slick.css' | asset_url }}" rel="stylesheet">
+    <link href="{{ 'slick-theme.css' | asset_url }}" rel="stylesheet">
     <link href="{{ 'app.css' | asset_url }}" rel="stylesheet">
     <link href="{{ 'style.css' | asset_url }}" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
-    <script src="{{'custom.js' | asset_url }}" defer="defer"></script>
+    {% comment %}
+      <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    {% endcomment %}
 
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
@@ -43,5 +46,9 @@
     {% section 'header' %}
     {{ content_for_layout }}
     {% section 'footer' %}
+
+    <script src="{{ 'jquery.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'plugins.js' | asset_url }}" defer="defer"></script>
+    <script src="{{'custom.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>

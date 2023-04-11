@@ -106,48 +106,50 @@
     </div>
   </div>
 
-  <div class="pagination-wrapper">
-    <ul class="pg-pagination">
-      {% if paginate.previous.is_link %}
-        <li>
-          <a href="{{ paginate.previous.url }}" aria-label="Previous">
-            <i class="fi flaticon-back"></i>
-          </a>
-        </li>
-      {% else %}
-        <a href="{{ paginate.previous.url }}" class="pagintion-btn back-btn disabled"><i class=""></i></a>
-      {% endif %}
+  {% comment %}
+    <div class="pagination-wrapper">
+      <ul class="pg-pagination">
+        {% if paginate.previous.is_link %}
+          <li>
+            <a href="{{ paginate.previous.url }}" aria-label="Previous">
+              <i class="fi flaticon-back"></i>
+            </a>
+          </li>
+        {% else %}
+          <a href="{{ paginate.previous.url }}" class="pagintion-btn back-btn disabled"><i class=""></i></a>
+        {% endif %}
 
-      <ul class="pagination-items">
-        {% for part in paginate.parts %}
-          {% if part.is_link %}
-            <li class="">
-              <a href="{{ part.url }}">{{ part.title | escape }}</a>
-            </li>
-          {% else %}
-            {% if part.title == paginate.current_page %}
-              <li class="active">
-                <a href="{{ part.url }}">{{ part.title | escape }}</a>
-              </li>
-            {% else %}
+        <ul class="pagination-items">
+          {% for part in paginate.parts %}
+            {% if part.is_link %}
               <li class="">
                 <a href="{{ part.url }}">{{ part.title | escape }}</a>
               </li>
+            {% else %}
+              {% if part.title == paginate.current_page %}
+                <li class="active">
+                  <a href="{{ part.url }}">{{ part.title | escape }}</a>
+                </li>
+              {% else %}
+                <li class="">
+                  <a href="{{ part.url }}">{{ part.title | escape }}</a>
+                </li>
+              {% endif %}
             {% endif %}
-          {% endif %}
-        {% endfor %}
+          {% endfor %}
+        </ul>
+        {% if paginate.next.is_link %}
+          <li>
+            <a href="{{ paginate.next.url }}" aria-label="Next">
+              <i class="fi flaticon-next"></i>
+            </a>
+          </li>
+        {% else %}
+          <a href="" class="pagintion-btn next-btn disabled"> <i class=""></i></a>
+        {% endif %}
       </ul>
-      {% if paginate.next.is_link %}
-        <li>
-          <a href="{{ paginate.next.url }}" aria-label="Next">
-            <i class="fi flaticon-next"></i>
-          </a>
-        </li>
-      {% else %}
-        <a href="" class="pagintion-btn next-btn disabled"> <i class=""></i></a>
-      {% endif %}
-    </ul>
-  </div>
+    </div>
+  {% endcomment %}
 {%- endpaginate -%}
 
 {% schema %}

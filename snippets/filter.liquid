@@ -37,7 +37,7 @@
 
       <form class="">
         {%- for filter in collection.filters -%}
-          <h3>{{ filter.label }}</h3>
+          {% comment %} <h3>{{ filter.label }}</h3> {% endcomment %}
           {%- case filter.type -%}
             {%- when 'price_range' -%}
               <h3>Filter By Price</h3>

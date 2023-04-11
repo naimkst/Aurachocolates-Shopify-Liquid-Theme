@@ -1,0 +1,55 @@
+<div
+  class="pt-[90px] pb-[60px] flex items-center justify-center text-center bg-no-repeat bg-cover"
+  style="background: url({{ section.settings.hero_image | img_url: 'original' }});"
+>
+  <div class="container m-auto">
+    <div class="w-[900px] m-auto pt-[100px] tablet:w-full tablet:px-3">
+      <h2 class="title-lx">{{ section.settings.hero_title }}</h2>
+    </div>
+
+    <div class="">
+      <h2 class="text-center text-[18px] font-title font-normal leading-[40px] phone:text-[29px]">
+        <a href="/">Home &gt; </a
+        ><a href="{{ section.settings.page_link }}">
+          {%- if section.settings.hero_title %}{{ section.settings.hero_title }} {% endif -%}
+          {% if section.settings.hero_subtitle_title %} &gt; {% endif %} </a
+        ><a>{{ section.settings.hero_subtitle_title }} </a>
+      </h2>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero Title",
+      "default": "Shop"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "url",
+      "id": "page_link",
+      "label": "Page Link"
+    },
+    {
+      "type": "text",
+      "id": "hero_subtitle_title",
+      "label": "Hero Subtitle",
+      "default": "Product title"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Section"
+    }
+  ]
+}
+{% endschema %}
