@@ -18,61 +18,89 @@
 </style>
 
 <div class="relative bg-[url('/assets/images/bg-right.svg')] bg-no-repeat bg-cover bg-right-bottom">
-  <div class="py-[66px]">
-    <div class="grid grid-cols-5 gap-5 container m-auto phone:grid-cols-1 laptop:px-4 tablet:grid-cols-2 items-start">
-      <div class="col-span-2 tablet:col-span-1">
-        <div class="shop-single-slider">
-          <div class="slider-for">
-            {% for image in product.images %}
-              <div class="">
-                <img src="{{ image.src | img_url: '' }}" alt id="zoomable-image" data-zoomable>
-              </div>
-            {% endfor %}
-          </div>
-
-          {% if product.images.size > 1 %}
-            <div class="slider-nav mt-[10px]">
+  <form class="form" action="/cart/add" method="post" enctype="multipart/form-data" id="addToCart">
+    <input
+      type="hidden"
+      class="variant-idss"
+      id="variant-id"
+      name="id"
+      value="{{ product.variants.first.id }}"
+    >
+    <div class="py-[66px]">
+      <div class="grid grid-cols-5 gap-5 container m-auto phone:grid-cols-1 laptop:px-4 tablet:grid-cols-2 items-start">
+        <div class="col-span-2 tablet:col-span-1">
+          <div class="shop-single-slider">
+            <div class="slider-for">
               {% for image in product.images %}
-                <div>
-                  <img src="{{ image.src | img_url: '' }}" alt>
+                <div class="">
+                  <img src="{{ image.src | img_url: '' }}" alt id="zoomable-image" data-zoomable>
                 </div>
               {% endfor %}
             </div>
-          {% endif %}
-        </div>
 
-        <div
-          class="w-full h-auto relative overflow-scroll pb-10 hide-scroll-bar snap-x z-50 flex mt-2 gap-2 tablet:flex-1"
-        ></div>
-      </div>
-      <div class="col-span-3 tablet:col-span-1 phone:text-center">
-        <h2 class="section-title">{{ product.title }}</h2>
-        <div>
-          <div class="product-content">
-            {{ product.description }}
+            {% if product.images.size > 1 %}
+              <div class="slider-nav mt-[10px]">
+                {% for image in product.images %}
+                  <div>
+                    <img src="{{ image.src | img_url: '' }}" alt>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endif %}
           </div>
-          <p class="section-content mb-[20px]">
-            <a class="text-primary font-medium" href="">Shipping:</a> calculated at checkout
-          </p>
-          <p class="text-[30px] font-title leading-[45px] text-secondary font-normal mb-[30px]">
-            Price: {{ product.price | money }}
-          </p>
+
+          <div
+            class="w-full h-auto relative overflow-scroll pb-10 hide-scroll-bar snap-x z-50 flex mt-2 gap-2 tablet:flex-1"
+          ></div>
         </div>
-        <div class="flex phone:justify-center">
-          <div class="flex justify-between items-center w-1/5 border-2 border-primary py-0 px-[20px]">
-            <svg class=" fill-primary hover:fill-secondary cursor-pointer" width="16" height="3" viewBox="0 0 16 3">
-              <rect width="16" height="2.4"></rect>
-            </svg>
-            <input class="mx-2 text-center w-8 text-[24px] font-content text-primary" type="text" value="1">
-            <svg class="cursor-pointer fill-primary hover:fill-secondary" width="16" height="16" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M9.20104 6.79896V0H6.80104V6.79896H0V9.19896H6.80104V16H9.20104V9.19896H16V6.79896H9.20104Z"></path>
-            </svg>
+        <div class="col-span-3 tablet:col-span-1 phone:text-center">
+          <h2 class="section-title">{{ product.title }}</h2>
+          <div>
+            <div class="product-content">
+              {{ product.description }}
+            </div>
+            <p class="section-content mb-[20px]">
+              <a class="text-primary font-medium" href="">Shipping:</a> calculated at checkout
+            </p>
+            <p class="text-[30px] font-title leading-[45px] text-secondary font-normal mb-[30px]">
+              Price: {{ product.price | money }}
+            </p>
           </div>
-          <div><button class="button !rounded-none">Add To Cart</button></div>
+          <div class="flex phone:justify-center">
+            <div class="flex justify-between items-center w-1/5 border-2 border-primary py-0 px-[20px]">
+              <svg
+                class=" fill-primary hover:fill-secondary cursor-pointer quantity-down"
+                width="16"
+                height="3"
+                viewBox="0 0 16 3"
+              >
+                <rect width="16" height="2.4"></rect>
+              </svg>
+              <div class="quantity-field">
+                <input
+                  id="quantity"
+                  name="quantity"
+                  class="mx-2 text-center w-8 text-[24px] font-content text-primary"
+                  type="text"
+                  value="1"
+                  min="1"
+                >
+              </div>
+              <svg
+                class="cursor-pointer fill-primary hover:fill-secondary quantity-up"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+              >
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.20104 6.79896V0H6.80104V6.79896H0V9.19896H6.80104V16H9.20104V9.19896H16V6.79896H9.20104Z"></path>
+              </svg>
+            </div>
+            <div><button class="button !rounded-none">Add To Cart</button></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </form>
   <div class="mb-[40px] mt-[60px] tablet:px-4 laptop:px-4">
     <div class="container m-auto">
       <div>

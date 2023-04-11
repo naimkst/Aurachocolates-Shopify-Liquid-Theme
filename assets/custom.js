@@ -105,12 +105,33 @@
 
   const zoomableImage = document.getElementById("zoomable-image");
   zoomableImage.addEventListener("click", function () {
-    console.log
+    console.log;
     zoom.open();
   });
 
-  $("#clickhere").click(function () {
-    alert("The paragraph was clicked.");
-    zoom.open();
+  $(document).ready(function () {
+    // Get the quantity input field
+    var quantityInput = $("#quantity");
+
+    // Get the increment and decrement buttons
+    var incrementButton = $(".quantity-up");
+    var decrementButton = $(".quantity-down");
+
+    // Add click event listener to increment button
+    incrementButton.click(function () {
+      var currentQuantity = parseInt(quantityInput.val());
+      var newQuantity = currentQuantity + 1;
+      quantityInput.val(newQuantity);
+    });
+
+    // Add click event listener to decrement button
+    decrementButton.click(function () {
+      var currentQuantity = parseInt(quantityInput.val());
+      var newQuantity = currentQuantity - 1;
+      if (newQuantity < 1) {
+        newQuantity = 1;
+      }
+      quantityInput.val(newQuantity);
+    });
   });
 })(window.jQuery);
