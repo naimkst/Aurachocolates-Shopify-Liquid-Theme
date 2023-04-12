@@ -63,12 +63,8 @@
               <div class="flex gap-[50px]">
                 <div class="inline-block">
                   <div class="border-2 border-secondary rounded-full overflow-hidden w-[100px] h-[100px]">
-                    <span
-                      style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 100px; height: 100px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
-                      ><img
-                        src="/_next/image?url=%2Fassets%2Fimages%2Fproduct%2F01.png&amp;w=256&amp;q=75"
-                        decoding="async"
-                        data-nimg="fixed"
+                      <img
+                        src="{{ product.featured_image | product_img_url: 'medium' }}"
                         style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
                         srcset="/_next/image?url=%2Fassets%2Fimages%2Fproduct%2F01.png&amp;w=128&amp;q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fproduct%2F01.png&amp;w=256&amp;q=75 2x"
                     ></span>
