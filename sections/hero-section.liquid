@@ -12,7 +12,7 @@
         <a href="/">Home &gt; </a
         ><a href="{{ section.settings.page_link }}">
           {%- if section.settings.hero_title %}{{ section.settings.hero_title }} {% endif -%}
-          {% if section.settings.hero_subtitle_title %} &gt; {% endif %} </a
+          {% if section.settings.hero_subtitle_title != blank %} &gt; {% endif %} </a
         ><a>{{ section.settings.hero_subtitle_title }} </a>
       </h2>
     </div>

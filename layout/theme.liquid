@@ -20,6 +20,12 @@
       <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     {% endcomment %}
 
+    <script src="{{ 'jquery.min.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'plugins.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'swiper.js' | asset_url }}"></script>
+    <script src="{{ 'medium-zoom.min.js' | asset_url }}"></script>
+    <script src="{{'custom.js' | asset_url }}" defer="defer"></script>
+
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
     {%- endif -%}
@@ -46,12 +52,5 @@
     {% section 'header' %}
     {{ content_for_layout }}
     {% section 'footer' %}
-
-    <script src="{{ 'jquery.min.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'plugins.js' | asset_url }}" defer="defer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script>
-    <script src="{{'custom.js' | asset_url }}" defer="defer"></script>
   </body>
 </html>

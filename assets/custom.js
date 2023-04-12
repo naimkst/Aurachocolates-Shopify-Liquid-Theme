@@ -1,3 +1,43 @@
+function openPage(pageName, elmnt, color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+    tabcontent[i].classList.add("react-tabs__tab--selected");
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+    tablinks[i].classList.forEach((item) => {
+      if (item == "react-tabs__tab--selected") {
+        tablinks[i].classList.remove("react-tabs__tab--selected");
+      }
+    });
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.classList.add("react-tabs__tab--selected");
+}
+
+//Product Tab
+
+function openPages(pageName, elmnt, color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontents");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+    tablinks[i].classList.forEach((item) => {
+      if (item == "bg-secondary") {
+        tablinks[i].classList.remove("bg-secondary");
+      }
+    });
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.classList.add("bg-secondary");
+}
 (function ($) {
   ("use strict");
 
@@ -8,46 +48,6 @@
       tabClick.click();
     }
   });
-  function openPage(pageName, elmnt, color) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-      tabcontent[i].classList.add("react-tabs__tab--selected");
-    }
-    tablinks = document.getElementsByClassName("tablink");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].style.backgroundColor = "";
-      tablinks[i].classList.forEach((item) => {
-        if (item == "react-tabs__tab--selected") {
-          tablinks[i].classList.remove("react-tabs__tab--selected");
-        }
-      });
-    }
-    document.getElementById(pageName).style.display = "block";
-    elmnt.classList.add("react-tabs__tab--selected");
-  }
-
-  //Product Tab
-
-  function openPages(pageName, elmnt, color) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontents");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablink");
-    for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].style.backgroundColor = "";
-      tablinks[i].classList.forEach((item) => {
-        if (item == "bg-secondary") {
-          tablinks[i].classList.remove("bg-secondary");
-        }
-      });
-    }
-    document.getElementById(pageName).style.display = "block";
-    elmnt.classList.add("bg-secondary");
-  }
 
   /*----------------------------
         = SHOP PRICE SLIDER
@@ -133,5 +133,30 @@
       }
       quantityInput.val(newQuantity);
     });
+  });
+
+  var swiper = new Swiper(".mySwiper", {
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    slidesPerView: 6,
+    breakpoints: {
+      320: {
+        slidesPerView: 2,
+      },
+      480: {
+        slidesPerView: 3,
+      },
+      768: {
+        slidesPerView: 3,
+      },
+      1024: {
+        slidesPerView: 4,
+      },
+      1280: {
+        slidesPerView: 6,
+      },
+    },
   });
 })(window.jQuery);
