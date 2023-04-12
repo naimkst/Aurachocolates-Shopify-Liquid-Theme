@@ -33,65 +33,47 @@
   <div class="relative container m-auto tablet:px-3 laptop:px-4">
     <div class="flex justify-between items-center">
       <div class="cursor-pointer">
-        <span
-          style="box-sizing: border-box; display: inline-block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative; max-width: 100%;"
-          ><span
-            style="box-sizing: border-box; display: block; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; max-width: 100%;"
-            ><img
-              alt=""
-              aria-hidden="true"
-              src="data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2790%27%20height=%2790%27/%3e"
-              style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"></span
-          ><img
-            alt="logo"
-            src="https://chocolate-eight.vercel.app/assets/images/logo.svg"
-            decoding="async"
-            data-nimg="intrinsic"
-            srcset="https://chocolate-eight.vercel.app/assets/images/logo.svg 1x, https://chocolate-eight.vercel.app/assets/images/logo.svg 2x"
-            style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-          ><noscript></noscript
-        ></span>
+        <img
+          alt="logo"
+          src="{{ section.settings.logo | img_url: 'original'}}"
+          style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+        >
       </div>
       <div class="relative main-menu tablet:hidden">
         <ul class="flex gap-12 miniLaptop:gap-5 h-[96px] items-center">
-          <li class="cursor-pointer"><a>All Chocolates</a></li>
+          <li class="cursor-pointer"><a href="/collections/all">All Chocolates</a></li>
           <li class="cursor-pointer group-hover group py-[48px]">
             <a>Signature Collections</a>
             <div
               class="hidden group-hover:block hover:block left-[35%] transform -translate-x-1/2 top-[96px] bg-white/70 pt-8 pb-14 px-12 mt-0 justify-start gap-10 overflow-hidden absolute z-50 bg-auto bg-no-repeat bg-right-top m-auto w-auto max-w-full container tablet:px-3"
             >
               <div class="flex gap-[50px]">
-                <div class="inline-block">
-                  <div class="border-2 border-secondary rounded-full overflow-hidden w-[100px] h-[100px]">
-                      <img
-                        src="{{ product.featured_image | product_img_url: 'medium' }}"
-                        style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-                        srcset="/_next/image?url=%2Fassets%2Fimages%2Fproduct%2F01.png&amp;w=128&amp;q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fproduct%2F01.png&amp;w=256&amp;q=75 2x"
-                    ></span>
+                {% for product in collections[section.settings.singnature_collection].products %}
+                  <div class="inline-block">
+                    <a href="{{ product.url }}">
+                      <div class="border-2 border-secondary rounded-full overflow-hidden w-[100px] h-[100px]">
+                        <span
+                          style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 100px; height: 100px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                          ><img
+                            src="{{ product.featured_image | product_img_url: 'medium' }}"
+                            style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                        ></span>
+                      </div>
+                    </a>
+                    <h3 class="text-center mt-2 hover:text-primary">
+                      <a href="{{ product.url }}">{{ product.title }}</a>
+                    </h3>
                   </div>
-                  <h3 class="text-center mt-2 hover:text-primary">Heart Collection</h3>
-                </div>
-                <div class="inline-block">
-                  <div class="border-2 border-secondary rounded-full overflow-hidden w-[100px] h-[100px]">
-                    <span
-                      style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 100px; height: 100px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
-                      ><img
-                        src="/_next/image?url=%2Fassets%2Fimages%2Fproduct%2F01.png&amp;w=256&amp;q=75"
-                        decoding="async"
-                        data-nimg="fixed"
-                        style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-                        srcset="/_next/image?url=%2Fassets%2Fimages%2Fproduct%2F01.png&amp;w=128&amp;q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fproduct%2F01.png&amp;w=256&amp;q=75 2x"
-                    ></span>
-                  </div>
-                  <h3 class="text-center mt-2 hover:text-primary">Log Collection</h3>
-                </div>
+                {% endfor %}
               </div>
               <div class="absolute right-0 bottom-0">
-                <button
-                  class="bg-primary py-3 px-7 text-white hover:text-white hover:bg-primary/95"
-                >
-                  Shop All
-                </button>
+                <a href="/collections/all">
+                  <button
+                    class="bg-primary py-3 px-7 text-white hover:text-white hover:bg-primary/95"
+                  >
+                    Shop All
+                  </button>
+                </a>
               </div>
             </div>
           </li>
@@ -101,55 +83,32 @@
               class="hidden group-hover:block hover:block left-1/2 transform -translate-x-1/2 bg-white/70 top-[96px] pt-8 pb-14 px-12 mt-0 justify-start gap-10 overflow-hidden absolute z-50 bg-auto bg-no-repeat bg-right-top m-auto w-auto max-w-full container tablet:px-3"
             >
               <div class="flex gap-[50px]">
-                <div class="inline-block">
-                  <div class="border-2 border-secondary rounded-full overflow-hidden w-[100px] h-[100px]">
-                    <span
-                      style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 100px; height: 100px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
-                      ><img
-                        src="/_next/image?url=%2Fassets%2Fimages%2Fproduct%2F01.png&amp;w=256&amp;q=75"
-                        decoding="async"
-                        data-nimg="fixed"
-                        style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-                        srcset="/_next/image?url=%2Fassets%2Fimages%2Fproduct%2F01.png&amp;w=128&amp;q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fproduct%2F01.png&amp;w=256&amp;q=75 2x"
-                    ></span>
+                {% for product in collections[section.settings.party_collection].products %}
+                  <div class="inline-block">
+                    <a href="{{ product.url }}">
+                      <div class="border-2 border-secondary rounded-full overflow-hidden w-[100px] h-[100px]">
+                        <span
+                          style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 100px; height: 100px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                          ><img
+                            src="{{ product.featured_image | product_img_url: 'medium' }}"
+                            style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                        ></span>
+                      </div>
+                    </a>
+                    <h3 class="text-center mt-2 hover:text-primary">
+                      <a href="{{ product.url }}">{{ product.title }}</a>
+                    </h3>
                   </div>
-                  <h3 class="text-center mt-2 hover:text-primary">Chocolate Platters | 1-Tier</h3>
-                </div>
-                <div class="inline-block">
-                  <div class="border-2 border-secondary rounded-full overflow-hidden w-[100px] h-[100px]">
-                    <span
-                      style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 100px; height: 100px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
-                      ><img
-                        src="/_next/image?url=%2Fassets%2Fimages%2Fproduct%2F01.png&amp;w=256&amp;q=75"
-                        decoding="async"
-                        data-nimg="fixed"
-                        style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-                        srcset="/_next/image?url=%2Fassets%2Fimages%2Fproduct%2F01.png&amp;w=128&amp;q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fproduct%2F01.png&amp;w=256&amp;q=75 2x"
-                    ></span>
-                  </div>
-                  <h3 class="text-center mt-2 hover:text-primary">Chocolate Platters | 2-Tier</h3>
-                </div>
-                <div class="inline-block">
-                  <div class="border-2 border-secondary rounded-full overflow-hidden w-[100px] h-[100px]">
-                    <span
-                      style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 100px; height: 100px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
-                      ><img
-                        src="/_next/image?url=%2Fassets%2Fimages%2Fproduct%2F01.png&amp;w=256&amp;q=75"
-                        decoding="async"
-                        data-nimg="fixed"
-                        style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-                        srcset="/_next/image?url=%2Fassets%2Fimages%2Fproduct%2F01.png&amp;w=128&amp;q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fproduct%2F01.png&amp;w=256&amp;q=75 2x"
-                    ></span>
-                  </div>
-                  <h3 class="text-center mt-2 hover:text-primary">Chocolate Platters | 3-Tier</h3>
-                </div>
+                {% endfor %}
               </div>
               <div class="absolute right-0 bottom-0">
-                <button
-                  class="bg-primary py-3 px-7 text-white hover:text-white hover:bg-primary/95"
-                >
-                  Shop All
-                </button>
+                <a href="/collections/all">
+                  <button
+                    class="bg-primary py-3 px-7 text-white hover:text-white hover:bg-primary/95"
+                  >
+                    Shop All
+                  </button>
+                </a>
               </div>
             </div>
           </li>
@@ -161,75 +120,62 @@
               <div class="grid grid-cols-7">
                 <div class="relative col-span-5 pt-8 pb-14 px-8 ">
                   <div class="grid grid-cols-3 gap-3 text-center">
-                    <div class="inline-block text-center">
-                      <div
-                        class="border-2 border-secondary rounded-full overflow-hidden w-[100px] h-[100px] inline-block"
-                      >
-                        <span
-                          style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 100px; height: 100px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
-                          ><img
-                            src="/_next/image?url=%2Fassets%2Fimages%2Fproduct%2F01.png&amp;w=256&amp;q=75"
-                            decoding="async"
-                            data-nimg="fixed"
-                            srcset="/_next/image?url=%2Fassets%2Fimages%2Fproduct%2F01.png&amp;w=128&amp;q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fproduct%2F01.png&amp;w=256&amp;q=75 2x"
-                            style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-                          ><noscript></noscript
-                        ></span>
+                    {% for product in collections[section.settings.gourmet_collection].products %}
+                      <div class="inline-block text-center">
+                        <a href="{{ product.url }}">
+                          <div
+                            class="border-2 border-secondary rounded-full overflow-hidden w-[100px] h-[100px] inline-block"
+                          >
+                            <span
+                              style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 100px; height: 100px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                              ><img
+                                src="{{ product.featured_image | product_img_url: 'medium' }}"
+
+                                style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                              >
+                            </span>
+                          </div>
+                        </a>
+                        <h3 class="text-center mt-2 hover:text-primary">
+                          <a href="{{ product.url }}">{{ product.title }}</a>
+                        </h3>
                       </div>
-                      <h3 class="text-center mt-2 hover:text-primary">Personal</h3>
-                    </div>
-                    <div class="inline-block text-center">
-                      <div
-                        class="border-2 border-secondary rounded-full overflow-hidden w-[100px] h-[100px] inline-block"
-                      >
-                        <span
-                          style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 100px; height: 100px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
-                          ><img
-                            src="/_next/image?url=%2Fassets%2Fimages%2Fproduct%2F01.png&amp;w=256&amp;q=75"
-                            decoding="async"
-                            data-nimg="fixed"
-                            srcset="/_next/image?url=%2Fassets%2Fimages%2Fproduct%2F01.png&amp;w=128&amp;q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fproduct%2F01.png&amp;w=256&amp;q=75 2x"
-                            style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-                          ><noscript></noscript
-                        ></span>
-                      </div>
-                      <h3 class="text-center mt-2 hover:text-primary">Corporate</h3>
-                    </div>
+                    {% endfor %}
                   </div>
                   <div class="absolute right-0 bottom-0">
-                    <button
-                      class="bg-primary py-3 px-7 text-white hover:text-white hover:bg-primary/95"
-                    >
-                      Shop All
-                    </button>
+                    <a href="/collections/all">
+                      <button
+                        class="bg-primary py-3 px-7 text-white hover:text-white hover:bg-primary/95"
+                      >
+                        Shop All
+                      </button>
+                    </a>
                   </div>
                 </div>
                 <div class="bg-[#FAFAFA]/70 col-span-2 text-center flex items-center justify-center">
-                  <div>
-                    <h4 class="font-bold hover:text-primary">Customize Your Box!</h4>
-                    <div class="inline-block mt-3 group">
-                      <div
-                        class="border-2 border-secondary rounded-sm overflow-hidden w-[100px] h-[100px] text-center m-auto"
-                      >
-                        <span
-                          style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 100px; height: 100px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
-                          ><img
-                            src="/assets/images/instagram/01.svg"
-                            decoding="async"
-                            data-nimg="fixed"
-                            srcset="/assets/images/instagram/01.svg 1x, /assets/images/instagram/01.svg 2x"
-                            style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-                          ><noscript></noscript
-                        ></span>
+                  <a href="{{ section.settings.customize_url }}">
+                    <div>
+                      <h4 class="font-bold hover:text-primary">Customize Your Box!</h4>
+                      <div class="inline-block mt-3 group">
+                        <div
+                          class="border-2 border-secondary rounded-sm overflow-hidden w-[100px] h-[100px] text-center m-auto"
+                        >
+                          <span
+                            style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 100px; height: 100px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
+                            ><img
+                              src="{{ section.settings.customize_image | img_url: 'medium' }}"
+                              style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                          ></span>
+                        </div>
+                        <h3 class="text-center mt-2 hover:text-primary">Many Color Options!</h3>
                       </div>
-                      <h3 class="text-center mt-2 hover:text-primary">Many Color Options!</h3>
                     </div>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
           </li>
-          <li class="cursor-pointer"><a href="">Contact</a></li>
+          <li class="cursor-pointer"><a href="/pages/contact">Contact</a></li>
         </ul>
       </div>
       <div class="relative ">
@@ -326,3 +272,47 @@
     <div></div>
   </div>
 </div>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "singnature_collection",
+      "label": "Singnature Collection"
+    },
+    {
+      "type": "collection",
+      "id": "party_collection",
+      "label": "Party Collection"
+    },
+    {
+      "type": "collection",
+      "id": "gourmet_collection",
+      "label": "Gourmet Collection"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "customize_image",
+      "label": "Customize Image"
+    },
+    {
+      "type": "url",
+      "id": "customize_url",
+      "label": "Customize Link"
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Header"
+    }
+  ]
+}
+{% endschema %}
