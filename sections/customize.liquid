@@ -4,27 +4,46 @@
       <div>
         <h2 class="text-[28px] pb-10 ">Please Select Your Try Size</h2>
         <div class="grid grid-cols-4 items-center justify-center gap-5 phone:grid-cols-2">
-          <div class="text-center my-5 cursor-pointer">
-            <img src="/assets/images/box/022.svg" alt="" class="w-[300px] h-[160px] mb-5 object-fill phone:h-[100px]">
-            <h3 class="border-[1px] py-2 border-primary rounded-md mt-2">2-Tray Box</h3>
-          </div>
-          <div class="text-center my-5 cursor-pointer">
-            <img src="/assets/images/box/03.svg" alt="" class="w-[300px] h-[160px] mb-5 object-fill phone:h-[100px]">
-            <h3 class="border-[1px] py-2 border-primary rounded-md mt-2">3-Tray Box</h3>
-          </div>
-          <div class="text-center my-5 cursor-pointer">
-            <img src="/assets/images/box/04.svg" alt="" class="w-[300px] h-[160px] mb-5 object-fill phone:h-[100px]">
-            <h3 class="border-[1px] py-2 border-primary rounded-md mt-2">4-Tray Box</h3>
-          </div>
-          <div class="text-center my-5 cursor-pointer">
-            <img src="/assets/images/box/06.svg" alt="" class="w-[300px] h-[160px] mb-5 object-fill phone:h-[100px]">
-            <h3 class="border-[1px] py-2 border-primary rounded-md mt-2">6-Tray Box</h3>
-          </div>
+          {% for product in section.settings.try_product %}
+            <div class="text-center my-5 cursor-pointer text-center">
+              <a href="{{ product.url }}">
+                <img
+                  src="{{ product.featured_image | img_url: 'original'}}"
+                  alt=""
+                  class="w-[300px] h-[160px] mb-5 object-fill phone:h-[100px] m-auto text-center"
+                >
+              </a>
+              <h3 class="border-[1px] py-2 border-primary rounded-md mt-2">
+                <a href="{{ product.url }}">{{ product.title }}</a>
+              </h3>
+            </div>
+          {% endfor %}
         </div>
-        <button disabled="" class="bg-secondary/30 text-white py-5 px-8 rounded-lg mt-5">
-          Continue To Customization Page
-        </button>
       </div>
     </div>
   </div>
 </div>
+{% schema %}
+{
+  "name": "Customize Try Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tray_title",
+      "label": "Tray Title",
+      "default": "Please Select Your Try Size"
+    },
+    {
+      "type": "product_list",
+      "id": "try_product",
+      "label": "Tray Products"
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Customize Try Section"
+    }
+  ]
+}
+{% endschema %}

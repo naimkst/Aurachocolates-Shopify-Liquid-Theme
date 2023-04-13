@@ -68,6 +68,61 @@
               Price: {{ product.price | money }}
             </p>
           </div>
+
+          {% if product.images.size > 0 %}
+            <div class="product__photo">
+              {% for option in product.options %}
+                <div class="product__variants">
+                  <h2 class="font-bold tex-[20px] mb-[10px]">{{ option }}</h2>
+                  {% assign option_values = '' %}
+
+                  <div class="flex items-center gap-[20px] text-center mb-[30px] flex-wrap">
+                    {% for variant in product.variants %}
+                      {% assign option_value = variant.options[forloop.index0] %}
+
+                      <div class="text-center">
+                        <div class="w-[50px] h-[50px] rounded-full m-auto">
+                          <img
+                            class="w-[50px] h-[50px] rounded-full m-auto"
+                            src="{{ variant.image.src | img_url: '50' }}"
+                            alt="{{ variant.title }}"
+                          >
+                        </div>
+                        {% assign option_values = variant.options | append: option_value | remove: '"' %}
+                        {% assign optionRemove = option_values | remove: '[' %}
+                        {% assign optionRemoved = optionRemove | remove: ']' %}
+
+                        {% assign my_var_parts = optionRemoved | split: ',' %}
+                        {% assign my_var_without_comma = my_var_parts | first %}
+
+                        <p class="text-center">{{ my_var_without_comma }}</p>
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          {% comment %}
+            {% if product.variants.size > 1 %}
+              <div class="flex items-center gap-[20px] text-center mb-[30px] flex-wrap">
+                {% for variant in product.variants %}
+                  <div class="text-center">
+                    <div class="w-[50px] h-[50px] rounded-full m-auto">
+                      <img
+                        class="w-[50px] h-[50px] rounded-full m-auto"
+                        src="{{ variant.image.src | img_url: '50' }}"
+                        alt="{{ variant.title }}"
+                      >
+                    </div>
+
+                    <p class="text-center">{{ variant.title }}</p>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endif %}
+          {% endcomment %}
           <div class="flex phone:justify-center">
             <div class="flex justify-between items-center w-1/5 border-2 border-primary py-0 px-[20px]">
               <svg
@@ -97,6 +152,7 @@
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M9.20104 6.79896V0H6.80104V6.79896H0V9.19896H6.80104V16H9.20104V9.19896H16V6.79896H9.20104Z"></path>
               </svg>
             </div>
+
             <div><button class="button !rounded-none">Add To Cart</button></div>
           </div>
         </div>
