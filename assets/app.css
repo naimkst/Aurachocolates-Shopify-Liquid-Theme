@@ -527,6 +527,10 @@ video {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
+.my-5{
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
 .-mt-5{
   margin-top: -1.25rem;
 }
@@ -541,6 +545,9 @@ video {
 }
 .mb-4{
   margin-bottom: 1rem;
+}
+.mb-5{
+  margin-bottom: 1.25rem;
 }
 .mb-8{
   margin-bottom: 2rem;
@@ -632,6 +639,9 @@ video {
 .h-\[130px\]{
   height: 130px;
 }
+.h-\[160px\]{
+  height: 160px;
+}
 .h-\[50px\]{
   height: 50px;
 }
@@ -682,6 +692,9 @@ video {
 }
 .w-\[250px\]{
   width: 250px;
+}
+.w-\[300px\]{
+  width: 300px;
 }
 .w-\[685px\]{
   width: 685px;
@@ -905,6 +918,9 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(60 22 5 / var(--tw-bg-opacity));
 }
+.bg-secondary\/30{
+  background-color: rgb(60 22 5 / 0.3);
+}
 .bg-transparent{
   background-color: transparent;
 }
@@ -967,6 +983,10 @@ video {
 .object-cover{
   -o-object-fit: cover;
      object-fit: cover;
+}
+.object-fill{
+  -o-object-fit: fill;
+     object-fit: fill;
 }
 .p-3{
   padding: 0.75rem;
@@ -1171,6 +1191,9 @@ video {
 }
 .text-\[26px\]{
   font-size: 26px;
+}
+.text-\[28px\]{
+  font-size: 28px;
 }
 .text-\[30px\]{
   font-size: 30px;
@@ -2241,6 +2264,9 @@ img.image-zoom__image {
   }
   .phone\:hidden{
     display: none;
+  }
+  .phone\:h-\[100px\]{
+    height: 100px;
   }
   .phone\:h-\[600px\]{
     height: 600px;
