@@ -1,3 +1,11 @@
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("Hello World!");
+  const tabClick = document.getElementById("defaultOpen");
+  if (tabClick) {
+    tabClick.click();
+  }
+});
+
 function openPage(pageName, elmnt, color) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -38,16 +46,9 @@ function openPages(pageName, elmnt, color) {
   document.getElementById(pageName).style.display = "block";
   elmnt.classList.add("bg-secondary");
 }
+
 (function ($) {
   ("use strict");
-
-  document.addEventListener("DOMContentLoaded", () => {
-    console.log("Hello World!");
-    const tabClick = document.getElementById("defaultOpen");
-    if (tabClick) {
-      tabClick.click();
-    }
-  });
 
   /*----------------------------
         = SHOP PRICE SLIDER
@@ -104,10 +105,11 @@ function openPages(pageName, elmnt, color) {
   });
 
   const zoomableImage = document.getElementById("zoomable-image");
-  zoomableImage.addEventListener("click", function () {
-    console.log;
-    zoom.open();
-  });
+  if (zoomableImage) {
+    zoomableImage.addEventListener("click", function () {
+      zoom.open();
+    });
+  }
 
   $(document).ready(function () {
     // Get the quantity input field
