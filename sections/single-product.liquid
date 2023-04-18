@@ -83,11 +83,19 @@
                       <div class="text-center">
                         <div class="w-[50px] h-[50px] rounded-full m-auto">
                           <img
+                            onclick="
+                              getImg(
+                                '{{ variant.id }}',
+                                '{{ variant.image.src | img_url: 'original' }}',
+                                '{{option}}'
+                              )
+                            "
                             class="w-[50px] h-[50px] rounded-full m-auto"
                             src="{{ variant.image.src | img_url: '50' }}"
                             alt="{{ variant.title }}"
                           >
                         </div>
+
                         {% assign option_values = variant.options | append: option_value | remove: '"' %}
                         {% assign optionRemove = option_values | remove: '[' %}
                         {% assign optionRemoved = optionRemove | remove: ']' %}

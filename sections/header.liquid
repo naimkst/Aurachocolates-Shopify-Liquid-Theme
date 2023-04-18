@@ -33,11 +33,19 @@
   <div class="relative container m-auto tablet:px-3 laptop:px-4">
     <div class="flex justify-between items-center">
       <div class="cursor-pointer">
-        <img
-          alt="logo"
-          src="{{ section.settings.logo | img_url: 'original'}}"
-          style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
-        >
+        {% if section.settings.logo != blank %}
+          <img
+            alt="logo"
+            src="{{ section.settings.logo | img_url: 'original' }}"
+            style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+          >
+        {% else %}
+          <img
+            alt="logo"
+            src="{{ 'logo.svg' | asset_url }}"
+            style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+          >
+        {% endif %}
       </div>
       <div class="relative main-menu tablet:hidden">
         <ul class="flex gap-12 miniLaptop:gap-5 h-[96px] items-center">

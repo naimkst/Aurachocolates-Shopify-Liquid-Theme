@@ -47,6 +47,11 @@ function openPages(pageName, elmnt, color) {
   elmnt.classList.add("bg-secondary");
 }
 
+function getImg(id, img, option) {
+  var image = document.querySelector("#image1");
+  image.src = img;
+  console.log(id, img, option);
+}
 (function ($) {
   ("use strict");
 
@@ -161,4 +166,6 @@ function openPages(pageName, elmnt, color) {
       },
     },
   });
+
+  //Single Product Select image
 })(window.jQuery);
