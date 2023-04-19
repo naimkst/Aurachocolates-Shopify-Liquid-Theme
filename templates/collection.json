@@ -1,8 +1,16 @@
 {
   "sections": {
     "banner": {
-      "type": "collection"
+      "type": "collection",
+      "settings": {
+        "prd_tab_link": "",
+        "prd_button_text": "I want to make their day",
+        "tab_menu": "shop-menu",
+        "sidebar_menu": "sidebarmenu-categories"
+      }
     }
   },
-  "order": ["banner"]
+  "order": [
+    "banner"
+  ]
 }
