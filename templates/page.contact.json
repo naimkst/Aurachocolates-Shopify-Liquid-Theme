@@ -1,8 +1,30 @@
 {
   "sections": {
+    "6c4cde42-158a-4cf1-ab59-ba29f8638fdf": {
+      "type": "hero-section",
+      "settings": {
+        "hero_title": "Shop",
+        "hero_image": "shopify:\/\/shop_images\/banner-hero.svg",
+        "page_link": "",
+        "hero_subtitle_title": "Product title"
+      }
+    },
     "main": {
-      "type": "contact-form"
+      "type": "contact-form",
+      "settings": {
+        "our_shop_text": "Our Shop",
+        "address_text": "371 Rue Bernard O, Montréal, QC H2V 1T6",
+        "customer_service_text": "Customer Service",
+        "customer_service_details": "<p>Email: info@auradelices.ca <\/p><p>Phone: 1(514)-272-2639<\/p>",
+        "opening_hours_text": "Opening Hours",
+        "opening_hours_details": "<p> Sunday 12–5 p.m.<\/p><p>Monday 10 a.m.–6 p.m.<\/p><p>Tuesday 10 a.m.–6 p.m.<\/p><p>Wednesday 10 a.m.–6 p.m.<\/p><p>Thursday 10 a.m.–9 p.m.<\/p><p>Friday 9:30 a.m.–2 p.m.<\/p><p>Saturday Closed<\/p>",
+        "get_in_touch_text": "Get In Touch",
+        "get_in_touch_description": "Doing an event, trying to match everything own to the last detail.. (including the chocolates) send us a message with your desired colors to see if we can accommodate. Dont be shy!"
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "6c4cde42-158a-4cf1-ab59-ba29f8638fdf",
+    "main"
+  ]
 }
