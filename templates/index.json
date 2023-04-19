@@ -193,6 +193,15 @@
         "instagram_description": "Check us out on instagram, we love to see our follower base grow! We constantly work on showing you our latest chocolate trends.. come check us out!",
         "instagram_link": "https:\/\/www.instagram.com\/aura_delices\/?hl=en"
       }
+    },
+    "3b428e90-9fce-4f58-9f41-417024619f73": {
+      "type": "map-section",
+      "settings": {
+        "map_title": "Stop by for a visit at our boutique store",
+        "map_description": "We have this little Montreal cozy store, hey we dont bite! Come say hi!!",
+        "map_link": "https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d369110.4158473942!2d-79.95232726694726!3d43.71730014289388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4cb90d7c63ba5%3A0x323555502ab4c477!2sToronto%2C%20ON%2C%20Canada!5e0!3m2!1sen!2sbd!4v1666895295601!5m2!1sen!2sbd",
+        "map_background": "shopify:\/\/shop_images\/contact-section-bg.svg"
+      }
     }
   },
   "order": [
@@ -203,6 +212,7 @@
     "1c0f5092-8b66-4e7c-bb3f-c7f49ea930b2",
     "d073b788-472f-4ef1-9bfd-62dfc6def5df",
     "8d7cb7f3-0eb8-4a6f-b735-e6389b43fbea",
-    "55481728-acac-4bce-94f4-80ab216e4e4f"
+    "55481728-acac-4bce-94f4-80ab216e4e4f",
+    "3b428e90-9fce-4f58-9f41-417024619f73"
   ]
 }
