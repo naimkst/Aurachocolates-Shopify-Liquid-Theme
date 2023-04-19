@@ -1,8 +1,11 @@
 {
   "sections": {
+    "hero": {
+      "type": "hero-section"
+    },
     "cart-items": {
       "type": "cart"
     }
   },
-  "order": ["cart-items"]
+  "order": ["hero", "cart-items"]
 }
