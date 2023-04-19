@@ -6,7 +6,7 @@
 </style>
 <div
   class="pt-[180px] pb-10 flex items-center flex-col text-center bg-no-repeat bg-cover bg-white/50 bg-blend-overlay"
-  style="background-image: url(&quot;https://cdn.shopify.com/s/files/1/0696/0110/0049/files/hero_image.webp?v=1673852374&quot;);"
+  style="background-image: url({{ section.settings.hero_image | img_url: 'original' }});"
 >
   {% assign tabMenu = section.settings.tab_menu %}
   {% render 'collection-tab', menu: tabMenu %}
