@@ -40,10 +40,32 @@
             "gift_link": "",
             "gift_button_text": "I want to make their day"
           }
+        },
+        "aade2c31-4e6f-4158-8b58-3af8c657dc76": {
+          "type": "slider",
+          "settings": {
+            "gift_title": "Events",
+            "gift_description": "Show Stopping centerpieces that make you stand out. Spoil your guests with melt-in-your-mouth delicacies.",
+            "gift_image": "shopify:\/\/shop_images\/event.svg",
+            "gift_link": "",
+            "gift_button_text": "I want to make their day"
+          }
+        },
+        "a12cc03f-cb34-480a-9c85-609e9aa6a96c": {
+          "type": "slider",
+          "settings": {
+            "gift_title": "Corporate",
+            "gift_description": "Unique gifts that will highlight your appreciation to all. Foster good business relationships by showing your team and your clients how much they mean to you",
+            "gift_image": "shopify:\/\/shop_images\/corporate.svg",
+            "gift_link": "",
+            "gift_button_text": "I want to make their day"
+          }
         }
       },
       "block_order": [
-        "template--18624405569809__99fc05ac-b6dc-42cc-8eb3-46b884583dce-1681900830c57c1b8f-0"
+        "template--18624405569809__99fc05ac-b6dc-42cc-8eb3-46b884583dce-1681900830c57c1b8f-0",
+        "aade2c31-4e6f-4158-8b58-3af8c657dc76",
+        "a12cc03f-cb34-480a-9c85-609e9aa6a96c"
       ],
       "settings": {
       }
