@@ -24,23 +24,16 @@
       <div class="flex phone:flex-col gap-10">
         {% render 'filter' %}
         <div class="w-full">
-          <form class="form" action="/cart/add" method="post" enctype="multipart/form-data" id="addToCart">
-            <div class="w-full">
-              <div class="py-[60px] w-full">
-                <div class="grid grid-cols-4 gap-12 tablet:grid-cols-2 phone:grid-cols-2 laptop:grid-cols-3 tablet:gap-2">
-                  {% assign products_by_price = collection.products %}
-                  {% assign collection = collection %}
-                  {% for product in products_by_price %}
-                    {% assign product_collection = product.collections.first %}
+          <div class="w-full">
+            <div class="py-[60px] w-full">
+              <div class="grid grid-cols-4 gap-12 tablet:grid-cols-2 phone:grid-cols-2 laptop:grid-cols-3 tablet:gap-2">
+                {% assign products_by_price = collection.products %}
+                {% assign collection = collection %}
+                {% for product in products_by_price %}
+                  {% assign product_collection = product.collections.first %}
+                  <form class="form" action="/cart/add" method="post" id="addToCart">
                     <div class="group rounded-[10px] relative py-[40px] hover:cursor-pointer">
                       <div class="">
-                        <input
-                          type="hidden"
-                          class="variant-idss"
-                          id="variant-id"
-                          name="id"
-                          value="{{ product.variants.first.id }}"
-                        >
                         <div class="right-0 relative text-right -top-[50px] group-hover:bg-white">
                           <div class="imageSpan">
                             <a href="{{ product.url }}">
@@ -58,9 +51,17 @@
                             </a>
                           </div>
                           <div class="hidden group-hover:block absolute bottom-0 w-full">
+                            <input
+                              type="hidden"
+                              class="variant-idss"
+                              id="variant-id{{ product.variants.first.id }}"
+                              name="id"
+                              value="{{ product.variants.first.id }}"
+                            >
+                            <input type="hidden" name="return_to" value="/collections/all">
                             <button
                               type="submit"
-                              class="w-full bg-primary text-white py-3"
+                              class="w-full bg-primary text-white py-3 addCart"
                             >
                               Add To Cart
                             </button>
@@ -96,11 +97,11 @@
                         </div>
                       </div>
                     </div>
-                  {% endfor %}
-                </div>
+                  </form>
+                {% endfor %}
               </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>

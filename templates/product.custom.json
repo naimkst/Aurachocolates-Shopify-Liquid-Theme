@@ -4,7 +4,7 @@
       "type": "hero-section"
     },
     "main": {
-      "type": "single-product"
+      "type": "custom-product"
     }
   },
   "order": ["hero", "main"]

@@ -167,5 +167,87 @@ function getImg(id, img, option) {
     },
   });
 
-  //Single Product Select image
+  //Add To Cart
+  // $(".addCart").on("click", function (e) {
+  //   var form = $("#addToCart");
+  //   e.preventDefault();
+  //   var current_url = window.location.href;
+  //   console.log(current_url);
+  //   window.location.href = current_url;
+  //   // $.ajax({
+  //   //   type: "POST",
+  //   //   url: "/cart/add",
+  //   //   dataType: "json",
+  //   //   data: form.serialize(),
+  //   //   success: function (data) {
+  //   //     var current_url = window.location.href;
+  //   //     console.log(current_url);
+  //   //     window.location.href = current_url;
+  //   //   },
+  //   // });
+  // });
+
+  //Update To Cart Data
+  // $(".updateCart").on("click", function (e) {
+  //   var form = $("#cartUpdate");
+  //   e.preventDefault();
+  //   console.log(form);
+  //   $.ajax({
+  //     type: "POST",
+  //     url: "/cart",
+  //     dataType: "json",
+  //     data: form.serialize(),
+  //     success: function (data) {
+  //       console.log(data);
+
+  //       // var current_url = window.location.href;
+  //       // console.log(data, current_url);
+  //       // document.location.href = current_url;
+  //       // $("div#offcanvasCart").toggleClass("show");
+  //       // $('div#offcanvasCart').css({
+  //       //   'visibility': 'visible'
+  //       // });
+  //     },
+  //   });
+  // });
+
+  //Remove Product
+  $(".removeProduct").on("click", function (e) {
+    console.log("clicked");
+    var form = $("#cartUpdate");
+    var User_id = $(this).attr("data-line");
+    console.log(User_id, "user id");
+    e.preventDefault();
+    $.ajax({
+      type: "POST",
+      url: "/cart/change",
+      dataType: "json",
+      data: {
+        line: User_id,
+        quantity: 0,
+      },
+      success: function (data) {
+        var current_url = window.location.href;
+        document.location.href = current_url;
+      },
+    });
+  });
+
+  //Show hide cart
+  $(".cartTab").on("click", function (e) {
+    $(".cartHide").toggleClass("cartShow");
+  });
+
+  document.addEventListener("click", function (e) {
+    var container = document.getElementById("catContainer");
+    var clickTab = document.getElementById("cartTabs");
+    if (!container.contains(e.target) && !clickTab.contains(e.target)) {
+      var element = document.querySelector(".cartShow");
+      if (element) {
+        if (element.classList.contains("cartShow")) {
+          element.classList.remove("cartShow");
+        }
+      }
+    }
+  });
 })(window.jQuery);
