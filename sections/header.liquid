@@ -45,8 +45,8 @@
           {% if section.settings.logo != blank %}
             <img
               alt="logo"
-              src="{{ section.settings.logo | img_url: 'original' }}"
-              style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+              class="w-[90px] h-[90px]"
+              src="{{ section.settings.logo | img_url: '' }}"
             >
           {% else %}
             <img
