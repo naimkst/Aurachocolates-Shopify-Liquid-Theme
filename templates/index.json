@@ -3,6 +3,12 @@
     "image_banner": {
       "type": "home-heroslider",
       "settings": {
+        "first_title": "BIENVENUE, WELCOME!",
+        "second_title": "BIENVENUE, WELCOME! KOSHER, ARTISANAL BELGIAN CHOCOLATES CREATED IN MONTRÉAL",
+        "button_text": "SHOP NOW",
+        "button_link": "",
+        "conllection_text": "SEE OUR PURIM COLLECTION",
+        "hero_collection": "birthday"
       }
     },
     "5439497d-a770-4e7e-9224-1c5f2b02ef45": {
