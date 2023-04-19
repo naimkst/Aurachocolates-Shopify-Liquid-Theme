@@ -95,16 +95,18 @@
 </div>
 
 {% if section.settings.popup == 'true' %}
-  <div class="before:w-full before:h-[100vh] before:fixed before:left-0 before:top-0 before:z-0 before:bg-black/50">
-    <div class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 tablet:w-full">
-      <div class="bg-white max-w-[832.74px] m-auto h-auto flex items-center justify-items-center text-center p-[10px] tablet:max-w-[95%] tablet:h-auto">
-        <div class="border-[5px] border-secondary p-[60px] tablet:p-[10px] ">
-          <p class="text-[30px] tablet:text-[22px]">
-            Our website will be closed from Wednesday, April 5th until Friday, April 14, following the observance of the
-            Pesach (Passover) Holiday!
-          </p>
-          <h2 class="text-[32px] font-bold py-5 tablet:text-[22px]">Thank you for visiting today!</h2>
-          <button class="button">OKAY</button>
+  <div class="popup">
+    <div class="before:w-full before:h-[100vh] before:fixed before:left-0 before:top-0 before:z-0 before:bg-black/50">
+      <div class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 tablet:w-full">
+        <div class="bg-white max-w-[832.74px] m-auto h-auto flex items-center justify-items-center text-center p-[10px] tablet:max-w-[95%] tablet:h-auto">
+          <div class="border-[5px] border-secondary p-[60px] tablet:p-[10px] ">
+            <p class="text-[30px] tablet:text-[22px]">
+              Our website will be closed from Wednesday, April 5th until Friday, April 14, following the observance of
+              the Pesach (Passover) Holiday!
+            </p>
+            <h2 class="text-[32px] font-bold py-5 tablet:text-[22px]">Thank you for visiting today!</h2>
+            <button class="button" id="isPopup">OKAY</button>
+          </div>
         </div>
       </div>
     </div>
@@ -206,14 +208,15 @@
       "label": "Popup",
       "options": [
         {
-          "value": "true",
-          "label": "True"
-        },
-        {
           "value": "false",
           "label": "False"
+        },
+        {
+          "value": "true",
+          "label": "True"
         }
-      ]
+      ],
+      "default": "false"
     }
   ],
 

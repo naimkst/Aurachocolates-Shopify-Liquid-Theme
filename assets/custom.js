@@ -250,4 +250,9 @@ function getImg(id, img, option) {
       }
     }
   });
+
+  //Popup show hihde
+  $(".isPopup").on("click", function (e) {
+    $(".popup").toggleClass("popupShow");
+  });
 })(window.jQuery);
