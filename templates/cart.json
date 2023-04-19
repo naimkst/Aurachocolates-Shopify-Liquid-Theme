@@ -5,8 +5,8 @@
       "settings": {
         "hero_title": "Shop",
         "hero_image": "shopify:\/\/shop_images\/banner-hero.svg",
-        "page_link": "",
-        "hero_subtitle_title": "Product title"
+        "page_link": "\/collections\/all",
+        "hero_subtitle_title": ""
       }
     },
     "cart-items": {
