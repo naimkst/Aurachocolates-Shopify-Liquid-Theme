@@ -105,7 +105,45 @@
       ],
       "settings": {
         "prd_tab_link": "\/collections\/all",
-        "prd_button_text": "I want to make their day"
+        "prd_button_text": "View More"
+      }
+    },
+    "d073b788-472f-4ef1-9bfd-62dfc6def5df": {
+      "type": "promise-section",
+      "blocks": {
+        "template--18624405569809__d073b788-472f-4ef1-9bfd-62dfc6def5df-16819010450caace47-0": {
+          "type": "slider",
+          "settings": {
+            "promise_item_title": "Sensational Selection",
+            "promise_item_description": "Have an occasion? Have a particular taste or color in mind? Trying to stay within budget? Our vast selection boasts many options that will surely fit your needs.",
+            "promise_item_image": "shopify:\/\/shop_images\/selection.svg"
+          }
+        },
+        "38eef291-189d-4aa4-8a64-f852c50ce940": {
+          "type": "slider",
+          "settings": {
+            "promise_item_title": "Handmade Freshness",
+            "promise_item_description": "Artisanally crafted locally, each piece of Aura chocolates is kept in temperature-controlled locations. You’re ensured a luscious experience every time. (did you notice that we’re always wearing a sweater?)",
+            "promise_item_image": "shopify:\/\/shop_images\/handmade.svg"
+          }
+        },
+        "e4b26f65-2388-4bf7-86e0-0805e83f19d7": {
+          "type": "slider",
+          "settings": {
+            "promise_item_title": "Superior Service",
+            "promise_item_description": "Don’t be shy to ask! You want a picture of your order? Need someone to write a personalized note? We are here to make your gift-giving experience an absolute pleasure.",
+            "promise_item_image": "shopify:\/\/shop_images\/service.svg"
+          }
+        }
+      },
+      "block_order": [
+        "template--18624405569809__d073b788-472f-4ef1-9bfd-62dfc6def5df-16819010450caace47-0",
+        "38eef291-189d-4aa4-8a64-f852c50ce940",
+        "e4b26f65-2388-4bf7-86e0-0805e83f19d7"
+      ],
+      "settings": {
+        "promise_title": "Our Promise",
+        "promise_description": "There is a reason we have established a strong following in Montreal and all over the world for our beloved Kosher artisanal Belgium chocolates."
       }
     }
   },
@@ -114,6 +152,7 @@
     "5439497d-a770-4e7e-9224-1c5f2b02ef45",
     "e15c9594-86a4-4eeb-8417-dcb216a11b70",
     "99fc05ac-b6dc-42cc-8eb3-46b884583dce",
-    "1c0f5092-8b66-4e7c-bb3f-c7f49ea930b2"
+    "1c0f5092-8b66-4e7c-bb3f-c7f49ea930b2",
+    "d073b788-472f-4ef1-9bfd-62dfc6def5df"
   ]
 }
