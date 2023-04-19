@@ -256,4 +256,58 @@ function getImg(id, img, option) {
     console.log("clicked");
     $(".popup").toggleClass("popupShow");
   });
+
+  //Ajax Search Result
+  $(document).ready(function () {
+    $("#search-box").keyup(function () {
+      console.log("searching...");
+      const search_result = $("ul.search-lists-loop");
+      const query = document.querySelector("input").value;
+      const searchSection = $(".search-list-items");
+      var ajax_spiner = $(".search-loading");
+
+      if (query != "") {
+        $.ajax({
+          url: "/search/suggest.json?q=" + query + "&resources[type]=product",
+          type: "GET",
+          dataType: "json",
+          beforeSend: function () {
+            ajax_spiner.show();
+          },
+        }).done(function (data) {
+          if (data.resources.results.products != null) {
+            searchSection.hide();
+            $(search_result).empty();
+            data.resources.results.products.forEach(function (product) {
+              console.log(product);
+              searchSection.show();
+              var html = "<li>";
+              html += '<a href="' + product.url + '" class="single-card-item">';
+              html += '<div class="product-image">';
+              html += '<img src="' + product["image"] + '" alt="item">';
+              html += "</div>";
+              html += '<div class="product-info">';
+              html += '<h4 class="product-name">' + product.title + "</h4>";
+              // html += '<h4 class="price">' + product.price + "</h4>";
+              html += "</div>";
+              html += "</a>";
+              html += "</li>";
+
+              ajax_spiner.hide();
+              $(search_result).append(html);
+            });
+          } else {
+            searchSection.hide();
+            $(search_result).empty();
+            $(search_result).append("<li>No Data Found</li>");
+          }
+        });
+      } else {
+        searchSection.hide();
+        $(search_result).empty();
+        $(search_result).append("<li>No Data Found</li>");
+      }
+      $(search_result).empty();
+    });
+  });
 })(window.jQuery);
