@@ -9,7 +9,7 @@
         "button_link": "",
         "conllection_text": "SEE OUR PURIM COLLECTION",
         "hero_collection": "birthday",
-        "hero_image": "shopify:\/\/shop_images\/hero_image_III.jpg"
+        "hero_image": "shopify:\/\/shop_images\/hero_image.webp"
       }
     },
     "5439497d-a770-4e7e-9224-1c5f2b02ef45": {
@@ -17,10 +17,21 @@
       "settings": {
         "category_limit": "10"
       }
+    },
+    "e15c9594-86a4-4eeb-8417-dcb216a11b70": {
+      "type": "customize-section",
+      "settings": {
+        "customize_title": "Looking to match everything at your next event-like even the chocolates.",
+        "customize_subtitle": "We offer 4 box sizes with 7 different colors and patterns to choose from. As simple as that! Make it customized to your liking!",
+        "cutomize_button_text": "Click Here To Customize Your Tray",
+        "customize_button_link": "",
+        "customize_image": "shopify:\/\/shop_images\/customize_image.jpg"
+      }
     }
   },
   "order": [
     "image_banner",
-    "5439497d-a770-4e7e-9224-1c5f2b02ef45"
+    "5439497d-a770-4e7e-9224-1c5f2b02ef45",
+    "e15c9594-86a4-4eeb-8417-dcb216a11b70"
   ]
 }
