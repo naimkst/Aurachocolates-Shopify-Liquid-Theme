@@ -145,6 +145,13 @@
         "promise_title": "Our Promise",
         "promise_description": "There is a reason we have established a strong following in Montreal and all over the world for our beloved Kosher artisanal Belgium chocolates."
       }
+    },
+    "8d7cb7f3-0eb8-4a6f-b735-e6389b43fbea": {
+      "type": "mom-allow-section",
+      "settings": {
+        "allowed_title": "It All Started When My Mom Allowed Me In Her Kitchen.",
+        "allowed_description": "Delicious homemade treats and entertaining were always on the agenda in my childhood home. My mom, a party planner par excellence with a discerning taste for gourmet food graciously let me be at her side while preparing for her parties. It was these adventures that developed my interest in creating a gourmet product with my favorite dessert-chocolate."
+      }
     }
   },
   "order": [
@@ -153,6 +160,7 @@
     "e15c9594-86a4-4eeb-8417-dcb216a11b70",
     "99fc05ac-b6dc-42cc-8eb3-46b884583dce",
     "1c0f5092-8b66-4e7c-bb3f-c7f49ea930b2",
-    "d073b788-472f-4ef1-9bfd-62dfc6def5df"
+    "d073b788-472f-4ef1-9bfd-62dfc6def5df",
+    "8d7cb7f3-0eb8-4a6f-b735-e6389b43fbea"
   ]
 }
