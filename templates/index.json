@@ -27,11 +27,32 @@
         "customize_button_link": "shopify:\/\/pages\/customize-tray",
         "customize_image": "shopify:\/\/shop_images\/customize_image.jpg"
       }
+    },
+    "99fc05ac-b6dc-42cc-8eb3-46b884583dce": {
+      "type": "gift-grid-section",
+      "blocks": {
+        "template--18624405569809__99fc05ac-b6dc-42cc-8eb3-46b884583dce-1681900830c57c1b8f-0": {
+          "type": "slider",
+          "settings": {
+            "gift_title": "Gift",
+            "gift_description": "When words just won’t do it-say it with chocolate. Delightful,delicious and, discerning- you’ll make their day.",
+            "gift_image": "shopify:\/\/shop_images\/gift.svg",
+            "gift_link": "",
+            "gift_button_text": "I want to make their day"
+          }
+        }
+      },
+      "block_order": [
+        "template--18624405569809__99fc05ac-b6dc-42cc-8eb3-46b884583dce-1681900830c57c1b8f-0"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
     "image_banner",
     "5439497d-a770-4e7e-9224-1c5f2b02ef45",
-    "e15c9594-86a4-4eeb-8417-dcb216a11b70"
+    "e15c9594-86a4-4eeb-8417-dcb216a11b70",
+    "99fc05ac-b6dc-42cc-8eb3-46b884583dce"
   ]
 }
