@@ -1,11 +1,18 @@
 {
   "sections": {
     "hero": {
-      "type": "hero-section"
+      "type": "hero-section",
+      "settings": {
+      }
     },
     "main": {
-      "type": "custom-product"
+      "type": "custom-product",
+      "settings": {
+      }
     }
   },
-  "order": ["hero", "main"]
+  "order": [
+    "hero",
+    "main"
+  ]
 }
