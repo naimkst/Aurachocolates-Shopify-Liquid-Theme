@@ -152,7 +152,8 @@
           "certificate02": "shopify:\/\/shop_images\/certificate02_1.png",
           "newsletter_text": "Subscribe To Our Newsletter",
           "info_text": "*All wine bottles in product images are for illustration purposes only",
-          "copy_right_text": "Copyright © 2022 Aura Delices. All Rights Reserved"
+          "copy_right_text": "Copyright © 2022 Aura Delices. All Rights Reserved",
+          "popup": "true"
         }
       }
     },
