@@ -159,17 +159,39 @@
         "template--18624405569809__55481728-acac-4bce-94f4-80ab216e4e4f-16819011283ccddc4d-0": {
           "type": "slider",
           "settings": {
+            "instagram_image": "shopify:\/\/shop_images\/02.svg"
+          }
+        },
+        "c2c26be9-06c0-4d59-a562-4d94fa7075c0": {
+          "type": "slider",
+          "settings": {
+            "instagram_image": "shopify:\/\/shop_images\/03.svg"
+          }
+        },
+        "2da0babc-88e5-4138-8991-058cab17cee2": {
+          "type": "slider",
+          "settings": {
+            "instagram_image": "shopify:\/\/shop_images\/01.svg"
+          }
+        },
+        "7dedd2f5-7a65-4e0c-acae-62f0bccee543": {
+          "type": "slider",
+          "settings": {
+            "instagram_image": "shopify:\/\/shop_images\/04.svg"
           }
         }
       },
       "block_order": [
-        "template--18624405569809__55481728-acac-4bce-94f4-80ab216e4e4f-16819011283ccddc4d-0"
+        "template--18624405569809__55481728-acac-4bce-94f4-80ab216e4e4f-16819011283ccddc4d-0",
+        "c2c26be9-06c0-4d59-a562-4d94fa7075c0",
+        "2da0babc-88e5-4138-8991-058cab17cee2",
+        "7dedd2f5-7a65-4e0c-acae-62f0bccee543"
       ],
       "settings": {
         "instagram_slug": "Instagram",
         "instagram_title": "Follow us on Instagram",
         "instagram_description": "Check us out on instagram, we love to see our follower base grow! We constantly work on showing you our latest chocolate trends.. come check us out!",
-        "instagram_link": "#"
+        "instagram_link": "https:\/\/www.instagram.com\/aura_delices\/?hl=en"
       }
     }
   },
