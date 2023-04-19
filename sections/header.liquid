@@ -343,7 +343,9 @@
                     style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
                 ></span>
                 <div>
-                  <p class="text-secondary text-[13px] font-title font-bold mb-1 pr-4">{{ item.product.title }}</p>
+                  <p class="text-secondary text-[13px] font-title font-bold mb-1 pr-4">
+                    <a href="{{ item.url }}">{{ item.product.title }}</a>
+                  </p>
                   <p class="text-secondary text-[12px] font-title">{{ item.quantity }} X {{ item.price | money }}</p>
                 </div>
               </div>
@@ -357,7 +359,7 @@
             {{- cart.total_price | money_without_currency -}}
           </h2>
           <div class="flex justify-center items-center py-3">
-            <a href="" class="bg-secondary text-white py-3 px-5 rounded-xl font-bold w-full">View Cart</a>
+            <a href="/cart" class="bg-secondary text-white py-3 px-5 rounded-xl font-bold w-full">View Cart</a>
           </div>
         </div>
       </div>
