@@ -232,12 +232,14 @@
                 style="background-image: url({{ 'menu-bg.png' | asset_url }})"
               >
                 <div class="w-full pb-8 border-b-1 border-b-gray-500">
-                  <p class="text-[30px] font-normal mb-6 font-title">1(514)-272-2639</p>
-                  <a href="tel:1(514)-272-2639" class="button !py-3 w-full !px-7 cursor-pointer">Call Now</a>
+                  <p class="text-[30px] font-normal mb-6 font-title">{{ section.settings.phone }}</p>
+                  <a href="tel:{{ section.settings.email }}" class="button !py-3 w-full !px-7 cursor-pointer"
+                    >Call Now</a
+                  >
                 </div>
                 <div class="w-full pt-4">
-                  <p class="text-[30px] font-normal mb-6 font-title">info@auradelices.ca</p>
-                  <a href="mailto:info@auradelices.ca" class="button w-full !py-3 !px-7 cursor-pointer"
+                  <p class="text-[30px] font-normal mb-6 font-title">{{ section.settings.email }}</p>
+                  <a href="mailto:{{ section.settings.email }}" class="button w-full !py-3 !px-7 cursor-pointer"
                     >Send Us And Email</a
                   >
                 </div>
@@ -433,6 +435,18 @@
       "type": "url",
       "id": "customize_url",
       "label": "Customize Link"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone",
+      "default": "1(514)-272-2639"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "info@auradelices.ca"
     }
   ],
 
