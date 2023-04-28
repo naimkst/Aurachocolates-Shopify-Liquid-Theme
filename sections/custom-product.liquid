@@ -17,6 +17,9 @@
     border: 1px solid #ea5329;
     border-radius: 5px;
   }
+  .imgHide {
+    opacity: 0;
+  }
 </style>
 
 <div class="relative bg-[url('/assets/images/bg-right.svg')] bg-no-repeat bg-cover bg-right-bottom">
@@ -32,18 +35,54 @@
       <div class="grid grid-cols-5 gap-5 container m-auto phone:grid-cols-1 laptop:px-4 tablet:grid-cols-2 items-start">
         <div class="col-span-2 tablet:col-span-1">
           <div class="">
-            <div class="">
+            <div class="relative">
               <div class="">
                 <img src="{{ product.images.first.src | img_url: '' }}" alt>
               </div>
 
-              <div class="flex flex-wrap">
-                <img width="200px" src="{{ product.images.first.src | img_url: 'original' }}" alt>
-                <img width="200px" src="{{ product.images.first.src | img_url: 'original' }}" alt>
-                <img width="200px" src="{{ product.images.first.src | img_url: 'original' }}" alt>
-                <img width="200px" src="{{ product.images.first.src | img_url: 'original' }}" alt>
-                <img width="200px" src="{{ product.images.first.src | img_url: 'original' }}" alt>
-                <img width="200px" src="{{ product.images.first.src | img_url: 'original' }}" alt>
+              <div class="flex flex-wrap absolute top-0 left-0">
+                <img
+                  class="imgHide"
+                  id="image1"
+                  width="200px"
+                  src="{{ product.images.first.src | img_url: 'original' }}"
+                  alt
+                >
+                <img
+                  class="imgHide"
+                  id="image2"
+                  width="200px"
+                  src="{{ product.images.first.src | img_url: 'original' }}"
+                  alt
+                >
+                <img
+                  class="imgHide"
+                  id="image3"
+                  width="200px"
+                  src="{{ product.images.first.src | img_url: 'original' }}"
+                  alt
+                >
+                <img
+                  class="imgHide"
+                  id="image4"
+                  width="200px"
+                  src="{{ product.images.first.src | img_url: 'original' }}"
+                  alt
+                >
+                <img
+                  class="imgHide"
+                  id="image5"
+                  width="200px"
+                  src="{{ product.images.first.src | img_url: 'original' }}"
+                  alt
+                >
+                <img
+                  class="imgHide"
+                  id="image6"
+                  width="200px"
+                  src="{{ product.images.first.src | img_url: 'original' }}"
+                  alt
+                >
               </div>
             </div>
 

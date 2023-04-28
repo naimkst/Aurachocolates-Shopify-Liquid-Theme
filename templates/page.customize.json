@@ -1,8 +1,17 @@
 {
   "sections": {
     "main": {
-      "type": "customize"
+      "type": "customize",
+      "settings": {
+        "tray_title": "Please Select Your Try Size",
+        "try_product": [
+          "boxed-chocolate-truffles-4-tray-customize-your-box",
+          "boxed-chocolate-truffles-6-tray-customize-your-box"
+        ]
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }
