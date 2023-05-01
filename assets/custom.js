@@ -77,6 +77,38 @@ function getImg(id, img, option) {
     image2.style.opacity = "1";
   }
 }
+
+function getImgFour(id, img, option) {
+  console.log(id, img, option, image);
+
+  console.log(option);
+
+  if (option == "Tray One Box") {
+    var image = document.querySelector("#image1");
+    var image2 = document.querySelector("#image4");
+    image.src = img;
+    image2.src = img;
+    image.style.opacity = "1";
+    image2.style.opacity = "1";
+  }
+  if (option == "Tray Two Box") {
+    var image = document.querySelector("#image2");
+    var image2 = document.querySelector("#image5");
+    image.src = img;
+    image2.src = img;
+    image.style.opacity = "1";
+    image2.style.opacity = "1";
+  }
+  if (option == "Tray Three Box") {
+    var image = document.querySelector("#image3");
+    var image2 = document.querySelector("#image6");
+    image.src = img;
+    image2.src = img;
+    image.style.opacity = "1";
+    image2.style.opacity = "1";
+  }
+}
+
 (function ($) {
   ("use strict");
 

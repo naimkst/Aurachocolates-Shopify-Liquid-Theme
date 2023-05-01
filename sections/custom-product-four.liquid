@@ -44,42 +44,28 @@
                 <img
                   class="imgHide"
                   id="image1"
-                  width="200px"
+                  width="300px"
                   src="{{ product.images.first.src | img_url: 'original' }}"
                   alt
                 >
                 <img
                   class="imgHide"
                   id="image2"
-                  width="200px"
+                  width="300px"
                   src="{{ product.images.first.src | img_url: 'original' }}"
                   alt
                 >
                 <img
                   class="imgHide"
                   id="image3"
-                  width="200px"
+                  width="300px"
                   src="{{ product.images.first.src | img_url: 'original' }}"
                   alt
                 >
                 <img
                   class="imgHide"
                   id="image4"
-                  width="200px"
-                  src="{{ product.images.first.src | img_url: 'original' }}"
-                  alt
-                >
-                <img
-                  class="imgHide"
-                  id="image5"
-                  width="200px"
-                  src="{{ product.images.first.src | img_url: 'original' }}"
-                  alt
-                >
-                <img
-                  class="imgHide"
-                  id="image6"
-                  width="200px"
+                  width="300px"
                   src="{{ product.images.first.src | img_url: 'original' }}"
                   alt
                 >
@@ -132,7 +118,7 @@
                         <div class="w-[50px] h-[50px] rounded-full m-auto">
                           <img
                             onclick="
-                              getImg(
+                              getImgFour(
                                 '{{ variant.id }}',
                                 '{{ variant.image.src | img_url: 'original' }}',
                                 '{{option}}'
