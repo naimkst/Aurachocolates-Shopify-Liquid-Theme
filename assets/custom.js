@@ -166,6 +166,34 @@ function getImgTwo(id, img, option, title, index) {
   }
 }
 
+function mobileMenu() {
+  var x = document.getElementById("mobileMenu");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+
+  document.addEventListener("click", function (e) {
+    var container = document.getElementById("mobileMenu");
+    var clickTab = document.getElementById("menuIcon");
+    if (!container.contains(e.target) && !clickTab.contains(e.target)) {
+      console.log("clicked outside");
+      x.style.display = "none";
+    }
+  });
+}
+
+function showFilter() {
+  console.log("show filter");
+  var x = document.getElementById("filter");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
 (function ($) {
   ("use strict");
 

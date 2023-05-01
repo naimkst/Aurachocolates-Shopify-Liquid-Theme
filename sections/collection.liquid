@@ -16,10 +16,10 @@
 
 {% assign limit_product = section.settings.product_limit %}
 {%- paginate collections.all.products by limit_product -%}
-  <div class="relative mt-7 left-0 tablet:px-3 laptop:px-4 bg-[#FAFAFA]">
+  <div class="relative left-0 tablet:px-3 laptop:px-4 bg-[#FAFAFA] pt-7">
     <div class="container m-auto">
       <div class="text-center hidden phone:block">
-        <button class="button">Filters</button>
+        <button class="button" onclick="showFilter()">Filters</button>
       </div>
       <div class="flex phone:flex-col gap-10">
         {% render 'filter' %}

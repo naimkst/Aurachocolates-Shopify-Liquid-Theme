@@ -69,48 +69,50 @@
             </p>
           </div>
 
-          {% if product.images.size > 0 %}
-            <div class="product__photo">
-              {% for option in product.options %}
-                <div class="product__variants">
-                  <h2 class="font-bold tex-[20px] mb-[10px]">{{ option }}</h2>
-                  {% assign option_values = '' %}
+          {% comment %}
+            {% if product.images.size > 0 %}
+              <div class="product__photo">
+                {% for option in product.options %}
+                  <div class="product__variants">
+                    <h2 class="font-bold tex-[20px] mb-[10px]">{{ option }}</h2>
+                    {% assign option_values = '' %}
 
-                  <div class="flex items-center gap-[20px] text-center mb-[30px] flex-wrap">
-                    {% for variant in product.variants %}
-                      {% assign option_value = variant.options[forloop.index0] %}
+                    <div class="flex items-center gap-[20px] text-center mb-[30px] flex-wrap">
+                      {% for variant in product.variants %}
+                        {% assign option_value = variant.options[forloop.index0] %}
 
-                      <div class="text-center">
-                        <div class="w-[50px] h-[50px] rounded-full m-auto">
-                          <img
-                            onclick="
-                              getImg(
-                                '{{ variant.id }}',
-                                '{{ variant.image.src | img_url: 'original' }}',
-                                '{{option}}'
-                              )
-                            "
-                            class="w-[50px] h-[50px] rounded-full m-auto"
-                            src="{{ variant.image.src | img_url: '50' }}"
-                            alt="{{ variant.title }}"
-                          >
+                        <div class="text-center">
+                          <div class="w-[50px] h-[50px] rounded-full m-auto">
+                            <img
+                              onclick="
+                                getImg(
+                                  '{{ variant.id }}',
+                                  '{{ variant.image.src | img_url: 'original' }}',
+                                  '{{option}}'
+                                )
+                              "
+                              class="w-[50px] h-[50px] rounded-full m-auto"
+                              src="{{ variant.image.src | img_url: '50' }}"
+                              alt="{{ variant.title }}"
+                            >
+                          </div>
+
+                          {% assign option_values = variant.options | append: option_value | remove: '"' %}
+                          {% assign optionRemove = option_values | remove: '[' %}
+                          {% assign optionRemoved = optionRemove | remove: ']' %}
+
+                          {% assign my_var_parts = optionRemoved | split: ',' %}
+                          {% assign my_var_without_comma = my_var_parts | first %}
+
+                          <p class="text-center">{{ my_var_without_comma }}</p>
                         </div>
-
-                        {% assign option_values = variant.options | append: option_value | remove: '"' %}
-                        {% assign optionRemove = option_values | remove: '[' %}
-                        {% assign optionRemoved = optionRemove | remove: ']' %}
-
-                        {% assign my_var_parts = optionRemoved | split: ',' %}
-                        {% assign my_var_without_comma = my_var_parts | first %}
-
-                        <p class="text-center">{{ my_var_without_comma }}</p>
-                      </div>
-                    {% endfor %}
+                      {% endfor %}
+                    </div>
                   </div>
-                </div>
-              {% endfor %}
-            </div>
-          {% endif %}
+                {% endfor %}
+              </div>
+            {% endif %}
+          {% endcomment %}
 
           {% comment %}
             {% if product.variants.size > 1 %}
