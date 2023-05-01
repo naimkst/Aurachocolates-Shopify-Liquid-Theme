@@ -2539,11 +2539,11 @@ img.image-zoom__image {
   .phone\:h-\[100px\]{
     height: 100px;
   }
-  .phone\:h-\[600px\]{
-    height: 600px;
+  .phone\:h-auto{
+    height: auto;
   }
-  .phone\:min-h-\[600px\]{
-    min-height: 600px;
+  .phone\:min-h-full{
+    min-height: 100%;
   }
   .phone\:w-\[49\.5\%\]{
     width: 49.5%;
@@ -2596,8 +2596,11 @@ img.image-zoom__image {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
   }
-  .phone\:pb-0{
-    padding-bottom: 0px;
+  .phone\:pb-\[70px\]{
+    padding-bottom: 70px;
+  }
+  .phone\:pt-\[150px\]{
+    padding-top: 150px;
   }
   .phone\:text-center{
     text-align: center;
