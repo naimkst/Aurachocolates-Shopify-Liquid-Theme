@@ -132,7 +132,10 @@
           "gourmet_collection": "congrats",
           "logo": "shopify:\/\/shop_images\/logo_1.svg",
           "customize_image": "shopify:\/\/shop_images\/01.svg",
-          "customize_url": "shopify:\/\/pages\/customize-tray"
+          "customize_url": "shopify:\/\/pages\/customize-tray",
+          "phone": "1(514)-272-2639",
+          "email": "info@auradelices.ca",
+          "infoTopText": "Shipping To All Over Canada"
         }
       },
       "footer": {
@@ -153,7 +156,7 @@
           "newsletter_text": "Subscribe To Our Newsletter",
           "info_text": "*All wine bottles in product images are for illustration purposes only",
           "copy_right_text": "Copyright © 2022 Aura Delices. All Rights Reserved",
-          "popup": "true"
+          "popup": "false"
         }
       }
     },
