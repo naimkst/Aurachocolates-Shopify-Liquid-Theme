@@ -47,14 +47,16 @@ function openPages(pageName, elmnt, color) {
   elmnt.classList.add("bg-secondary");
 }
 
-function getImg(id, img, option) {
+function getImg(id, img, option, title, index) {
   if (option == "Tray One Box") {
     var image = document.querySelector("#image1");
     var image2 = document.querySelector("#image4");
+    var input = document.querySelector("#propertiesSixOne");
     image.src = img;
     image2.src = img;
     image.style.opacity = "1";
     image2.style.opacity = "1";
+    input.value = title;
   }
   if (option == "Tray Two Box") {
     var image = document.querySelector("#image2");
@@ -63,6 +65,8 @@ function getImg(id, img, option) {
     image2.src = img;
     image.style.opacity = "1";
     image2.style.opacity = "1";
+    var input = document.querySelector("#propertiesSixTwo");
+    input.value = title;
   }
   if (option == "Tray Three Box") {
     var image = document.querySelector("#image3");
@@ -71,6 +75,8 @@ function getImg(id, img, option) {
     image2.src = img;
     image.style.opacity = "1";
     image2.style.opacity = "1";
+    var input = document.querySelector("#propertiesSixThree");
+    input.value = title;
   }
 }
 
