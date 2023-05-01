@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-section",
+      "settings": {}
+    },
+    "main": {
+      "type": "custom-product-three",
+      "settings": {}
+    }
+  },
+  "order": ["hero", "main"]
+}

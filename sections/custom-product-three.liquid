@@ -1,0 +1,283 @@
+<script>
+  window.product = {{ product | json }} || {}
+</script>
+<script type="application/json">
+  {{ product.variants | json }}
+</script>
+
+<style>
+  .slick-slide {
+    margin: 0 5px;
+  }
+  .slick-active img {
+    border: 1px solid #3b1408;
+    border-radius: 5px;
+  }
+  .slick-slide.slick-current.slick-active img {
+    border: 1px solid #ea5329;
+    border-radius: 5px;
+  }
+  .imgHide {
+    opacity: 0;
+  }
+</style>
+
+<div class="relative bg-[url('/assets/images/bg-right.svg')] bg-no-repeat bg-cover bg-right-bottom">
+  <form class="form" action="/cart/add" method="post" enctype="multipart/form-data" id="addToCart">
+    <input
+      type="hidden"
+      class="variant-idss"
+      id="variant-id"
+      name="id"
+      value="{{ product.variants.first.id }}"
+    >
+    <div class="py-[66px]">
+      <div class="grid grid-cols-5 gap-5 container m-auto phone:grid-cols-1 laptop:px-4 tablet:grid-cols-2 items-start">
+        <div class="col-span-2 tablet:col-span-1">
+          <div class="">
+            <div class="relative">
+              <div class="">
+                <img src="{{ product.images.first.src | img_url: '' }}" alt>
+              </div>
+
+              <div class="flex flex-wrap absolute top-0 left-0 mt-[5px]">
+                <img
+                  class="imgHide"
+                  id="image1"
+                  width="200px"
+                  src="{{ product.images.first.src | img_url: 'original' }}"
+                  alt
+                >
+                <img
+                  class="imgHide"
+                  id="image2"
+                  width="200px"
+                  src="{{ product.images.first.src | img_url: 'original' }}"
+                  alt
+                >
+                <img
+                  class="imgHide"
+                  id="image3"
+                  width="200px"
+                  src="{{ product.images.first.src | img_url: 'original' }}"
+                  alt
+                >
+                <img
+                  class="imgHide"
+                  id="image4"
+                  width="200px"
+                  src="{{ product.images.first.src | img_url: 'original' }}"
+                  alt
+                >
+                <img
+                  class="imgHide"
+                  id="image5"
+                  width="200px"
+                  src="{{ product.images.first.src | img_url: 'original' }}"
+                  alt
+                >
+                <img
+                  class="imgHide"
+                  id="image6"
+                  width="200px"
+                  src="{{ product.images.first.src | img_url: 'original' }}"
+                  alt
+                >
+              </div>
+            </div>
+
+            {% comment %}
+              {% if product.images.size > 1 %}
+                <div class="slider-nav mt-[10px]">
+                  {% for image in product.images %}
+                    <div>
+                      <img src="{{ image.src | img_url: '' }}" alt>
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            {% endcomment %}
+          </div>
+
+          <div
+            class="w-full h-auto relative overflow-scroll pb-10 hide-scroll-bar snap-x z-50 flex mt-2 gap-2 tablet:flex-1"
+          ></div>
+        </div>
+        <div class="col-span-3 tablet:col-span-1 phone:text-center">
+          <h2 class="section-title">{{ product.title }}</h2>
+          <div>
+            <div class="product-content">
+              {{ product.description }}
+            </div>
+            <p class="section-content mb-[20px]">
+              <a class="text-primary font-medium" href="">Shipping:</a> calculated at checkout
+            </p>
+            <p class="text-[30px] font-title leading-[45px] text-secondary font-normal mb-[30px]">
+              Price: {{ product.price | money }}
+            </p>
+          </div>
+
+          {% if product.images.size > 0 %}
+            <div class="product__photo">
+              {% for option in product.options %}
+                <div class="product__variants">
+                  <h2 class="font-bold tex-[20px] mb-[10px]">{{ option }}</h2>
+                  {% assign option_values = '' %}
+
+                  <div class="flex items-center gap-[20px] text-center mb-[30px] flex-wrap">
+                    {% for variant in product.variants %}
+                      {% assign option_value = variant.options[forloop.index0] %}
+
+                      <div class="text-center">
+                        <div class="w-[50px] h-[50px] rounded-full m-auto">
+                          <img
+                            onclick="
+                              getImg(
+                                '{{ variant.id }}',
+                                '{{ variant.image.src | img_url: 'original' }}',
+                                '{{option}}'
+                              )
+                            "
+                            class="w-[50px] h-[50px] rounded-full m-auto"
+                            src="{{ variant.image.src | img_url: '50' }}"
+                            alt="{{ variant.title }}"
+                          >
+                        </div>
+
+                        {% assign option_values = variant.options | append: option_value | remove: '"' %}
+                        {% assign optionRemove = option_values | remove: '[' %}
+                        {% assign optionRemoved = optionRemove | remove: ']' %}
+
+                        {% assign my_var_parts = optionRemoved | split: ',' %}
+                        {% assign my_var_without_comma = my_var_parts | first %}
+
+                        <p class="text-center">{{ my_var_without_comma }}</p>
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          {% comment %}
+            {% if product.variants.size > 1 %}
+              <div class="flex items-center gap-[20px] text-center mb-[30px] flex-wrap">
+                {% for variant in product.variants %}
+                  <div class="text-center">
+                    <div class="w-[50px] h-[50px] rounded-full m-auto">
+                      <img
+                        class="w-[50px] h-[50px] rounded-full m-auto"
+                        src="{{ variant.image.src | img_url: '50' }}"
+                        alt="{{ variant.title }}"
+                      >
+                    </div>
+
+                    <p class="text-center">{{ variant.title }}</p>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endif %}
+          {% endcomment %}
+          <div class="flex phone:justify-center">
+            <div class="flex justify-between items-center w-1/5 border-2 border-primary py-0 px-[20px]">
+              <svg
+                class=" fill-primary hover:fill-secondary cursor-pointer quantity-down"
+                width="16"
+                height="3"
+                viewBox="0 0 16 3"
+              >
+                <rect width="16" height="2.4"></rect>
+              </svg>
+              <div class="quantity-field">
+                <input
+                  id="quantity"
+                  name="quantity"
+                  class="mx-2 text-center w-8 text-[24px] font-content text-primary"
+                  type="text"
+                  value="1"
+                  min="1"
+                >
+              </div>
+              <svg
+                class="cursor-pointer fill-primary hover:fill-secondary quantity-up"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+              >
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.20104 6.79896V0H6.80104V6.79896H0V9.19896H6.80104V16H9.20104V9.19896H16V6.79896H9.20104Z"></path>
+              </svg>
+            </div>
+
+            <div><button class="button !rounded-none">Add To Cart</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="mb-[40px] mt-[60px] tablet:px-4 laptop:px-4">
+    <div class="container m-auto">
+      <div>
+        <h2 class="section-title phone:text-center">{{ section.settings.recommendation_Title }}</h2>
+      </div>
+      <div>
+        <div class="py-[60px]">
+          <div class="grid grid-cols-4 gap-12 tablet:grid-cols-2 phone:grid-cols-1 items-center justify-end">
+            {% for product in collections[section.settings.recommendation_product].products %}
+              <div class="group rounded-[10px] relative py-[40px] hover:cursor-pointer">
+                <div class="">
+                  <div class="right-0 relative text-right -top-[50px] group-hover:bg-white min-h-[320px]">
+                    <a href="{{ product.url }}">
+                      <img
+                        alt="product"
+                        src="{{ product.featured_image | product_img_url: 'medium' }}"
+                        class="img-full min-h-[320px]"
+                      >
+                    </a>
+                    <div class="hidden group-hover:block absolute bottom-0 w-full">
+                      <button class="w-full bg-primary text-white py-3">Add To Cart</button>
+                    </div>
+                  </div>
+                  <div class="flex justify-between -mt-5">
+                    <div>
+                      <h4 class="text-[26px] leading-[30px] capitalize mr-[20px]">
+                        <a href="{{ product.url }}">{{ product.title }}</a>
+                      </h4>
+                      <span class="text-black py-3">{{ product.vendor }}</span>
+                      <p class="text-[18px] leading-[30px]">Price: {{ product.price | money }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Recommendation product",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "recommendation_product",
+      "label": "Recommendation product"
+    },
+    {
+      "type": "text",
+      "id": "recommendation_Title",
+      "label": "Recommendation Title",
+      "default": "You may also like"
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Recommendation product"
+    }
+  ]
+}
+{% endschema %}

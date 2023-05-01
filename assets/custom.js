@@ -50,6 +50,8 @@ function openPages(pageName, elmnt, color) {
 function getImg(id, img, option) {
   console.log(id, img, option, image);
 
+  console.log(option);
+
   if (option == "Tray One Box") {
     var image = document.querySelector("#image1");
     var image2 = document.querySelector("#image4");
