@@ -71,18 +71,6 @@
                 >
               </div>
             </div>
-
-            {% comment %}
-              {% if product.images.size > 1 %}
-                <div class="slider-nav mt-[10px]">
-                  {% for image in product.images %}
-                    <div>
-                      <img src="{{ image.src | img_url: '' }}" alt>
-                    </div>
-                  {% endfor %}
-                </div>
-              {% endif %}
-            {% endcomment %}
           </div>
 
           <div
@@ -146,25 +134,6 @@
             </div>
           {% endif %}
 
-          {% comment %}
-            {% if product.variants.size > 1 %}
-              <div class="flex items-center gap-[20px] text-center mb-[30px] flex-wrap">
-                {% for variant in product.variants %}
-                  <div class="text-center">
-                    <div class="w-[50px] h-[50px] rounded-full m-auto">
-                      <img
-                        class="w-[50px] h-[50px] rounded-full m-auto"
-                        src="{{ variant.image.src | img_url: '50' }}"
-                        alt="{{ variant.title }}"
-                      >
-                    </div>
-
-                    <p class="text-center">{{ variant.title }}</p>
-                  </div>
-                {% endfor %}
-              </div>
-            {% endif %}
-          {% endcomment %}
           <div class="flex phone:justify-center">
             <div class="flex justify-between items-center w-1/5 border-2 border-primary py-0 px-[20px]">
               <svg
