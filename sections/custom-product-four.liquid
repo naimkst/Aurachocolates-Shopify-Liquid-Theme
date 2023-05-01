@@ -20,6 +20,9 @@
   .imgHide {
     opacity: 0;
   }
+  .variant-selected {
+    border: 3px solid #ea5329;
+  }
 </style>
 
 <div class="relative bg-[url('/assets/images/bg-right.svg')] bg-no-repeat bg-cover bg-right-bottom">
@@ -30,6 +33,20 @@
       id="variant-id"
       name="id"
       value="{{ product.variants.first.id }}"
+    >
+    <input
+      type="hidden"
+      class="variant-idss"
+      id="propertiesFourOne"
+      name="properties[Tray One]"
+      value=""
+    >
+    <input
+      type="hidden"
+      class="variant-idss"
+      id="propertiesFourTwo"
+      name="properties[Tray Two]"
+      value=""
     >
     <div class="py-[66px]">
       <div class="grid grid-cols-5 gap-5 container m-auto phone:grid-cols-1 laptop:px-4 tablet:grid-cols-2 items-start">
@@ -42,30 +59,26 @@
 
               <div class="flex flex-wrap absolute top-0 left-0 mt-[5px]">
                 <img
-                  class="imgHide"
+                  class="imgHide w-[49.8%]"
                   id="image1"
-                  width="300px"
                   src="{{ product.images.first.src | img_url: 'original' }}"
                   alt
                 >
                 <img
-                  class="imgHide"
+                  class="imgHide w-[49.8%]"
                   id="image2"
-                  width="300px"
                   src="{{ product.images.first.src | img_url: 'original' }}"
                   alt
                 >
                 <img
-                  class="imgHide"
+                  class="imgHide w-[49.8%]"
                   id="image3"
-                  width="300px"
                   src="{{ product.images.first.src | img_url: 'original' }}"
                   alt
                 >
                 <img
-                  class="imgHide"
+                  class="imgHide w-[49.8%]"
                   id="image4"
-                  width="300px"
                   src="{{ product.images.first.src | img_url: 'original' }}"
                   alt
                 >
@@ -104,26 +117,27 @@
 
                       <div class="text-center">
                         <div class="w-[50px] h-[50px] rounded-full m-auto">
+                          {% assign option_values = variant.options | append: option_value | remove: '"' %}
+                          {% assign optionRemove = option_values | remove: '[' %}
+                          {% assign optionRemoved = optionRemove | remove: ']' %}
+
+                          {% assign my_var_parts = optionRemoved | split: ',' %}
+                          {% assign my_var_without_comma = my_var_parts | first %}
                           <img
                             onclick="
                               getImgFour(
                                 '{{ variant.id }}',
                                 '{{ variant.image.src | img_url: 'original' }}',
-                                '{{option}}'
+                                '{{option}}',
+                                '{{my_var_without_comma}}',
+                                '{{variant.id}}{{option | url_encode }} '
                               )
                             "
-                            class="w-[50px] h-[50px] rounded-full m-auto"
+                            class="w-[50px] h-[50px] rounded-full m-auto {{variant.id}}{{option | url_encode }} "
                             src="{{ variant.image.src | img_url: '50' }}"
                             alt="{{ variant.title }}"
                           >
                         </div>
-
-                        {% assign option_values = variant.options | append: option_value | remove: '"' %}
-                        {% assign optionRemove = option_values | remove: '[' %}
-                        {% assign optionRemoved = optionRemove | remove: ']' %}
-
-                        {% assign my_var_parts = optionRemoved | split: ',' %}
-                        {% assign my_var_without_comma = my_var_parts | first %}
 
                         <p class="text-center">{{ my_var_without_comma }}</p>
                       </div>

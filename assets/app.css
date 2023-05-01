@@ -748,8 +748,20 @@ video {
 .w-\[300px\]{
   width: 300px;
 }
+.w-\[33\%\]{
+  width: 33%;
+}
+.w-\[33\.2\%\]{
+  width: 33.2%;
+}
 .w-\[400px\]{
   width: 400px;
+}
+.w-\[49\.5\%\]{
+  width: 49.5%;
+}
+.w-\[49\.8\%\]{
+  width: 49.8%;
 }
 .w-\[50\%\]{
   width: 50%;
@@ -2532,6 +2544,9 @@ img.image-zoom__image {
   }
   .phone\:min-h-\[600px\]{
     min-height: 600px;
+  }
+  .phone\:w-\[49\.5\%\]{
+    width: 49.5%;
   }
   .phone\:w-auto{
     width: auto;

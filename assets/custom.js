@@ -74,26 +74,95 @@ function getImg(id, img, option) {
   }
 }
 
-function getImgFour(id, img, option) {
+function getImgFour(id, img, option, title, index) {
   console.log(id, img, option, image);
 
-  console.log(option);
+  console.log(title);
+  const classid = id + index;
 
   if (option == "Tray One Box") {
     var image = document.querySelector("#image1");
-    var image2 = document.querySelector("#image4");
+    var image2 = document.querySelector("#image3");
+    var input = document.querySelector("#propertiesFourOne");
+
+    // var selectedClass = document.getElementsByClassName(index);
+    // var hasClass = document.getElementsByClassName("variant-selected");
+    // if (hasClass.length > 0 && selectedClass.length > 0) {
+    //   console.log("has class", hasClass);
+    //   hasClass[0].classList.remove("variant-selected");
+    //   selectedClass[0].className += " variant-selected";
+    // } else {
+    //   selectedClass[0].className += " variant-selected";
+    // }
+
     image.src = img;
     image2.src = img;
     image.style.opacity = "1";
     image2.style.opacity = "1";
+    input.value = title;
   }
   if (option == "Tray Two Box") {
     var image = document.querySelector("#image2");
-    var image2 = document.querySelector("#image5");
+    var image2 = document.querySelector("#image4");
+    var input = document.querySelector("#propertiesFourTwo");
     image.src = img;
     image2.src = img;
     image.style.opacity = "1";
     image2.style.opacity = "1";
+    input.value = title;
+  }
+}
+
+function getImgThree(id, img, option, title, index) {
+  console.log(id, img, option, image);
+
+  console.log(title);
+  const classid = id + index;
+
+  if (option == "Tray One Box") {
+    var image = document.querySelector("#image1");
+    var input = document.querySelector("#propertiesThreeOne");
+    image.src = img;
+    image.style.opacity = "1";
+    input.value = title;
+  }
+  if (option == "Tray Two Box") {
+    var image = document.querySelector("#image2");
+    var input = document.querySelector("#propertiesThreeTwo");
+
+    image.src = img;
+    image.style.opacity = "1";
+    input.value = title;
+  }
+
+  if (option == "Tray Three Box") {
+    var image = document.querySelector("#image3");
+    var input = document.querySelector("#propertiesThreeThree");
+    image.src = img;
+    image.style.opacity = "1";
+    input.value = title;
+  }
+}
+
+function getImgTwo(id, img, option, title, index) {
+  console.log(id, img, option, image);
+
+  console.log(title);
+
+  if (option == "Tray One Box") {
+    var image = document.querySelector("#image1");
+    var input = document.querySelector("#propertiesTwoOne");
+    image.src = img;
+    image.style.opacity = "1";
+    input.value = title;
+  }
+  if (option == "Tray Two Box") {
+    var image = document.querySelector("#image2");
+    var input = document.querySelector("#propertiesTwoTwo");
+
+    image.src = img;
+    image.style.opacity = "1";
+    input.value = title;
   }
 }
 
