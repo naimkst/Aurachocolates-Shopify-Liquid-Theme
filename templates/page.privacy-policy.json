@@ -1,11 +1,8 @@
 {
   "sections": {
-    "hero": {
-      "type": "hero-section"
-    },
     "main": {
       "type": "content"
     }
   },
-  "order": ["hero", "main"]
+  "order": ["main"]
 }

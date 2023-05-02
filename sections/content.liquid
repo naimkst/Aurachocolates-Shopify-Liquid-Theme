@@ -37,8 +37,26 @@
     }
   }
 </style>
-<div class="container m-auto">
-  <div class="content-section">
-    {{ page.content }}
+<div>
+  <div
+    class="pt-[90px] pb-[60px] flex items-center justify-center text-center bg-no-repeat bg-cover bg-gray-50"
+  >
+    <div class="container m-auto">
+      <div class="w-[900px] m-auto pt-[100px] tablet:w-full tablet:px-3">
+        <h2 class="title-lx">{{ page.title }}</h2>
+      </div>
+
+      <div class="">
+        <h2 class="text-center text-[18px] font-title font-normal leading-[40px] phone:text-[29px]">
+          <a href="/">Home &gt; </a><a href="{{ section.settings.page_link }}">{{ page.title }}</a>
+        </h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="container m-auto">
+    <div class="content-section">
+      {{ page.content }}
+    </div>
   </div>
 </div>
