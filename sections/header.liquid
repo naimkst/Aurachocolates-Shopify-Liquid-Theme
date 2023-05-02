@@ -111,20 +111,21 @@
               class="hidden group-hover:block hover:block left-[35%] transform -translate-x-1/2 top-[96px] bg-white/70 pt-8 pb-14 px-12 mt-0 justify-start gap-10 overflow-hidden absolute z-50 bg-auto bg-no-repeat bg-right-top m-auto w-auto max-w-full container tablet:px-3"
             >
               <div class="flex gap-[50px]">
-                {% for product in collections[section.settings.singnature_collection].products %}
+                {% for link in linklists['header-menu-signature-collections'].links %}
+                  {% assign collection = link.object %}
                   <div class="inline-block">
-                    <a href="{{ product.url }}">
+                    <a href="{{ collection.url }}">
                       <div class="border-2 border-secondary rounded-full overflow-hidden w-[100px] h-[100px]">
                         <span
                           style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 100px; height: 100px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
                           ><img
-                            src="{{ product.featured_image | product_img_url: 'medium' }}"
+                            src="{{ collection.image.src | img_url: 'medium' }}"
                             style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
                         ></span>
                       </div>
                     </a>
                     <h3 class="text-center mt-2 hover:text-primary">
-                      <a href="{{ product.url }}">{{ product.title }}</a>
+                      <a href="{{ collection.url }}">{{ collection.title }}</a>
                     </h3>
                   </div>
                 {% endfor %}
@@ -146,20 +147,21 @@
               class="hidden group-hover:block hover:block left-1/2 transform -translate-x-1/2 bg-white/70 top-[96px] pt-8 pb-14 px-12 mt-0 justify-start gap-10 overflow-hidden absolute z-50 bg-auto bg-no-repeat bg-right-top m-auto w-auto max-w-full container tablet:px-3"
             >
               <div class="flex gap-[50px]">
-                {% for product in collections[section.settings.party_collection].products %}
+                {% for link in linklists['header-menu-party-platters'].links %}
+                  {% assign collection = link.object %}
                   <div class="inline-block">
-                    <a href="{{ product.url }}">
+                    <a href="{{ collection.url }}">
                       <div class="border-2 border-secondary rounded-full overflow-hidden w-[100px] h-[100px]">
                         <span
                           style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 100px; height: 100px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
                           ><img
-                            src="{{ product.featured_image | product_img_url: 'medium' }}"
+                            src="{{ collection.image.src | img_url: 'medium' }}"
                             style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
                         ></span>
                       </div>
                     </a>
                     <h3 class="text-center mt-2 hover:text-primary">
-                      <a href="{{ product.url }}">{{ product.title }}</a>
+                      <a href="{{ collection.url }}">{{ collection.title }}</a>
                     </h3>
                   </div>
                 {% endfor %}
@@ -183,16 +185,17 @@
               <div class="grid grid-cols-7">
                 <div class="relative col-span-5 pt-8 pb-14 px-8 ">
                   <div class="grid grid-cols-3 gap-3 text-center">
-                    {% for product in collections[section.settings.gourmet_collection].products %}
+                    {% for link in linklists['header-menu-gourmet-gifts'].links %}
+                      {% assign collection = link.object %}
                       <div class="inline-block text-center">
-                        <a href="{{ product.url }}">
+                        <a href="{{ collection.url }}">
                           <div
                             class="border-2 border-secondary rounded-full overflow-hidden w-[100px] h-[100px] inline-block"
                           >
                             <span
                               style="box-sizing: border-box; display: inline-block; overflow: hidden; width: 100px; height: 100px; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: relative;"
                               ><img
-                                src="{{ product.featured_image | product_img_url: 'medium' }}"
+                                src="{{ collection.image.src | img_url: 'medium' }}"
 
                                 style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
                               >
@@ -200,7 +203,7 @@
                           </div>
                         </a>
                         <h3 class="text-center mt-2 hover:text-primary">
-                          <a href="{{ product.url }}">{{ product.title }}</a>
+                          <a href="{{ collection.url }}">{{ collection.title }}</a>
                         </h3>
                       </div>
                     {% endfor %}
@@ -486,21 +489,6 @@
 {
   "name": "Header",
   "settings": [
-    {
-      "type": "collection",
-      "id": "singnature_collection",
-      "label": "Singnature Collection"
-    },
-    {
-      "type": "collection",
-      "id": "party_collection",
-      "label": "Party Collection"
-    },
-    {
-      "type": "collection",
-      "id": "gourmet_collection",
-      "label": "Gourmet Collection"
-    },
     {
       "type": "image_picker",
       "id": "logo",
