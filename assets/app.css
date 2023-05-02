@@ -667,8 +667,8 @@ video {
 .h-\[130px\]{
   height: 130px;
 }
-.h-\[230px\]{
-  height: 230px;
+.h-\[160px\]{
+  height: 160px;
 }
 .h-\[300px\]{
   height: 300px;
@@ -1139,9 +1139,9 @@ video {
   -o-object-fit: cover;
      object-fit: cover;
 }
-.object-center{
-  -o-object-position: center;
-     object-position: center;
+.object-fill{
+  -o-object-fit: fill;
+     object-fit: fill;
 }
 .p-1{
   padding: 0.25rem;

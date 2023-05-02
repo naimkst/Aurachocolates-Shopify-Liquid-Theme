@@ -7,14 +7,16 @@
           {% for product in section.settings.try_product %}
             <div class="text-center my-5 cursor-pointer text-center">
               <a href="{{ product.url }}">
-                <img
-                  src="{{ product.featured_image | img_url: 'original'}}"
-                  alt=""
-                  class="w-[300px] h-[230px] mb-5 object-center phone:h-[100px] m-auto text-center"
-                >
+                {% for image in product.images limit: 1 offset: 1 %}
+                  <img
+                    src="{{ image | img_url: 'original'}}"
+                    alt=""
+                    class="w-[300px] h-[160px] mb-5 object-contain phone:h-[100px] m-auto text-center"
+                  >
+                {% endfor %}
               </a>
               <h3 class="border-[1px] py-2 border-primary rounded-md mt-2">
-                <a href="{{ product.url }}">{{ product.title }}</a>
+                <a href="{{ product.url }}">{{ product.description }}</a>
               </h3>
             </div>
           {% endfor %}
