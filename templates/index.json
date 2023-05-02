@@ -199,7 +199,7 @@
       "settings": {
         "map_title": "Stop by for a visit at our boutique store",
         "map_description": "We have this little Montreal cozy store, hey we dont bite! Come say hi!!",
-        "map_link": "<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d2795.3424617935657!2d-73.6085941225976!3d45.52331362949102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc9197852a4fe69%3A0xeb7a828497fcf320!2sAura%20Delices!5e0!3m2!1sen!2sca!4v1682971571886!5m2!1sen!2sca\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"><\/iframe>",
+        "map_link": "https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d2795.3424617935657!2d-73.6085941225976!3d45.52331362949102!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc9197852a4fe69%3A0xeb7a828497fcf320!2sAura%20Delices!5e0!3m2!1sen!2sca!4v1682971571886!5m2!1sen!2sca",
         "map_background": "shopify:\/\/shop_images\/contact-section-bg.svg"
       }
     }
