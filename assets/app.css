@@ -738,20 +738,17 @@ video {
 .w-\[130px\]{
   width: 130px;
 }
-.w-\[150px\]{
-  width: 150px;
-}
 .w-\[160px\]{
   width: 160px;
 }
 .w-\[185px\]{
   width: 185px;
 }
-.w-\[190px\]{
-  width: 190px;
-}
 .w-\[200px\]{
   width: 200px;
+}
+.w-\[245px\]{
+  width: 245px;
 }
 .w-\[250px\]{
   width: 250px;
@@ -785,6 +782,9 @@ video {
 }
 .w-\[685px\]{
   width: 685px;
+}
+.w-\[70px\]{
+  width: 70px;
 }
 .w-\[900px\]{
   width: 900px;

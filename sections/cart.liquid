@@ -61,8 +61,9 @@
           <div class=" py-4 w-[300px]"><h3 class="section-content">Name</h3></div>
           <div class=" py-4 w-[200px]"><h3 class="section-content">Quantity</h3></div>
           <div class=" py-4 w-[130px]"><h3 class="section-content">Price</h3></div>
-          <div class=" py-4 w-[190px]"><h3 class="section-content">Delivery Date</h3></div>
+          <div class=" py-4 w-[245px]"><h3 class="section-content">Delivery Date</h3></div>
           <div class=" py-4 w-full flex-1"><h3 class="section-content">Gift Message</h3></div>
+          <div class=" py-4 w-[70px]"><h3 class="section-content"></h3></div>
         </div>
 
         <div id="product-list">
@@ -171,24 +172,24 @@
                         placeholder="Type your gift message here..."
                         onchange="changeCart({{ forloop.index }})"
                       >{{ giftMessage }}</textarea>
-                      <div class="border-primary border-separate py-4 w-[150px] flex items-center justify-center gap-5">
-                        <h3 class="section-content">
-                          <div class="flex items-center gap-5 removeProduct" data-line="{{ forloop.index }}">
-                            <svg
-                              stroke="currentColor"
-                              fill="currentColor"
-                              stroke-width="0"
-                              viewBox="0 0 24 24"
-                              class="cursor-pointer"
-                              height="1em"
-                              width="1em"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <g><path fill="none" d="M0 0h24v24H0z"></path><path d="M4 8h16v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8zm2 2v10h12V10H6zm3 2h2v6H9v-6zm4 0h2v6h-2v-6zM7 5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v2h5v2H2V5h5zm2-1v1h6V4H9z"></path></g>
-                            </svg>
-                          </div>
-                        </h3>
-                      </div>
+                    </div>
+                    <div class="border-primary border-separate py-4 w-[70px] flex items-center justify-center gap-5">
+                      <h3 class="section-content">
+                        <div class="flex items-center gap-5 removeProduct" data-line="{{ forloop.index }}">
+                          <svg
+                            stroke="currentColor"
+                            fill="currentColor"
+                            stroke-width="0"
+                            viewBox="0 0 24 24"
+                            class="cursor-pointer"
+                            height="1em"
+                            width="1em"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g><path fill="none" d="M0 0h24v24H0z"></path><path d="M4 8h16v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8zm2 2v10h12V10H6zm3 2h2v6H9v-6zm4 0h2v6h-2v-6zM7 5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v2h5v2H2V5h5zm2-1v1h6V4H9z"></path></g>
+                          </svg>
+                        </div>
+                      </h3>
                     </div>
                   </div>
                   <div class=" border-b-[1px] border-primary px-8">
