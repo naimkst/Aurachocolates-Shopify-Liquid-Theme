@@ -200,6 +200,70 @@ function showFilter() {
   }
 }
 
+//Remove Product
+function changeCart(id) {
+  var RecipientsNumber = document.getElementsByClassName("phone-" + id);
+  var datePickerInput = document.getElementsByClassName("date-" + id);
+  var giftMessage = document.getElementsByClassName("message-" + id);
+
+  console.log(datePickerInput[0]?.value, RecipientsNumber[0]?.value);
+
+  console.log(datePickerInput);
+
+  // console.log(datePickerInput, RecipientsNumber);
+  // var datePickerInput = document.getElementsByClassName(datePickerInput);
+  // var RecipientsNumber = document.getElementsByClassName(RecipientsNumber);
+
+  var debounceTimer;
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(function () {
+    $.ajax({
+      type: "POST",
+      url: "/cart/change",
+      dataType: "json",
+      data: {
+        line: id,
+        quantity: 2,
+        properties: {
+          DeliveryDate: datePickerInput ? datePickerInput[0]?.value : "",
+          RecipientsNumber: RecipientsNumber ? RecipientsNumber[0]?.value : "",
+          giftMessage: giftMessage ? giftMessage[0]?.value : "",
+        },
+      },
+      success: function (data) {
+        console.log("success", data);
+        // var current_url = window.location.href;
+        // document.location.href = current_url;
+      },
+    });
+  }, 2000); // Set a 500 millisecond delay
+}
+
+// function changeCart(id, datePickerInput, RecipientsNumber) {
+//   console.log(datePickerInput, RecipientsNumber);
+//   var datePickerInput = document.getElementsByClassName(datePickerInput);
+//   var RecipientsNumber = document.getElementsByClassName(RecipientsNumber);
+
+//   $.ajax({
+//     type: "POST",
+//     url: "/cart/change",
+//     dataType: "json",
+//     data: {
+//       line: id,
+//       quantity: 2,
+//       properties: {
+//         DeliveryDate: datePickerInput ? datePickerInput[0].value : "",
+//         RecipientsNumber: RecipientsNumber ? RecipientsNumber[0].value : "",
+//       },
+//     },
+//     success: function (data) {
+//       console.log("success", data);
+//       // var current_url = window.location.href;
+//       // document.location.href = current_url;
+//     },
+//   });
+// }
+
 (function ($) {
   ("use strict");
 
@@ -458,4 +522,40 @@ function showFilter() {
       $(search_result).empty();
     });
   });
+
+  //DatePicker
+  const datePicker = document.getElementById("date-picker");
+  // Set the minimum date to today's date
+  const today = new Date().toISOString().split("T")[0];
+  datePicker.setAttribute("min", today);
+
+  // Optional: add an event listener to handle when the date is changed
+  datePicker.addEventListener("change", (event) => {
+    console.log(`Selected date: ${event.target.value}`);
+    // var dataId = $(event.target).data("id");
+  });
+
+  //Cart switch button
+  const productList = document.getElementById("product-list");
+  const checkboxes = productList.querySelectorAll('input[type="checkbox"]');
+
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("click", function () {
+      const productData = {
+        name: checkbox.value,
+        isChecked: checkbox.checked,
+      };
+      console.log(productData);
+      const listItem = checkbox.parentNode.parentNode.parentNode;
+      console.log(listItem);
+      const pTag = listItem.querySelector("strong");
+      if (checkbox.checked) {
+        pTag.style.display = "block";
+      } else {
+        pTag.style.display = "none";
+      }
+    });
+  });
+
+  //Change cart details
 })(window.jQuery);
