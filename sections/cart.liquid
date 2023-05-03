@@ -49,6 +49,17 @@
     -ms-transform: translateX(26px);
     transform: translateX(26px);
   }
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
 </style>
 
 <form action="/cart" method="post" id="cartUpdate" novalidate>
@@ -92,22 +103,33 @@
                       name="line"
                       value="{{ item.id }}"
                     >
+                    {% assign DeliveryDate = item.properties.DeliveryDate %}
+                    {% assign RecipientsNumber = item.properties.RecipientsNumber %}
+                    {% assign giftMessage = item.properties.giftMessage %}
                     <div class="border-primary border-separate py-4 flex items-center w-[200px]">
                       <h3 class="section-content w-full text-center">
-                        <div class="w-[185px] flex items-center border-[1px] border-[#FFF3EF] text-center">
-                          {% assign DeliveryDate = item.properties.DeliveryDate %}
-                          {% assign RecipientsNumber = item.properties.RecipientsNumber %}
-                          {% assign giftMessage = item.properties.giftMessage %}
-                          <span class="w-[60px] text-[30px] cursor-pointer">-</span
+                        <div
+                          class="w-[185px] flex items-center border-[1px] border-[#FFF3EF] text-center cart-item"
+                          data-id="{{ item.id }}"
+                        >
+                          <span
+                            onclick="changeCart({{ forloop.index }})"
+                            class="w-[60px] text-[30px] cursor-pointer decrease-btn"
+                            >-</span
                           ><input
-                            class="w-[60px] h-[50px] text-center"
-                            type="text"
+                            class="w-[60px] h-[50px] text-center quantity quantity-{{forloop.index}}"
+                            type="number"
                             min="0"
                             name="quantity"
                             placeholder="1"
                             value="{{ item.quantity }}"
+                            onkeyup="changeCart({{ forloop.index }})"
 
-                          ><span class="w-[60px] text-[23px] cursor-pointer">+</span>
+                          ><span
+                            onclick="changeCart({{ forloop.index }})"
+                            class="w-[60px] text-[23px] cursor-pointer increase-btn"
+                            >+</span
+                          >
                         </div>
                       </h3>
                     </div>

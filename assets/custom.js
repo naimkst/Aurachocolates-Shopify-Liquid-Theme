@@ -200,11 +200,40 @@ function showFilter() {
   }
 }
 
+//Cart Quantity update
+function increaseQuantity(event) {
+  var cartItem = event.target.closest(".cart-item");
+  var quantityElement = cartItem.querySelector(".quantity");
+  var quantity = parseInt(quantityElement.value);
+  quantityElement.value = quantity + 1;
+}
+
+function decreaseQuantity(event) {
+  var cartItem = event.target.closest(".cart-item");
+  var quantityElement = cartItem.querySelector(".quantity");
+  var quantity = parseInt(quantityElement.value);
+  if (quantity > 1) {
+    quantityElement.value = quantity - 1;
+  }
+}
+
+var increaseButtons = document.querySelectorAll(".increase-btn");
+var decreaseButtons = document.querySelectorAll(".decrease-btn");
+
+increaseButtons.forEach(function (button) {
+  button.addEventListener("click", increaseQuantity);
+});
+
+decreaseButtons.forEach(function (button) {
+  button.addEventListener("click", decreaseQuantity);
+});
+
 //Remove Product
 function changeCart(id) {
   var RecipientsNumber = document.getElementsByClassName("phone-" + id);
   var datePickerInput = document.getElementsByClassName("date-" + id);
   var giftMessage = document.getElementsByClassName("message-" + id);
+  var quantity = document.getElementsByClassName("quantity-" + id);
 
   console.log(datePickerInput[0]?.value, RecipientsNumber[0]?.value);
 
@@ -223,7 +252,7 @@ function changeCart(id) {
       dataType: "json",
       data: {
         line: id,
-        quantity: 2,
+        quantity: quantity[0]?.value,
         properties: {
           DeliveryDate: datePickerInput ? datePickerInput[0]?.value : "",
           RecipientsNumber: RecipientsNumber ? RecipientsNumber[0]?.value : "",
