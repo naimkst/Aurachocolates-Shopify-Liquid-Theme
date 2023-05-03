@@ -256,7 +256,7 @@ function changeCart(id) {
         properties: {
           DeliveryDate: datePickerInput ? datePickerInput[0]?.value : "",
           RecipientsNumber: RecipientsNumber ? RecipientsNumber[0]?.value : "",
-          giftMessage: giftMessage ? giftMessage[0]?.value : "",
+          GiftMessage: giftMessage ? giftMessage[0]?.value : "",
         },
       },
       success: function (data) {
