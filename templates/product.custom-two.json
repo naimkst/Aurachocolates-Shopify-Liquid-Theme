@@ -2,12 +2,23 @@
   "sections": {
     "hero": {
       "type": "hero-section",
-      "settings": {}
+      "settings": {
+        "hero_title": "Shop",
+        "hero_image": "shopify:\/\/shop_images\/banner-hero.svg",
+        "page_link": "",
+        "hero_subtitle_title": "Product title"
+      }
     },
     "main": {
       "type": "custom-product-two",
-      "settings": {}
+      "settings": {
+        "recommendation_product": "",
+        "recommendation_Title": "You may also like"
+      }
     }
   },
-  "order": ["hero", "main"]
+  "order": [
+    "hero",
+    "main"
+  ]
 }

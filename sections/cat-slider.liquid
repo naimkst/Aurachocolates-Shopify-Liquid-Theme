@@ -4,24 +4,28 @@
   <div class="text-center container m-auto tablet:px-3 swiper mySwiper">
     <div class="swiper-wrapper">
       {% for collection in collections %}
-        <div
-          class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev text-center"
-          data-swiper-slide-index="0"
-          style="width: 222.667px; margin-right: 40px;"
-        >
-          <div class="w-[130px] h-[130px] object-contain text-center m-auto">
-            <img
-              alt="{{ collection.title }}"
-              src="{{ collection | img_url: '450x450' }}"
-              class="w-full h-full object-contain"
-            >
+        {% if collection.metafields.custom.feature_collection != false %}
+          <div
+            class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev text-center"
+            data-swiper-slide-index="0"
+            style="width: 222.667px; margin-right: 40px;"
+          >
+            <div class="w-[130px] h-[130px] object-contain text-center m-auto">
+              <img
+                alt="{{ collection.title }}"
+                src="{{ collection | img_url: '450x450' }}"
+                class="w-full h-full object-contain"
+              >
+            </div>
+            <div>
+              <a href="{{ collection.url }}">
+                <p class="text-[25px] leading-[30px] font-light font-title cursor-pointer">
+                  {{ collection.title -}}
+                </p>
+              </a>
+            </div>
           </div>
-          <div>
-            <a href="{{ collection.url }}">
-              <p class="text-[25px] leading-[30px] font-light font-title cursor-pointer">{{ collection.title }}</p>
-            </a>
-          </div>
-        </div>
+        {% endif %}
       {% endfor %}
     </div>
     <div class="swiper-button-next after:text-primary after:fill-primary"></div>
@@ -63,7 +67,7 @@
     {
       "type": "text",
       "id": "category_limit",
-      "label": "Categirt Limit",
+      "label": "Category Limit",
       "default": "10"
     }
   ],

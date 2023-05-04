@@ -106,11 +106,10 @@
         <div class="bg-white max-w-[832.74px] m-auto h-auto flex items-center justify-items-center text-center p-[10px] tablet:max-w-[95%] tablet:h-auto">
           <div class="border-[5px] border-secondary p-[60px] tablet:p-[10px] ">
             <p class="text-[30px] tablet:text-[22px]">
-              Our website will be closed from Wednesday, April 5th until Friday, April 14, following the observance of
-              the Pesach (Passover) Holiday!
+              {{ section.settings.poppup_title }}
             </p>
-            <h2 class="text-[32px] font-bold py-5 tablet:text-[22px]">Thank you for visiting today!</h2>
-            <button class="button" id="isPopup">OKAY</button>
+            <h2 class="text-[32px] font-bold py-5 tablet:text-[22px]">{{ section.settings.poppup_description }}</h2>
+            <button class="button" id="isPopup">{{ section.settings.poppup_button_text }}</button>
           </div>
         </div>
       </div>
@@ -206,6 +205,24 @@
       "id": "copy_right_text",
       "label": "Copy Right Text",
       "default": "Copyright © 2022 Aura Delices. All Rights Reserved"
+    },
+    {
+      "type": "text",
+      "id": "poppup_title",
+      "label": "Popup Title",
+      "default": "Our website will be closed from Wednesday, April 5th until Friday, April 14, following the observance of the Pesach (Passover) Holiday!"
+    },
+    {
+      "type": "text",
+      "id": "poppup_description",
+      "label": "Popup Description",
+      "default": "Thank you for visiting today!"
+    },
+    {
+      "type": "text",
+      "id": "poppup_button_text",
+      "label": "Popup Button Text",
+      "default": "OKAY"
     },
     {
       "type": "radio",
