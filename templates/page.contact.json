@@ -23,11 +23,18 @@
           "settings": {
             "subject_text": "Pricing Inquiry"
           }
+        },
+        "b9ea7166-c70d-4035-9abd-e4ff13d295e4": {
+          "type": "product",
+          "settings": {
+            "subject_text": "Other ~ Just Want To Say Hi!"
+          }
         }
       },
       "block_order": [
         "7d7fb995-8967-4557-b1cf-d13397968dea",
-        "57593300-ea11-4c58-acfd-500faa850b6e"
+        "57593300-ea11-4c58-acfd-500faa850b6e",
+        "b9ea7166-c70d-4035-9abd-e4ff13d295e4"
       ],
       "settings": {
         "our_shop_text": "Our Shop",
