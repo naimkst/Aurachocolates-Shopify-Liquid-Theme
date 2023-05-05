@@ -67,23 +67,23 @@
     <div class="container m-auto tablet:px-3">
       <div class="flex flex-col flex-nowrap overflow-x-scroll min-w-max">
         <h2 class="section-title mb-10">Added to cart</h2>
-        <div class="flex items-center border-[1px] border-r-[1px] border-primary w-full gap-4 text-center">
-          <div class=" py-4 w-[125px]"><h3 class="section-content pl-8">Product</h3></div>
-          <div class=" py-4 w-[300px]"><h3 class="section-content">Name</h3></div>
-          <div class=" py-4 w-[200px]"><h3 class="section-content">Quantity</h3></div>
-          <div class=" py-4 w-[130px]"><h3 class="section-content">Price</h3></div>
-          <div class=" py-4 w-[245px]"><h3 class="section-content">Delivery Date</h3></div>
-          <div class=" py-4 w-full flex-1"><h3 class="section-content">Gift Message</h3></div>
-          <div class=" py-4 w-[70px]"><h3 class="section-content"></h3></div>
+        <div class="grid grid-cols-5 items-center justify-between border-[1px] border-r-[1px] border-primary w-full gap-4 text-center">
+          <div class=" py-4"><h3 class="section-content">Product</h3></div>
+          <div class=" py-4"><h3 class="section-content">Name</h3></div>
+          <div class=" py-4"><h3 class="section-content">Quantity</h3></div>
+          <div class=" py-4"><h3 class="section-content">Price</h3></div>
+          {% comment %} <div class=" py-4 w-[245px]"><h3 class="section-content">Delivery Date</h3></div> {% endcomment %}
+          {% comment %} <div class=" py-4 w-full flex-1"><h3 class="section-content">Gift Message</h3></div> {% endcomment %}
+          <div class=" py-4"><h3 class="section-content"></h3></div>
         </div>
 
-        <div id="product-list">
+        <div>
           {% if cart.item_count != 0 %}
             {% for item in cart.items %}
               <div class="items-stretch border-l-[1px] border-r-[1px] border-primary">
                 <form action="" id="myForm">
-                  <div class="flex items-center gap-4">
-                    <div class="border-primary border-separate py-4 items-center w-[125px]">
+                  <div class="grid grid-cols-5 items-center gap-4 text-center justify-between">
+                    <div class="border-primary border-separate py-4 items-center">
                       <div class="pl-8 tablet:pr-2">
                         <img
                           src="{{ item | img_url: '' }}"
@@ -93,7 +93,7 @@
                         >
                       </div>
                     </div>
-                    <div class="border-primary border-separate py-4 items-center flex w-[300px]">
+                    <div class="border-primary border-separate py-4 items-center flex">
                       <h3 class="section-content w-full text-center">
                         <a href="{{ item.url }}">{{ item.title }}</a>
                       </h3>
@@ -103,17 +103,14 @@
                       name="line"
                       value="{{ item.id }}"
                     >
-                    {% assign DeliveryDate = item.properties.DeliveryDate %}
-                    {% assign RecipientsNumber = item.properties.RecipientsNumber %}
-                    {% assign giftMessage = item.properties.giftMessage %}
-                    <div class="border-primary border-separate py-4 flex items-center w-[200px]">
+                    <div class="border-primary border-separate py-4 flex items-center">
                       <h3 class="section-content w-full text-center">
                         <div
-                          class="w-[185px] flex items-center border-[1px] border-[#FFF3EF] text-center cart-item"
+                          class="w-[185px] flex items-center border-[1px] border-[#FFF3EF] text-center cart-item m-auto"
                           data-id="{{ item.id }}"
                         >
                           <span
-                            onclick="changeCart({{ forloop.index }})"
+                            onclick="updateQty({{ forloop.index }}, {{ item.quantity | minus: 1 }})"
                             class="w-[60px] text-[30px] cursor-pointer decrease-btn"
                             >-</span
                           ><input
@@ -123,79 +120,83 @@
                             name="quantity"
                             placeholder="1"
                             value="{{ item.quantity }}"
-                            onkeyup="changeCart({{ forloop.index }})"
+                            onkeyup="updateQty({{ forloop.index }})"
 
                           ><span
-                            onclick="changeCart({{ forloop.index }})"
+                            onclick="updateQty({{ forloop.index }}, {{ item.quantity | plus: 1 }})"
                             class="w-[60px] text-[23px] cursor-pointer increase-btn"
                             >+</span
                           >
                         </div>
                       </h3>
                     </div>
-                    <div class="border-primary border-separate py-4 flex items-center w-[130px]">
+                    <div class="border-primary border-separate py-4 flex items-center ">
                       <h3 class="section-content w-full text-center">{{ item.price | money }}</h3>
                     </div>
-                    <div>
-                      <div class="border-primary border-separate flex items-center w-full">
-                        <input
-                          required
-                          class="h-[50px] text-center border-[1px] border-primary focus:outline-none rounded-md text-[16px] w-full date-picker date-{{forloop.index}}"
-                          name="properties[DeliveryDate]"
-                          placeholder="* DD/MM/YYYY"
-                          type="date"
-                          id="date-picker"
-                          data-id="{{ item.id }}"
-                          value="{{ DeliveryDate }}"
-                          onchange="changeCart({{ forloop.index }})"
-                        >
-                      </div>
-                      <div class="mb-[5px] pt-2">
-                        <div class="flex items-center justify-between mb-2">
-                          <p class="text-center mr-2">Shipping to someone else?</p>
-                          <label class="switch">
-                            <input
-                              type="checkbox"
-                              {% if RecipientsNumber != blank %}
-                                checked
-                              {% endif %}
-                            >
-                            <span class="slider round"></span>
-                          </label>
-                        </div>
-
-                        <strong
-                          class="swichBox"
-                          style="
-                            {% if RecipientsNumber != blank %}
-                              display: block;
-                              {% else %}
-                              display: none
-                            {% endif %};
-                          "
-                        >
+                    {% comment %}
+                      <div>
+                        <div class="border-primary border-separate flex items-center w-full">
                           <input
                             required
-                            name="properties[RecipientsNumber]"
-                            type="text"
-                            placeholder="* Recipients Phone"
-                            class="border-primary border-[1px] focus:outline-none rounded-md px-3 w-full h-[50px] text-center font-normal phone-{{forloop.index}}"
-                            value="{{ RecipientsNumber }}"
-                            onkeyup="changeCart({{ forloop.index }})"
+                            class="h-[50px] text-center border-[1px] border-primary focus:outline-none rounded-md text-[16px] w-full date-picker date-{{forloop.index}}"
+                            name="properties[DeliveryDate]"
+                            placeholder="* DD/MM/YYYY"
+                            type="date"
+                            id="date-picker"
+                            data-id="{{ item.id }}"
+                            value="{{ DeliveryDate }}"
+                            onchange="changeCart({{ forloop.index }})"
                           >
-                        </strong>
+                        </div>
+                        <div class="mb-[5px] pt-2">
+                          <div class="flex items-center justify-between mb-2">
+                            <p class="text-center mr-2">Shipping to someone else?</p>
+                            <label class="switch">
+                              <input
+                                type="checkbox"
+                                {% if RecipientsNumber != blank %}
+                                  checked
+                                {% endif %}
+                              >
+                              <span class="slider round"></span>
+                            </label>
+                          </div>
+
+                          <strong
+                            class="swichBox"
+                            style="
+                              {% if RecipientsNumber != blank %}
+                                display: block;
+                                {% else %}
+                                display: none
+                              {% endif %};
+                            "
+                          >
+                            <input
+                              required
+                              name="properties[RecipientsNumber]"
+                              type="text"
+                              placeholder="* Recipients Phone"
+                              class="border-primary border-[1px] focus:outline-none rounded-md px-3 w-full h-[50px] text-center font-normal phone-{{forloop.index}}"
+                              value="{{ RecipientsNumber }}"
+                              onkeyup="changeCart({{ forloop.index }})"
+                            >
+                          </strong>
+                        </div>
                       </div>
-                    </div>
-                    <div class="border-primary border-separate py-4 flex items-center w-[100%] flex-1">
-                      <textarea
-                        name="giftMessage"
-                        rows="6"
-                        class=" border-[1px] border-primary focus:outline-none rounded-md px-3 w-full message-{{forloop.index}}"
-                        placeholder="Type your gift message here..."
-                        onchange="changeCart({{ forloop.index }})"
-                      >{{ giftMessage }}</textarea>
-                    </div>
-                    <div class="border-primary border-separate py-4 w-[70px] flex items-center justify-center gap-5">
+                    {% endcomment %}
+                    {% comment %}
+                      <div class="border-primary border-separate py-4 flex items-center w-[100%] flex-1">
+                        <textarea
+                          name="giftMessage"
+                          rows="6"
+                          class=" border-[1px] border-primary focus:outline-none rounded-md px-3 w-full message-{{forloop.index}}"
+                          placeholder="Type your gift message here..."
+                          onchange="changeCart({{ forloop.index }})"
+                        >{{ giftMessage }}</textarea>
+                      </div>
+                    {% endcomment %}
+                    <div class="border-primary border-separate py-4 w-[70px] flex items-center justify-center gap-5 m-auto">
                       <h3 class="section-content">
                         <div class="flex items-center gap-5 removeProduct" data-line="{{ forloop.index }}">
                           <svg
@@ -227,6 +228,83 @@
             <h2 class="mt-5 text-secondary content font-bold text-center py-5">Cart is empty!</h2>
           {% endif %}
         </div>
+
+        {% if cart.item_count != 0 %}
+          <div class="items-stretch border-l-[1px] border-r-[1px] border-t-[1px] border-primary mt-[50px]">
+            {% assign DeliveryDate = cart.attributes.DeliveryDate %}
+            {% assign RecipientsNumber = cart.attributes.RecipientsNumber %}
+            {% assign GiftMessage = cart.attributes.GiftMessage %}
+            <div class="p-[50px] grid grid-cols-2 gap-[20px] items-center">
+              <div id="product-list">
+                <div>
+                  <div class="border-primary border-separate flex items-center w-full">
+                    <input
+                      required
+                      class="h-[50px] text-center border-[1px] border-primary focus:outline-none rounded-md text-[16px] w-full date-picker date-3"
+                      name="properties[DeliveryDate]"
+                      placeholder="* DD/MM/YYYY"
+                      type="date"
+                      id="date-picker"
+                      data-id="{{ item.id }}"
+                      value="{{ DeliveryDate }}"
+                      onchange="changeCart('3')"
+                    >
+                  </div>
+                  <div class="mb-[5px] pt-2">
+                    <div class="flex items-center justify-between mb-2">
+                      <p class="text-center mr-2">Shipping to someone else?</p>
+                      <label class="switch">
+                        <input
+                          type="checkbox"
+                          {% if RecipientsNumber != blank %}
+                            checked
+                          {% endif %}
+                        >
+                        <span class="slider round"></span>
+                      </label>
+                    </div>
+
+                    <strong
+                      class="swichBox"
+                      style="
+                        {% if RecipientsNumber != blank %}
+                          display: block;
+                          {% else %}
+                          display: none
+                        {% endif %};
+                      "
+                    >
+                      <input
+                        required
+                        name="properties[RecipientsNumber]"
+                        type="text"
+                        placeholder="* Recipients Phone"
+                        class="border-primary border-[1px] focus:outline-none rounded-md px-3 w-full h-[50px] text-center font-normal phone-1"
+                        value="{{ RecipientsNumber }}"
+                        onkeyup="changeCart('1')"
+                      >
+                    </strong>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="border-primary border-separate py-4 flex items-center w-[100%] flex-1">
+                  <textarea
+                    name="GiftMessage"
+                    rows="6"
+                    class=" border-[1px] border-primary focus:outline-none rounded-md px-3 w-full message-2"
+                    placeholder="Type your gift message here..."
+                    onkeyup="changeCart('2')"
+                  >{{ GiftMessage }}</textarea>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center justify-between px-8 py-4 border-b-[1px] border-t-[1px] border-primary">
+              <h3 class="section-content">Subtotal</h3>
+              <h3 class="section-content">{{ cart.total_price | money }}</h3>
+            </div>
+          </div>
+        {% endif %}
       </div>
       <p class="block mt-3 break-all text-center">
         Note: Please fill in all the required information in order to proceed to checkout

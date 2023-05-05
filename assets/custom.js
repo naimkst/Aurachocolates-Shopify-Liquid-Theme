@@ -233,11 +233,10 @@ function changeCart(id) {
   var RecipientsNumber = document.getElementsByClassName("phone-" + id);
   var datePickerInput = document.getElementsByClassName("date-" + id);
   var giftMessage = document.getElementsByClassName("message-" + id);
-  var quantity = document.getElementsByClassName("quantity-" + id);
 
   console.log(datePickerInput[0]?.value, RecipientsNumber[0]?.value);
 
-  console.log(datePickerInput);
+  console.log(giftMessage);
 
   // console.log(datePickerInput, RecipientsNumber);
   // var datePickerInput = document.getElementsByClassName(datePickerInput);
@@ -248,12 +247,10 @@ function changeCart(id) {
   debounceTimer = setTimeout(function () {
     $.ajax({
       type: "POST",
-      url: "/cart/change",
+      url: "/cart/update",
       dataType: "json",
       data: {
-        line: id,
-        quantity: quantity[0]?.value,
-        properties: {
+        attributes: {
           DeliveryDate: datePickerInput ? datePickerInput[0]?.value : "",
           RecipientsNumber: RecipientsNumber ? RecipientsNumber[0]?.value : "",
           GiftMessage: giftMessage ? giftMessage[0]?.value : "",
@@ -261,37 +258,29 @@ function changeCart(id) {
       },
       success: function (data) {
         console.log("success", data);
-        // var current_url = window.location.href;
-        // document.location.href = current_url;
       },
     });
   }, 2000); // Set a 500 millisecond delay
 }
 
-// function changeCart(id, datePickerInput, RecipientsNumber) {
-//   console.log(datePickerInput, RecipientsNumber);
-//   var datePickerInput = document.getElementsByClassName(datePickerInput);
-//   var RecipientsNumber = document.getElementsByClassName(RecipientsNumber);
+function updateQty(id, qty) {
+  var quantity = document.getElementsByClassName("quantity-" + id);
+  console.log(id, qty);
 
-//   $.ajax({
-//     type: "POST",
-//     url: "/cart/change",
-//     dataType: "json",
-//     data: {
-//       line: id,
-//       quantity: 2,
-//       properties: {
-//         DeliveryDate: datePickerInput ? datePickerInput[0].value : "",
-//         RecipientsNumber: RecipientsNumber ? RecipientsNumber[0].value : "",
-//       },
-//     },
-//     success: function (data) {
-//       console.log("success", data);
-//       // var current_url = window.location.href;
-//       // document.location.href = current_url;
-//     },
-//   });
-// }
+  $.ajax({
+    type: "POST",
+    url: "/cart/change",
+    dataType: "json",
+    data: {
+      line: id,
+      quantity: qty,
+    },
+    success: function (data) {
+      console.log("success", data);
+      window.location.reload();
+    },
+  });
+}
 
 (function ($) {
   ("use strict");
@@ -558,10 +547,19 @@ function changeCart(id) {
   const today = new Date().toISOString().split("T")[0];
   datePicker.setAttribute("min", today);
 
-  // Optional: add an event listener to handle when the date is changed
-  datePicker.addEventListener("change", (event) => {
-    console.log(`Selected date: ${event.target.value}`);
-    // var dataId = $(event.target).data("id");
+  // Disable Saturdays
+  const disableSaturdays = (date) => {
+    const day = date.getDay();
+    return day === 6; // 6 represents Saturday (Sunday is 0, Monday is 1, etc.)
+  };
+
+  datePicker.addEventListener("input", (event) => {
+    const selectedDate = new Date(event.target.value);
+    if (disableSaturdays(selectedDate)) {
+      alert("Saturdays are not available. Please select a different date.");
+      event.target.value = "";
+    } else {
+    }
   });
 
   //Cart switch button
