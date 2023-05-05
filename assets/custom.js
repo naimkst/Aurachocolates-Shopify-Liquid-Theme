@@ -234,9 +234,20 @@ function changeCart(id) {
   var datePickerInput = document.getElementsByClassName("date-" + id);
   var giftMessage = document.getElementsByClassName("message-" + id);
 
-  console.log(datePickerInput[0]?.value, RecipientsNumber[0]?.value);
+  var checkoutBtn = document.getElementById("checkoutBtn");
 
-  console.log(giftMessage);
+  const productList = document.getElementById("product-list");
+  const checkboxes = productList.querySelectorAll('input[type="checkbox"]');
+
+  if (checkboxes[0]?.checked == true) {
+    if (RecipientsNumber[0]?.value?.length == 0) {
+      checkoutBtn?.classList?.add("notValid");
+    } else {
+      checkoutBtn?.classList?.remove("notValid");
+    }
+  } else {
+    checkoutBtn?.classList?.remove("notValid");
+  }
 
   // console.log(datePickerInput, RecipientsNumber);
   // var datePickerInput = document.getElementsByClassName(datePickerInput);
@@ -565,6 +576,8 @@ function updateQty(id, qty) {
   //Cart switch button
   const productList = document.getElementById("product-list");
   const checkboxes = productList.querySelectorAll('input[type="checkbox"]');
+  var checkoutBtn = document.getElementById("checkoutBtn");
+  var RecipientsNumbers = document.getElementsByClassName("phone-1");
 
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener("click", function () {
@@ -578,8 +591,29 @@ function updateQty(id, qty) {
       const pTag = listItem.querySelector("strong");
       if (checkbox.checked) {
         pTag.style.display = "block";
+        checkoutBtn.classList.add("notValid");
       } else {
         pTag.style.display = "none";
+        checkoutBtn.classList.remove("notValid");
+        RecipientsNumbers[0].value = "";
+        console.log(RecipientsNumbers[0].value, "#####");
+        var debounceTimer;
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(function () {
+          $.ajax({
+            type: "POST",
+            url: "/cart/update",
+            dataType: "json",
+            data: {
+              attributes: {
+                RecipientsNumber: "",
+              },
+            },
+            success: function (data) {
+              console.log("success", data);
+            },
+          });
+        }, 100); // Set a 500 millisecond delay
       }
     });
   });

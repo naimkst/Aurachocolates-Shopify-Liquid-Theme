@@ -60,6 +60,11 @@
   input[type='number'] {
     -moz-appearance: textfield;
   }
+  .notValid {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.5;
+  }
 </style>
 
 <form action="/cart" method="post" id="cartUpdate" novalidate>
@@ -315,7 +320,7 @@
         <a href="/collections/all" class="button">Continue Shopping</a>
         <div class="flex gap-10 tablet:flex-col tablet:m-3 tablet:gap-3">
           <div>
-            <button name="checkout" class="button" href="">Checkout</button>
+            <button name="checkout" class="button" href="" id="checkoutBtn">Checkout</button>
           </div>
         </div>
       </div>
