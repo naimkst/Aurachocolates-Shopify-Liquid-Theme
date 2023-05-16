@@ -1,4 +1,17 @@
 <div class="relative pt-[200px] min-h-screen pb-32 flex justify-center items-center text-center phone:pb-[70px] phone:min-h-full phone:h-auto">
+  <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;z-index: -1;"
+    ><img
+      alt="Bg Image"
+      src="{{ section.settings.hero_image | img_url: 'original' }}"
+      decoding="async"
+      data-nimg="fill"
+      class="absolute top-0 left-0 h-full w-full object-cover -z-50 phone:object-right"
+      style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+      sizes="100vw"
+      srcset="{{ section.settings.hero_image | img_url: 'original' }}"
+
+    ><noscript></noscript>
+  </span>
   <div class=" container m-auto">
     <div class="swiper swiper-initialized swiper-horizontal swiper-pointer-events heroSlider swiper-backface-hidden">
       <div class="max-w-[65%] m-auto tablet:max-w-full tablet:px-3">
@@ -10,7 +23,7 @@
           {{- section.settings.second_title -}}
         </mark>
         <div>
-          <a href="{{ section.settings.button_link }}" class="button mt-9 inline-block uppercase">
+          <a href="{{ section.settings.button_link }}" class="button mt-9 inline-block uppercase z-50">
             {{- section.settings.button_text -}}
           </a>
         </div>
@@ -23,19 +36,6 @@
         </div>
       </div>
 
-      <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;"
-        ><img
-          alt="Bg Image"
-          src="{{ section.settings.hero_image | img_url: 'original' }}"
-          decoding="async"
-          data-nimg="fill"
-          class="absolute top-0 left-0 h-full w-full object-cover -z-50 phone:object-right"
-          style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
-          sizes="100vw"
-          srcset="{{ section.settings.hero_image | img_url: 'original' }}"
-
-        ><noscript></noscript>
-      </span>
       <span
         class="swiper-notification"
         aria-live="assertive"

@@ -3,10 +3,10 @@
     "6c4cde42-158a-4cf1-ab59-ba29f8638fdf": {
       "type": "hero-section",
       "settings": {
-        "hero_title": "Shop",
+        "hero_title": "Contact",
         "hero_image": "shopify:\/\/shop_images\/banner-hero.svg",
         "page_link": "",
-        "hero_subtitle_title": "Product title"
+        "hero_subtitle_title": ""
       }
     },
     "main": {

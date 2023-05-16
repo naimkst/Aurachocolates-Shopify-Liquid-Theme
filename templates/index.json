@@ -6,7 +6,7 @@
         "first_title": "BIENVENUE, WELCOME!",
         "second_title": "KOSHER, ARTISANAL BELGIAN CHOCOLATES CREATED IN MONTRÉAL",
         "button_text": "SHOP NOW",
-        "button_link": "",
+        "button_link": "\/collections\/all",
         "conllection_text": "SEE OUR SHAVOUS COLLECTION",
         "hero_collection": "shavous",
         "hero_image": "shopify:\/\/shop_images\/hero_image.webp"
@@ -37,8 +37,8 @@
             "gift_title": "Gift",
             "gift_description": "When words just won’t do it-say it with chocolate. Delightful,delicious and, discerning- you’ll make their day.",
             "gift_image": "shopify:\/\/shop_images\/gift.svg",
-            "gift_link": "#",
-            "gift_button_text": "I want to make their day"
+            "gift_link": "\/collections\/personal-gifts",
+            "gift_button_text": "Uplift their day - just because"
           }
         },
         "aade2c31-4e6f-4158-8b58-3af8c657dc76": {
@@ -47,8 +47,8 @@
             "gift_title": "Events",
             "gift_description": "Show Stopping centerpieces that make you stand out. Spoil your guests with melt-in-your-mouth delicacies.",
             "gift_image": "shopify:\/\/shop_images\/event.svg",
-            "gift_link": "#",
-            "gift_button_text": "I want to make their day"
+            "gift_link": "shopify:\/\/collections\/corporate-gourmet-gifts",
+            "gift_button_text": "Make memorable events"
           }
         },
         "a12cc03f-cb34-480a-9c85-609e9aa6a96c": {
@@ -57,8 +57,8 @@
             "gift_title": "Corporate",
             "gift_description": "Unique gifts that will highlight your appreciation to all. Foster good business relationships by showing your team and your clients how much they mean to you",
             "gift_image": "shopify:\/\/shop_images\/corporate.svg",
-            "gift_link": "#",
-            "gift_button_text": "I want to make their day"
+            "gift_link": "\/collections\/corporate-gourmet-gifts",
+            "gift_button_text": "Create strong connections"
           }
         }
       },
