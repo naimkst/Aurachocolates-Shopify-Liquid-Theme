@@ -3,3 +3,25 @@
   content: "next";
   color: #ea5329;
 }
+.shopify-email-marketing-confirmation__container {
+  max-width: 560px;
+  max-width: 65ch;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.shopify-email-marketing-confirmation__container h1 {
+  font-size: 45px;
+  font-weight: 700;
+}
+.shopify-email-marketing-confirmation__container p {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
