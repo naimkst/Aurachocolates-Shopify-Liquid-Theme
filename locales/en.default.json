@@ -458,5 +458,13 @@
       "copy_code_success": "Code copied successfully",
       "print_gift_card": "Print"
     }
+  },
+  "shopify": {
+    "email_marketing": {
+      "unsubscribed": {
+        "disclaimer": "We are sorrry to see that you unsubscribed from our newsletter. We hope that you have some other chocolate to survive on until you visit us again!🍫🍫",
+        "confirmation": "  "
+      }
+    }
   }
 }
