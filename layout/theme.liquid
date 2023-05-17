@@ -48,7 +48,7 @@
     {{ content_for_header }}
   </head>
 
-  <body class="gradient">
+  <body class="gradient" id="{{ template }}">
     {% section 'header' %}
     {{ content_for_layout }}
     {% section 'footer' %}

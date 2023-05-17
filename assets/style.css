@@ -25,3 +25,9 @@
   font-weight: 400;
   margin-bottom: 30px;
 }
+body#product\.custom-three .wishlist-whale-button-container-float-right,
+body#product\.custom-two .wishlist-whale-button-container-float-right,
+body#product\.custom-four .wishlist-whale-button-container-float-right,
+body#product\.custom-six .wishlist-whale-button-container-float-right {
+  display: none;
+}
