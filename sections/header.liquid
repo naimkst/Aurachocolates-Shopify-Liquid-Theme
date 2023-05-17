@@ -131,7 +131,7 @@
                 {% endfor %}
               </div>
               <div class="absolute right-0 bottom-0">
-                <a href="/collections/all">
+                <a href="/collections/{{ section.settings.signature_collections }}">
                   <button
                     class="bg-primary py-3 px-7 text-white hover:text-white hover:bg-primary/95"
                   >
@@ -167,7 +167,7 @@
                 {% endfor %}
               </div>
               <div class="absolute right-0 bottom-0">
-                <a href="/collections/all">
+                <a href="/collections/{{ section.settings.party_collections }}">
                   <button
                     class="bg-primary py-3 px-7 text-white hover:text-white hover:bg-primary/95"
                   >
@@ -209,7 +209,7 @@
                     {% endfor %}
                   </div>
                   <div class="absolute right-0 bottom-0">
-                    <a href="/collections/all">
+                    <a href="/collections/{{ section.settings.gift_collections }}">
                       <button
                         class="bg-primary py-3 px-7 text-white hover:text-white hover:bg-primary/95"
                       >
@@ -521,6 +521,21 @@
       "id": "infoTopText",
       "label": "Notice Area Left",
       "default": "Shipping To All Over Canada"
+    },
+    {
+      "type": "collection",
+      "id": "signature_collections",
+      "label": "Singature Collections"
+    },
+    {
+      "type": "collection",
+      "id": "party_collections",
+      "label": "Party Collections"
+    },
+    {
+      "type": "collection",
+      "id": "gift_collections",
+      "label": "Gift Collections"
     }
   ],
 
