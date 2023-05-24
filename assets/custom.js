@@ -1,5 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Hello World!");
+  var datePickerInput = document.getElementsByClassName("date-");
+  console.log("datePickerInput", datePickerInput.length);
+
+  if (datePickerInput.length == 0) {
+    checkoutBtn?.classList?.add("notValid");
+  } else {
+    checkoutBtn?.classList?.remove("notValid");
+  }
+
   const tabClick = document.getElementById("defaultOpen");
   if (tabClick) {
     tabClick.click();
@@ -229,6 +238,7 @@ decreaseButtons.forEach(function (button) {
 });
 
 //Remove Product
+
 function changeCart(id) {
   var RecipientsNumber = document.getElementsByClassName("phone-" + id);
   var datePickerInput = document.getElementsByClassName("date-" + id);

@@ -201,9 +201,12 @@
                         >{{ giftMessage }}</textarea>
                       </div>
                     {% endcomment %}
-                    <div class="border-primary border-separate py-4 w-[70px] flex items-center justify-center gap-5 m-auto">
+                    <div
+                      class="border-primary border-separate py-4 w-[70px] flex items-center justify-center gap-5 m-auto removeProduct"
+                      data-line="{{ forloop.index }}"
+                    >
                       <h3 class="section-content">
-                        <div class="flex items-center gap-5 removeProduct" data-line="{{ forloop.index }}">
+                        <div class="flex items-center gap-5 removeProduct">
                           <svg
                             stroke="currentColor"
                             fill="currentColor"
