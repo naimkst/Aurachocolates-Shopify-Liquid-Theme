@@ -708,9 +708,6 @@ video {
 .h-full{
   height: 100%;
 }
-.h-screen{
-  height: 100vh;
-}
 .min-h-\[320px\]{
   min-height: 320px;
 }
@@ -2571,8 +2568,14 @@ img.image-zoom__image {
   .phone\:mb-\[10px\]{
     margin-bottom: 10px;
   }
+  .phone\:ml-0{
+    margin-left: 0px;
+  }
   .phone\:block{
     display: block;
+  }
+  .phone\:flex{
+    display: flex;
   }
   .phone\:hidden{
     display: none;
@@ -2586,6 +2589,12 @@ img.image-zoom__image {
   .phone\:min-h-full{
     min-height: 100%;
   }
+  .phone\:w-\[100px\]{
+    width: 100px;
+  }
+  .phone\:w-\[30px\]{
+    width: 30px;
+  }
   .phone\:w-\[49\.5\%\]{
     width: 49.5%;
   }
@@ -2594,6 +2603,9 @@ img.image-zoom__image {
   }
   .phone\:w-full{
     width: 100%;
+  }
+  .phone\:min-w-\[630px\]{
+    min-width: 630px;
   }
   .phone\:max-w-full{
     max-width: 100%;
@@ -2633,18 +2645,32 @@ img.image-zoom__image {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+  .phone\:px-\[15px\]{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
   .phone\:py-3{
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
   }
+  .phone\:py-\[15px\]{
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
   .phone\:pb-\[70px\]{
     padding-bottom: 70px;
+  }
+  .phone\:pl-\[60px\]{
+    padding-left: 60px;
   }
   .phone\:text-center{
     text-align: center;
   }
   .phone\:text-\[14px\]{
     font-size: 14px;
+  }
+  .phone\:text-\[15px\]{
+    font-size: 15px;
   }
   .phone\:text-\[20px\]{
     font-size: 20px;
