@@ -123,6 +123,10 @@
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo_1.svg",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "large",
+    "checkout_body_background_color": "#ffffff",
     "sections": {
       "header": {
         "type": "header",
@@ -132,7 +136,10 @@
           "customize_url": "shopify:\/\/pages\/customize-tray",
           "phone": "1(514)-272-2639",
           "email": "info@auradelices.ca",
-          "infoTopText": "Shipping To All Over Canada"
+          "infoTopText": "Shipping To All Over Canada",
+          "signature_collections": "",
+          "party_collections": "",
+          "gift_collections": ""
         }
       },
       "footer": {
@@ -153,6 +160,9 @@
           "newsletter_text": "Subscribe To Our Newsletter",
           "info_text": "*All wine bottles in product images are for illustration purposes only",
           "copy_right_text": "Copyright © 2022 Aura Delices. All Rights Reserved",
+          "poppup_title": "Our website will be closed from Wednesday, April 5th until Friday, April 14, following the observance of the Pesach (Passover) Holiday!",
+          "poppup_description": "Thank you for visiting today!",
+          "poppup_button_text": "OKAY",
           "popup": "false"
         }
       }
