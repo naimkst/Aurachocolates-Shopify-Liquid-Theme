@@ -31,3 +31,13 @@ body#product\.custom-four .wishlist-whale-button-container-float-right,
 body#product\.custom-six .wishlist-whale-button-container-float-right {
   display: none;
 }
+.outStock {
+  background: rgb(234, 83, 41);
+  color: white;
+  padding: 5px 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  font-size: 18px;
+}
