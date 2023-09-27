@@ -1,0 +1,57 @@
+<div
+  class="bg-no-repeat bg-cover py-10"
+  style="background: url({{ section.settings.hero_image | img_url: 'original' }});"
+>
+  <div class="container m-auto">
+    <div class="grid grid-cols-2 items-center gap-4">
+      <div>
+        <img class="w-full h-[300px] object-cover rounded-[10px]" src="{{ "blog-1.png" | asset_url }}" alt="">
+      </div>
+      <div>
+        <h2 class="text-[32px] font-title py-2">10 Best Chocolate To Buy Now</h2>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+          standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+          make a type specimen book. It has survived not only five centuries, but also the leap into electronic
+          typesetting, remaining essentially unchanged. It was popularised..
+        </p>
+        <a class="bg-primary py-2 px-[15px] text-white rounded-[5px] pt-[30px]" href="#">View More</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Shop CTA Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero Title",
+      "default": "Shop"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "url",
+      "id": "page_link",
+      "label": "Page Link"
+    },
+    {
+      "type": "text",
+      "id": "hero_subtitle_title",
+      "label": "Hero Subtitle",
+      "default": "Product title"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop CTA Section"
+    }
+  ]
+}
+{% endschema %}
