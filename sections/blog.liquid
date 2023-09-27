@@ -1,5 +1,5 @@
-<div class="">
-  <div class="container">
+<div class="h-full py-[50px]">
+  <div class="container m-auto">
     <div class="flex items-center justify-between">
       <div class="flex items-center">
         <p>Sort By</p>
@@ -11,6 +11,47 @@
           </select>
         </form>
       </div>
+
+      <div class="flex items-center">
+        <p>Filter By</p>
+        <form action="">
+          <select name="" id="">
+            <option value="">Price</option>
+            <option value="">Name</option>
+            <option value="">Date</option>
+          </select>
+        </form>
+      </div>
     </div>
   </div>
 </div>
+
+{% schema %}
+{
+  "name": "Blog Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero Title",
+      "default": "Shop"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "hero_subtitle_title",
+      "label": "Hero Subtitle",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci, porttitor quis est purus eu. Scelerisque proin ornare bibendum facilisi elementum. "
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog Grid"
+    }
+  ]
+}
+{% endschema %}
