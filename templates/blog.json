@@ -1,5 +1,10 @@
 {
   "sections": {
+    "hero": {
+      "type": "blog-hero",
+      "settings": {
+      }
+    },
     "main": {
       "type": "blog",
       "settings": {
@@ -7,6 +12,7 @@
     }
   },
   "order": [
+    "hero",
     "main"
   ]
 }

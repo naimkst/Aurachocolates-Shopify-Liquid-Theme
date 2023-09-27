@@ -1462,6 +1462,9 @@ video {
 .text-\[32px\]{
   font-size: 32px;
 }
+.text-\[35px\]{
+  font-size: 35px;
+}
 .text-\[38px\]{
   font-size: 38px;
 }
@@ -2575,6 +2578,10 @@ img.image-zoom__image {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+  .tablet\:px-\[10px\]{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
   .tablet\:py-0{
     padding-top: 0px;
     padding-bottom: 0px;
@@ -2667,6 +2674,9 @@ img.image-zoom__image {
   .phone\:justify-center{
     justify-content: center;
   }
+  .phone\:gap-1{
+    gap: 0.25rem;
+  }
   .phone\:gap-2{
     gap: 0.5rem;
   }
@@ -2704,6 +2714,9 @@ img.image-zoom__image {
   }
   .phone\:text-center{
     text-align: center;
+  }
+  .phone\:text-\[12px\]{
+    font-size: 12px;
   }
   .phone\:text-\[14px\]{
     font-size: 14px;
