@@ -643,6 +643,9 @@ video {
 .mt-\[20px\]{
   margin-top: 20px;
 }
+.mt-\[30px\]{
+  margin-top: 30px;
+}
 .mt-\[40px\]{
   margin-top: 40px;
 }
@@ -1253,6 +1256,10 @@ video {
   padding-top: 0px;
   padding-bottom: 0px;
 }
+.py-10{
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
 .py-14{
   padding-top: 3.5rem;
   padding-bottom: 3.5rem;
@@ -1416,9 +1423,6 @@ video {
 }
 .text-right{
   text-align: right;
-}
-.align-middle{
-  vertical-align: middle;
 }
 .font-content{
   font-family: "Lato", sans-serif;
