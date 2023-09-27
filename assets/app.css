@@ -524,6 +524,9 @@ video {
 .col-span-3{
   grid-column: span 3 / span 3;
 }
+.col-span-4{
+  grid-column: span 4 / span 4;
+}
 .col-span-5{
   grid-column: span 5 / span 5;
 }
@@ -697,6 +700,9 @@ video {
 .h-\[350px\]{
   height: 350px;
 }
+.h-\[380px\]{
+  height: 380px;
+}
 .h-\[450px\]{
   height: 450px;
 }
@@ -793,6 +799,9 @@ video {
 .w-\[685px\]{
   width: 685px;
 }
+.w-\[70\%\]{
+  width: 70%;
+}
 .w-\[70px\]{
   width: 70px;
 }
@@ -864,6 +873,9 @@ video {
 }
 .snap-x{
   scroll-snap-type: x var(--tw-scroll-snap-strictness);
+}
+.grid-flow-col{
+  grid-auto-flow: column;
 }
 .grid-cols-2{
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1186,6 +1198,9 @@ video {
 .p-\[10px\]{
   padding: 10px;
 }
+.p-\[20px\]{
+  padding: 20px;
+}
 .p-\[50px\]{
   padding: 50px;
 }
@@ -1401,6 +1416,9 @@ video {
 }
 .text-right{
   text-align: right;
+}
+.align-middle{
+  vertical-align: middle;
 }
 .font-content{
   font-family: "Lato", sans-serif;
