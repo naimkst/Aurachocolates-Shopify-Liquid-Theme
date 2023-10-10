@@ -133,43 +133,49 @@
               </div>
             {% endif %}
           {% endcomment %}
-          <div class="flex phone:justify-center">
-            <div>
-              {% if product.available == false %}
+
+          {% if product.available == false %}
+            <div class="flex phone:justify-center">
+              <div>
                 <p class="button !rounded-none">Out Of Stock</p>
-              {% else %}
-                <div class="flex justify-between items-center w-1/5 border-2 border-primary py-0 px-[20px]">
-                  <svg
-                    class=" fill-primary hover:fill-secondary cursor-pointer quantity-down"
-                    width="16"
-                    height="3"
-                    viewBox="0 0 16 3"
-                  >
-                    <rect width="16" height="2.4"></rect>
-                  </svg>
-                  <div class="quantity-field">
-                    <input
-                      id="quantity"
-                      name="quantity"
-                      class="mx-2 text-center w-8 text-[24px] font-content text-primary"
-                      type="text"
-                      value="1"
-                      min="1"
-                    >
-                  </div>
-                  <svg
-                    class="cursor-pointer fill-primary hover:fill-secondary quantity-up"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                  >
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.20104 6.79896V0H6.80104V6.79896H0V9.19896H6.80104V16H9.20104V9.19896H16V6.79896H9.20104Z"></path>
-                  </svg>
-                </div>
-                <button class="button !rounded-none">Add To Cart</button>
-              {% endif %}
+              </div>
             </div>
-          </div>
+          {% endif %}
+
+          {% if product.available == true %}
+            <div class="flex phone:justify-center">
+              <div class="flex justify-between items-center w-1/5 border-2 border-primary py-0 px-[20px]">
+                <svg
+                  class=" fill-primary hover:fill-secondary cursor-pointer quantity-down"
+                  width="16"
+                  height="3"
+                  viewBox="0 0 16 3"
+                >
+                  <rect width="16" height="2.4"></rect>
+                </svg>
+                <div class="quantity-field">
+                  <input
+                    id="quantity"
+                    name="quantity"
+                    class="mx-2 text-center w-8 text-[24px] font-content text-primary"
+                    type="text"
+                    value="1"
+                    min="1"
+                  >
+                </div>
+                <svg
+                  class="cursor-pointer fill-primary hover:fill-secondary quantity-up"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                >
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M9.20104 6.79896V0H6.80104V6.79896H0V9.19896H6.80104V16H9.20104V9.19896H16V6.79896H9.20104Z"></path>
+                </svg>
+              </div>
+              <button class="button !rounded-none">Add To Cart</button>
+            </div>
+          {% endif %}
+
           <div class="cart-buttons"></div>
         </div>
       </div>
