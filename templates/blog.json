@@ -1,10 +1,13 @@
 {
   "sections": {
+    "hero": {
+      "type": "blog-hero",
+      "settings": {}
+    },
     "main": {
-      "type": "cart"
+      "type": "blog",
+      "settings": {}
     }
   },
-  "order": [
-    "main"
-  ]
+  "order": ["hero", "main"]
 }

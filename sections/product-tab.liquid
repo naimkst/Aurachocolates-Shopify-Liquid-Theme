@@ -78,6 +78,9 @@
                     <form class="form" action="/cart/add" method="post" id="addToCart">
                       <div class="group rounded-[10px] relative py-[0px] hover:cursor-pointer tablet:py-0 phone:mb-[10px]">
                         <div class="">
+                          {% if product.available == false %}
+                            <p class="outStock">Out Of Stock</p>
+                          {% endif %}
                           <div class="right-0 relative text-right -top-[0px] tablet:-top-3">
                             <div class="h-[350px] tablet:h-[195px]">
                               <a href="{{ product.url }}">

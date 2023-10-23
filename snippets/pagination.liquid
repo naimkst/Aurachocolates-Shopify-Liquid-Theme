@@ -1,0 +1,59 @@
+{%- if paginate.parts.size > 0 -%}
+  <div>
+    <div class="flex items-center justify-center mt-[50px]">
+      <div class="flex items-center gap-4">
+        {%- if paginate.previous -%}
+          <a href="{{ paginate.previous.url | replace: '?page=1', ''}}{{ anchor }}">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+              </svg>
+            </div>
+          </a>
+        {%- endif -%}
+        {%- for part in paginate.parts -%}
+          {%- if part.is_link -%}
+            <a
+              href="{{ part.url | replace: '?page=1', ''}}{{ anchor }}"
+              class="bg-[#f2f2f2] py-[10px]  px-[15px] rounded-[5px] font-content font-light"
+            >
+              {{- part.title -}}
+            </a>
+          {%- else -%}
+            {%- if part.title == paginate.current_page -%}
+              <a href="" class="bg-primary py-[10px] text-white px-[15px] rounded-[5px] font-content font-light">
+                {{- part.title -}}
+              </a>
+            {%- else -%}
+              <span class="pagination__item">{{ part.title }}</span>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- if paginate.next -%}
+          <a href="{{ paginate.next.url }}{{ anchor }}">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </div>
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}

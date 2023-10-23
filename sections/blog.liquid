@@ -1,0 +1,148 @@
+{%- paginate blog.articles by 12 -%}
+  <div class="py-[50px] bg-[#fafafa] ">
+    <div class="container m-auto">
+      <div class="flex items-center justify-between tablet:px-[10px]">
+        <div class="flex items-center gap-4 phone:gap-1">
+          <p class="font-bold font-content text-[12px]">Sort By</p>
+          <form action="" class="bg-white py-2 px-[15px] rounded-[5px] font-content">
+            <select name="" id="" class="w-[150px] phone:w-auto">
+              <option value="">Select Option</option>
+              <option value="">Price</option>
+              <option value="">Name</option>
+              <option value="">Date</option>
+            </select>
+          </form>
+        </div>
+
+        <div class="flex items-center gap-4 phone:gap-1">
+          <p class="font-bold font-content text-[12px]">Filter By</p>
+          <form action="" class="bg-white py-2 px-[15px] rounded-[5px] font-content">
+            <select name="" id="" class="w-[150px] phone:w-auto">
+              <option value="" class="phone:text-[12px]">Select Option</option>
+              <option value="">Price</option>
+              <option value="">Name</option>
+              <option value="">Date</option>
+            </select>
+          </form>
+        </div>
+      </div>
+      {% if current_tags %}
+        <div class="grid grid-cols-4 items-center gap-6 mt-[50px] tablet:grid-cols-2 phone:grid-cols-1 tablet:px-[10px]">
+          {% assign limit = section.settings.blog_limit | default: 4 %}
+          {% for article in blogs.news.articles limit: limit %}
+            {% for tag in current_tags %}
+              {% if article.tags contains tag %}
+                <div class="bg-white rounded-[10px] relative">
+                  <a class="" href="{{ article.url }}">
+                    <div>
+                      <img
+                        class="w-full h-[267px] object-cover rounded-[10px]"
+                        src="{{ article.image | img_url: 'original' }}"
+                        alt=""
+                      >
+                    </div>
+                  </a>
+
+                  <div class="my-[20px] px-[15px]">
+                    <a class="" href="{{ article.url }}">
+                      <h2 class="font-bold text-[18px]">{{ article.title }}</h2>
+                    </a>
+                    <p class="mt-[10px] font-content font-light">
+                      {{ article.content | strip_html | truncatewords: 21 }}
+                    </p>
+                  </div>
+                  <div class="flex gap-2">
+                    <div class="absolute bg-white top-2 right-2 rounded-full px-3 font-content font-light py-[5px] z-50">
+                      {% for tag in article.tags limit: 1 %}
+                        <script>
+                          console.log({{ tag | json }})
+                        </script>
+                        <a href="{{ shop.url }}{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="grid grid-cols-4 items-center gap-6 mt-[50px] tablet:grid-cols-2 phone:grid-cols-1 tablet:px-[10px]">
+          {% assign limit = section.settings.blog_limit | default: 4 %}
+          {% for article in blogs.news.articles limit: limit %}
+            <div class="bg-white rounded-[10px] relative">
+              <a class="" href="{{ article.url }}">
+                <div>
+                  <img
+                    class="w-full h-[267px] object-cover rounded-[10px]"
+                    src="{{ article.image | img_url: 'original' }}"
+                    alt=""
+                  >
+                </div>
+              </a>
+
+              <div class="my-[20px] px-[15px]">
+                <a class="" href="{{ article.url }}">
+                  <h2 class="font-bold text-[18px]">{{ article.title }}</h2>
+                </a>
+                <p class="mt-[10px] font-content font-light">
+                  {{ article.content | strip_html | truncatewords: 21 }}
+                </p>
+              </div>
+              <div class="flex gap-2">
+                <div class="absolute bg-white top-2 right-2 rounded-full px-3 font-content font-light py-[5px] z-50">
+                  {% for tag in article.tags limit: 1 %}
+                    <script>
+                      console.log({{ tag | json }})
+                    </script>
+                    <a href="{{ shop.url }}{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {%- if paginate.pages > 1 -%}
+        {%- render 'pagination', paginate: paginate -%}
+      {%- endif -%}
+    </div>
+  </div>
+{%- endpaginate -%}
+
+{% schema %}
+{
+  "name": "Blog Grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero Title",
+      "default": "Shop"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "hero_subtitle_title",
+      "label": "Hero Subtitle",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci, porttitor quis est purus eu. Scelerisque proin ornare bibendum facilisi elementum. "
+    },
+    {
+      "type": "text",
+      "id": "blog_limit",
+      "label": "Blog Limit",
+      "default": "8"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog Grid"
+    }
+  ]
+}
+{% endschema %}

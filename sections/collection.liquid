@@ -34,7 +34,10 @@
                   <form class="form" action="/cart/add" method="post" id="addToCart">
                     <div class="group rounded-[10px] relative hover:cursor-pointer">
                       <div class="">
-                        <div class="right-0 relative text-right  group-hover:bg-white">
+                        {% if product.available == false %}
+                          <p class="outStock">Out Of Stock</p>
+                        {% endif %}
+                        <div class="right-0 relative text-right  bg-white">
                           <div class="h-[300px] tablet:h-[195px]">
                             <a href="{{ product.url }}">
                               <img

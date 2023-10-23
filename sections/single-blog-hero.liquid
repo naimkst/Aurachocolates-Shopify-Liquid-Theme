@@ -1,0 +1,34 @@
+<div
+  class="pt-[90px] pb-[60px] flex items-center justify-center text-center bg-no-repeat bg-cover"
+  style="background: url({{ section.settings.hero_image | img_url: 'original' }}); background-repeat: no-repeat; background-size: cover; background-position: center;"
+>
+  <div class="container m-auto">
+    <div class="w-[900px] m-auto pt-[100px] tablet:w-full tablet:px-3">
+      <h2 class="text-[35px] font-title">{{ section.settings.hero_title }}</h2>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Blog Hero Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero Title",
+      "default": "Aura delices"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog Hero Section"
+    }
+  ]
+}
+{% endschema %}

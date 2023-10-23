@@ -1,0 +1,46 @@
+<div
+  class="pt-[90px] pb-[60px] flex items-center justify-center text-center bg-no-repeat bg-cover"
+  style="background: url({{ section.settings.hero_image | img_url: 'original' }}); background-repeat: no-repeat; background-size: cover; background-position: center;"
+>
+  <div class="container m-auto">
+    <div class="w-[900px] m-auto pt-[100px] tablet:w-full tablet:px-3">
+      <h2 class="title-lx">{{ section.settings.hero_title }}</h2>
+    </div>
+
+    <div class="w-[50%] m-auto tablet:w-[100%]">
+      <p class="text-center text-[18px] font-normal leading-[30px] phone:text-[29px]">
+        {{ section.settings.hero_subtitle_title }}
+      </p>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Blog Hero Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero Title",
+      "default": "Aura delices"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "hero_subtitle_title",
+      "label": "Hero Subtitle",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci, porttitor quis est purus eu. Scelerisque proin ornare bibendum facilisi elementum."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog Hero Section"
+    }
+  ]
+}
+{% endschema %}

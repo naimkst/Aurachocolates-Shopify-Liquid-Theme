@@ -31,3 +31,36 @@ body#product\.custom-four .wishlist-whale-button-container-float-right,
 body#product\.custom-six .wishlist-whale-button-container-float-right {
   display: none;
 }
+.outStock {
+  background: rgb(234, 83, 41);
+  color: white;
+  padding: 5px 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  font-size: 18px;
+}
+.blogContent {
+  margin-top: 30px;
+}
+.blogContent h2 {
+  padding: 10px 0px;
+  font-size: 25px;
+}
+.blogContent p {
+  padding: 10px 0px;
+}
+.imageFilter {
+  position: relative;
+}
+.imageFilter::before {
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(253, 253, 253, 0.67);
+  z-index: 0;
+}

@@ -1,0 +1,59 @@
+<div
+  class="bg-no-repeat bg-cover py-10 imageFilter"
+  style="background: url('https://aurachocolates.myshopify.com/cdn/shop/files/hero_image_II_1024x1024.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"
+>
+  <div class="container m-auto z-50 relative">
+    <div class="grid grid-cols-2 items-center gap-8">
+      <div>
+        <img class="w-full h-[350px] object-cover rounded-[10px]" src="{{ "blog-1.png" | asset_url }}" alt="">
+      </div>
+      <div>
+        <h2 class="text-[32px] font-title py-2">10 Best Chocolate To Buy Now</h2>
+        <p class="text-[18px]">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+          standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+          make a type specimen book. It has survived not only five centuries, but also the leap into electronic
+          typesetting, remaining essentially unchanged. It was popularised..
+        </p>
+        <div class="mt-[30px]">
+          <a class="bg-primary py-2 px-[15px] text-white rounded-[5px] " href="#">View More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Shop CTA Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero Title",
+      "default": "Shop"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "url",
+      "id": "page_link",
+      "label": "Page Link"
+    },
+    {
+      "type": "text",
+      "id": "hero_subtitle_title",
+      "label": "Hero Subtitle",
+      "default": "Product title"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop CTA Section"
+    }
+  ]
+}
+{% endschema %}

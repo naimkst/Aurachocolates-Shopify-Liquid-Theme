@@ -239,10 +239,10 @@ details[open] summary::after {
   right: 0;
 }
 
-.productFilterRadio input[type=radio] {
+.productFilterRadio input[type="radio"] {
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   background-color: #fff;
   margin: 0;
   font: inherit;
@@ -253,13 +253,13 @@ details[open] summary::after {
   border-radius: 50%;
 }
 
-.productFilterRadio input[type=radio] {
+.productFilterRadio input[type="radio"] {
   /* ...existing styles */
   display: grid;
   place-content: center;
 }
 
-.productFilterRadio input[type=radio]::before {
+.productFilterRadio input[type="radio"]::before {
   content: "";
   width: 0.65em;
   height: 0.65em;
@@ -269,7 +269,7 @@ details[open] summary::after {
   box-shadow: inset 1em 1em #3f3f3f;
 }
 
-.productFilterRadio input[type=radio]:checked::before {
+.productFilterRadio input[type="radio"]:checked::before {
   transform: scale(1);
 }
 
@@ -294,7 +294,11 @@ section.faq-row.styles_faq-row__2YF3c {
   @apply content;
 }
 
-.styles_faq-row-wrapper__3vA1D .styles_row-body__1NvUo .styles_faq-row__2YF3c .styles_row-title__1YiiY .styles_icon-wrapper__2cftw {
+.styles_faq-row-wrapper__3vA1D
+  .styles_row-body__1NvUo
+  .styles_faq-row__2YF3c
+  .styles_row-title__1YiiY
+  .styles_icon-wrapper__2cftw {
   max-width: 40px !important;
   max-height: 40px !important;
   top: 20px !important;
@@ -328,7 +332,7 @@ section.faq-row.styles_faq-row__2YF3c {
   @apply text-[24px] leading-[36px] font-content font-light text-content list-disc list-inside marker:text-[#3F3F3F]/20;
 }
 
-input[type=range]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
   pointer-events: all;
   width: 24px;
   height: 24px;
@@ -337,7 +341,8 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 .cartBoxShadow {
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
 }
 
 /* Loader CSS */
@@ -381,7 +386,8 @@ input[type=range]::-webkit-slider-thumb {
   }
 }
 .boxShadowImg {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .infoIcon {
@@ -510,7 +516,8 @@ body {
 }
 
 @keyframes lds-grid {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
@@ -521,11 +528,11 @@ img.image-zoom__image {
   height: 535px !important;
   border-radius: 5px;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 @media screen and (max-width: 768px) {
   summary::after {
     top: 7px;
   }
-}/*# sourceMappingURL=app.css.map */
+} /*# sourceMappingURL=app.css.map */
