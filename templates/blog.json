@@ -2,12 +2,23 @@
   "sections": {
     "hero": {
       "type": "blog-hero",
-      "settings": {}
+      "settings": {
+        "hero_title": "Aura delices",
+        "hero_image": "shopify:\/\/shop_images\/single_blog.png",
+        "hero_subtitle_title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci, porttitor quis est purus eu. Scelerisque proin ornare bibendum facilisi elementum."
+      }
     },
     "main": {
       "type": "blog",
-      "settings": {}
+      "settings": {
+        "hero_title": "Shop",
+        "hero_subtitle_title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci, porttitor quis est purus eu. Scelerisque proin ornare bibendum facilisi elementum.",
+        "blog_limit": "8"
+      }
     }
   },
-  "order": ["hero", "main"]
+  "order": [
+    "hero",
+    "main"
+  ]
 }
