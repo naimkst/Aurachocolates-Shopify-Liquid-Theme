@@ -61,7 +61,7 @@
           <div class="bg-white p-[20px] rounded-[10px] mt-[10px] items-center">
             <h2 class="text-[25px] mb-5">Related Product</h2>
             <ul class="flex flex-col divide-y ">
-              {% for product in collections[block.settings.related_collection].products %}
+              {% for product in collections[section.settings.related_collection].products %}
                 <li class="py-2">
                   <a href="{{ product.url }}">
                     <div class="flex justify-between gap-2 items-center">
