@@ -61,11 +61,23 @@
           <div class="bg-white p-[20px] rounded-[10px] mt-[10px] items-center">
             <h2 class="text-[25px] mb-5">Related Product</h2>
             <ul class="flex flex-col divide-y ">
-              {%- for tag in blog.all_tags -%}
+              {% for product in collections[block.settings.related_collection].products %}
                 <li class="py-2">
-                  <a href="{{ blog.url }}/tagged/{{ tag }}">{{ tag }}</a>
+                  <a href="{{ product.url }}">
+                    <div class="flex justify-between gap-2 items-center">
+                      <img
+                        src="{{ product.featured_image | product_img_url: 'medium' }}"
+                        alt=""
+                        class="object-cover rounded-[10px] w-[60px] h-[40px]"
+                      >
+                      <div>
+                        <h3 class="text-[13px] font-bold">{{ product.title }}</h3>
+                        <p class="text-[12px]">{{ product.price | money }}</p>
+                      </div>
+                    </div>
+                  </a>
                 </li>
-              {%- endfor -%}
+              {% endfor %}
             </ul>
           </div>
         </div>
@@ -73,3 +85,22 @@
     </div>
   </div>
 </div>
+
+{% schema %}
+{
+  "name": "Single Blog",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "related_collection",
+      "label": "Related Product"
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Single Blog"
+    }
+  ]
+}
+{% endschema %}
