@@ -3,7 +3,8 @@
     "hero": {
       "type": "single-blog-hero",
       "settings": {
-        "hero_title": "Aura delices"
+        "hero_title": "Aura delices{{ article.title }}",
+        "hero_image": "shopify:\/\/shop_images\/single_blog.png"
       }
     },
     "main": {
