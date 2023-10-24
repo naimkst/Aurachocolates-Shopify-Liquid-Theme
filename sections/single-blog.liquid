@@ -18,11 +18,20 @@
     font-size: 22px;
     margin-top: 20px;
   }
+  .blogContent ol,
+  .blogContent ul {
+    list-style: inherit;
+    margin-left: 20px;
+    padding: 0;
+  }
 </style>
 <div class="py-[50px] bg-[#fafafa]">
   <div class="w-[70%] m-auto tablet:w-full tablet:px-[10px]">
     <div class="grid grid-cols-5 gap-5">
       <div class="col-span-4">
+        <div class="mt-10 mb-10">
+          <h2 class="text-[32px] font-title">{{ article.title }}</h2>
+        </div>
         <div>
           <img
             class="w-full h-[380px] object-cover rounded-[10px]"
@@ -33,10 +42,6 @@
         <div class="flex items-center justify-between mt-2">
           <p class="text-[14px] font-content">{{ article.tags }}</p>
           <p class="text-[14px] font-content">Written By: {{ article.author }}</p>
-        </div>
-
-        <div class="mt-10">
-          <h2 class="text-[32px] font-title">{{ article.title }}</h2>
         </div>
 
         <div class="blogContent">
