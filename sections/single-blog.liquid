@@ -28,6 +28,10 @@
     margin-left: 20px;
     padding: 0;
   }
+
+  .blogContent a {
+    color: #ea5329;
+  }
 </style>
 {% form 'new_comment', article %}
   <div class="py-[50px] bg-[#fafafa]">
@@ -39,7 +43,7 @@
           </div>
           <div>
             <img
-              class="w-full h-[380px] object-cover rounded-[10px]"
+              class="w-full h-[450px] object-cover rounded-[10px]"
               src="{{ article.image.src | img_url: 'large' }}"
               alt="{{ article.title }}"
               width=""
@@ -102,7 +106,7 @@
         </div>
       </div>
 
-      <div class="bg-white w-full py-10 px-5 rounded-[10px]">
+      <div class="bg-white w-full py-10 px-5 rounded-[10px] mt-10">
         <h2 class="text-[30px] font-['Antiqua']">{{ article.comments_count }} Comments</h2>
 
         <div>

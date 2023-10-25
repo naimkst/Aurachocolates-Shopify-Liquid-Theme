@@ -10,7 +10,7 @@
     "main": {
       "type": "single-blog",
       "settings": {
-        "related_collection": "birthday"
+        "related_collection": "baby-boy-girl"
       }
     }
   },
