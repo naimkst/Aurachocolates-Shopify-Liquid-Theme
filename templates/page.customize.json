@@ -5,6 +5,7 @@
       "settings": {
         "tray_title": "Please Select Your Try Size",
         "try_product": [
+          "single-box-choose-your-colors",
           "double-tray-choose-your-color",
           "three-box-choose-your-colors",
           "four-box-choose-your-colors",
