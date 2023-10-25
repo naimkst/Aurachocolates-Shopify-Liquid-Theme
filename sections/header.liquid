@@ -93,12 +93,18 @@
               alt="logo"
               class="w-[90px] h-[90px]"
               src="{{ section.settings.logo | img_url: '' }}"
+              width=""
+              height=""
+              loading="eager"
             >
           {% else %}
             <img
               alt="logo"
               src="{{ 'logo.svg' | asset_url }}"
               style="display: block; max-width: 100%; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px;"
+              width=""
+              height=""
+              loading="eager"
             >
           {% endif %}
         </a>
@@ -122,6 +128,9 @@
                           ><img
                             src="{{ collection.image.src | img_url: 'medium' }}"
                             style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                            width=""
+                            height=""
+                            loading="eager"
                         ></span>
                       </div>
                     </a>
@@ -158,6 +167,9 @@
                           ><img
                             src="{{ collection.image.src | img_url: 'medium' }}"
                             style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                            width=""
+                            height=""
+                            loading="eager"
                         ></span>
                       </div>
                     </a>
@@ -199,6 +211,9 @@
                                 src="{{ collection.image.src | img_url: 'medium' }}"
 
                                 style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                                width=""
+                                height=""
+                                loading="eager"
                               >
                             </span>
                           </div>
@@ -232,6 +247,9 @@
                             ><img
                               src="{{ section.settings.customize_image | img_url: 'medium' }}"
                               style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;"
+                              width=""
+                              height=""
+                              loading="eager"
                           ></span>
                         </div>
                         <h3 class="text-center mt-2 hover:text-primary">Many Color Options!</h3>
@@ -461,6 +479,9 @@
                     alt="--"
                     src="{{ item | img_url: '' }}"
                     style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
+                    width=""
+                    height=""
+                    loading="eager"
                 ></span>
                 <div>
                   <p class="text-secondary text-[13px] font-title font-bold mb-1 pr-4">

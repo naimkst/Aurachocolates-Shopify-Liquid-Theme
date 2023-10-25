@@ -42,6 +42,9 @@
               class="w-full h-[380px] object-cover rounded-[10px]"
               src="{{ article.image.src | img_url: 'large' }}"
               alt="{{ article.title }}"
+              width=""
+              height=""
+              loading="eager"
             >
           </div>
           <div class="flex items-center justify-between mt-2">
@@ -80,6 +83,9 @@
                             src="{{ product.featured_image | product_img_url: 'medium' }}"
                             alt=""
                             class="object-cover rounded-[10px] w-[60px] h-[60px]"
+                            width=""
+                            height=""
+                            loading="eager"
                           >
                         </div>
                         <div class="flex-1">
