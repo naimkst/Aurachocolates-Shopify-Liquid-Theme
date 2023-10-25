@@ -91,80 +91,83 @@
       </div>
 
       <div class="bg-white w-full py-10 px-5 rounded-[10px]">
-        <h2 class="text-[30px] font-['Antiqua']">3 Comments</h2>
+        <h2 class="text-[30px] font-['Antiqua']">{{ article.comments_count }} Comments</h2>
 
         <div>
-          <div class="flex gap-3 items-center mt-5 pb-3">
-            <div class="w-[98px] h-[98px] object-cover rounded-full block">
-              <img
-                src="https://photo-cdn2.icons8.com/pDZulNlEd3Jmpgu2s11lnB_KIBFZgQCZUVXwTNJP1gI/rs:fit:288:432/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5h/c3NldHMvYXNzZXRz/L3NhdGEvb3JpZ2lu/YWwvOTAxLzU0ZjNm/ZDZiLTAyOGEtNDUw/OC05N2I1LTUwZDRl/Y2Q2ZTBkMC5qcGc.webp"
-                alt=""
-                class="w-[98px] h-[98px] object-cover rounded-[10px] block"
-              >
-            </div>
-            <div>
-              <div class="flex justify-between items-center">
-                <h2 class="text-normal !font-bold">Same Doe</h2>
-                <div class="flex items-center gap-2">
-                  <img src="{{ 'reply.svg' |  asset_url }}" alt="">
-                  <button class="text-[13px] font-content font-light text-content !text-[#EA5329]">Relpy</button>
-                </div>
+          {% for comment in article.comments %}
+            <div class="flex gap-3 items-center mt-5 pb-3 w-full">
+              <div class="w-[98px] h-[98px] object-cover rounded-full block">
+                <img
+                  src="https://photo-cdn2.icons8.com/pDZulNlEd3Jmpgu2s11lnB_KIBFZgQCZUVXwTNJP1gI/rs:fit:288:432/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5h/c3NldHMvYXNzZXRz/L3NhdGEvb3JpZ2lu/YWwvOTAxLzU0ZjNm/ZDZiLTAyOGEtNDUw/OC05N2I1LTUwZDRl/Y2Q2ZTBkMC5qcGc.webp"
+                  alt=""
+                  class="w-[98px] h-[98px] object-cover rounded-[10px] block"
+                >
               </div>
-              <span class="font-content font-light text-content !text-[13px]">7 Days Ago</span>
-              <p class="text-[15px] font-content font-light text-content">
-                That far ground rat pure from newt far panther crane lorikeet overlay alas cobra across much gosh less
-                goldfinch ruthlessly alas examined and that more and the ouch jeez.
-              </p>
+              <div class="w-full">
+                <div class="flex justify-between items-center">
+                  <h2 class="text-normal !font-bold">{{ comment.author }}</h2>
+                  <div class="flex items-center gap-2">
+                    <img src="{{ 'reply.svg' |  asset_url }}" alt="">
+                    <button class="text-[13px] font-content font-light text-content !text-[#EA5329]">Relpy</button>
+                  </div>
+                </div>
+                <span class="font-content font-light text-content !text-[13px]">
+                  {{- comment.created_at | date: '%a, %b %d, %Y' -}}
+                </span>
+                <span class="text-[15px] font-content font-light text-content">{{ comment.content }}</span>
+              </div>
             </div>
-          </div>
+          {% endfor %}
 
-          <div class="flex gap-3 items-center mt-5 pb-3 pl-5">
-            <div class="w-[98px] h-[98px] object-cover rounded-full block">
-              <img
-                src="https://photo-cdn2.icons8.com/pDZulNlEd3Jmpgu2s11lnB_KIBFZgQCZUVXwTNJP1gI/rs:fit:288:432/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5h/c3NldHMvYXNzZXRz/L3NhdGEvb3JpZ2lu/YWwvOTAxLzU0ZjNm/ZDZiLTAyOGEtNDUw/OC05N2I1LTUwZDRl/Y2Q2ZTBkMC5qcGc.webp"
-                alt=""
-                class="w-[98px] h-[98px] object-cover rounded-[10px] block"
-              >
-            </div>
-            <div>
-              <div class="flex justify-between items-center">
-                <h2 class="text-normal !font-bold">Same Doe</h2>
-                <div class="flex items-center gap-2">
-                  <img src="{{ 'reply.svg' |  asset_url }}" alt="">
-                  <button class="text-[13px] font-content font-light text-content !text-[#EA5329]">Relpy</button>
-                </div>
+          {% comment %}
+            <div class="flex gap-3 items-center mt-5 pb-3 pl-5">
+              <div class="w-[98px] h-[98px] object-cover rounded-full block">
+                <img
+                  src="https://photo-cdn2.icons8.com/pDZulNlEd3Jmpgu2s11lnB_KIBFZgQCZUVXwTNJP1gI/rs:fit:288:432/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5h/c3NldHMvYXNzZXRz/L3NhdGEvb3JpZ2lu/YWwvOTAxLzU0ZjNm/ZDZiLTAyOGEtNDUw/OC05N2I1LTUwZDRl/Y2Q2ZTBkMC5qcGc.webp"
+                  alt=""
+                  class="w-[98px] h-[98px] object-cover rounded-[10px] block"
+                >
               </div>
-              <span class="font-content font-light text-content !text-[13px]">7 Days Ago</span>
-              <p class="text-[15px] font-content font-light text-content">
-                That far ground rat pure from newt far panther crane lorikeet overlay alas cobra across much gosh less
-                goldfinch ruthlessly alas examined and that more and the ouch jeez.
-              </p>
+              <div>
+                <div class="flex justify-between items-center">
+                  <h2 class="text-normal !font-bold">Same Doe</h2>
+                  <div class="flex items-center gap-2">
+                    <img src="{{ 'reply.svg' |  asset_url }}" alt="">
+                    <button class="text-[13px] font-content font-light text-content !text-[#EA5329]">Relpy</button>
+                  </div>
+                </div>
+                <span class="font-content font-light text-content !text-[13px]">7 Days Ago</span>
+                <p class="text-[15px] font-content font-light text-content">
+                  That far ground rat pure from newt far panther crane lorikeet overlay alas cobra across much gosh less
+                  goldfinch ruthlessly alas examined and that more and the ouch jeez.
+                </p>
+              </div>
             </div>
-          </div>
 
-          <div class="flex gap-3 items-center mt-5 pb-3">
-            <div class="w-[98px] h-[98px] object-cover rounded-full block">
-              <img
-                src="https://photo-cdn2.icons8.com/pDZulNlEd3Jmpgu2s11lnB_KIBFZgQCZUVXwTNJP1gI/rs:fit:288:432/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5h/c3NldHMvYXNzZXRz/L3NhdGEvb3JpZ2lu/YWwvOTAxLzU0ZjNm/ZDZiLTAyOGEtNDUw/OC05N2I1LTUwZDRl/Y2Q2ZTBkMC5qcGc.webp"
-                alt=""
-                class="w-[98px] h-[98px] object-cover rounded-[10px] block"
-              >
-            </div>
-            <div>
-              <div class="flex justify-between items-center">
-                <h2 class="text-normal !font-bold">Same Doe</h2>
-                <div class="flex items-center gap-2">
-                  <img src="{{ 'reply.svg' |  asset_url }}" alt="">
-                  <button class="text-[13px] font-content font-light text-content !text-[#EA5329]">Relpy</button>
-                </div>
+            <div class="flex gap-3 items-center mt-5 pb-3">
+              <div class="w-[98px] h-[98px] object-cover rounded-full block">
+                <img
+                  src="https://photo-cdn2.icons8.com/pDZulNlEd3Jmpgu2s11lnB_KIBFZgQCZUVXwTNJP1gI/rs:fit:288:432/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5h/c3NldHMvYXNzZXRz/L3NhdGEvb3JpZ2lu/YWwvOTAxLzU0ZjNm/ZDZiLTAyOGEtNDUw/OC05N2I1LTUwZDRl/Y2Q2ZTBkMC5qcGc.webp"
+                  alt=""
+                  class="w-[98px] h-[98px] object-cover rounded-[10px] block"
+                >
               </div>
-              <span class="font-content font-light text-content !text-[13px]">7 Days Ago</span>
-              <p class="text-[15px] font-content font-light text-content">
-                That far ground rat pure from newt far panther crane lorikeet overlay alas cobra across much gosh less
-                goldfinch ruthlessly alas examined and that more and the ouch jeez.
-              </p>
+              <div>
+                <div class="flex justify-between items-center">
+                  <h2 class="text-normal !font-bold">Same Doe</h2>
+                  <div class="flex items-center gap-2">
+                    <img src="{{ 'reply.svg' |  asset_url }}" alt="">
+                    <button class="text-[13px] font-content font-light text-content !text-[#EA5329]">Relpy</button>
+                  </div>
+                </div>
+                <span class="font-content font-light text-content !text-[13px]">7 Days Ago</span>
+                <p class="text-[15px] font-content font-light text-content">
+                  That far ground rat pure from newt far panther crane lorikeet overlay alas cobra across much gosh less
+                  goldfinch ruthlessly alas examined and that more and the ouch jeez.
+                </p>
+              </div>
             </div>
-          </div>
+          {% endcomment %}
         </div>
 
         <div class="mt-10">
