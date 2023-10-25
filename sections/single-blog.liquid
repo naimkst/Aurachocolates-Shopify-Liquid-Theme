@@ -1,22 +1,26 @@
 <style>
   .blogContent h2 {
     font-size: 37px;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .blogContent h3 {
     font-size: 32px;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .blogContent h4 {
     font-size: 26px;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .blogContent h5 {
     font-size: 22px;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
   .blogContent ol,
   .blogContent ul {
@@ -70,13 +74,15 @@
                 {% for product in collections[section.settings.related_collection].products %}
                   <li class="py-2">
                     <a href="{{ product.url }}">
-                      <div class="flex justify-between gap-2 items-center">
-                        <img
-                          src="{{ product.featured_image | product_img_url: 'medium' }}"
-                          alt=""
-                          class="object-cover rounded-[10px] w-[60px] h-[40px]"
-                        >
-                        <div>
+                      <div class="gap-2 items-center flex">
+                        <div class="flex-initial w-60">
+                          <img
+                            src="{{ product.featured_image | product_img_url: 'medium' }}"
+                            alt=""
+                            class="object-cover rounded-[10px] w-[60px] h-[60px]"
+                          >
+                        </div>
+                        <div class="flex-1">
                           <h3 class="text-[13px] font-bold">{{ product.title }}</h3>
                           <p class="text-[12px]">{{ product.price | money }}</p>
                         </div>
