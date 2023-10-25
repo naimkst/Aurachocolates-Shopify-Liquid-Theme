@@ -181,6 +181,28 @@ function getImgTwo(id, img, option, title, index) {
   }
 }
 
+function getImgOne(id, img, option, title, index) {
+  console.log(id, img, option, image);
+
+  console.log(title);
+
+  if (option == "Tray One Box") {
+    var image = document.querySelector("#image1");
+    var input = document.querySelector("#propertiesTwoOne");
+    image.src = img;
+    image.style.opacity = "1";
+    input.value = title;
+  }
+  if (option == "Tray Two Box") {
+    var image = document.querySelector("#image2");
+    var input = document.querySelector("#propertiesTwoTwo");
+
+    image.src = img;
+    image.style.opacity = "1";
+    input.value = title;
+  }
+}
+
 function mobileMenu() {
   var x = document.getElementById("mobileMenu");
   if (x.style.display === "none") {

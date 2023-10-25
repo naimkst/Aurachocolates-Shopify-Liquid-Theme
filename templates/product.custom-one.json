@@ -10,7 +10,7 @@
       }
     },
     "main": {
-      "type": "custom-product-four",
+      "type": "custom-product-one",
       "settings": {
         "recommendation_product": "",
         "recommendation_Title": "You may also like"
