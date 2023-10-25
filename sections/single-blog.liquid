@@ -148,69 +148,13 @@
           {% endcomment %}
         </div>
 
-        <div class="comment-form">
-          <h3>Leave a Comment</h3>
-          <label for="comment-name">Name:</label>
-          <input type="text" id="comment-name" name="comment[author]">
-          <input type="text" id="comment-name" name="comment[email]">
-          <label for="comment-text">Comment:</label>
-          <textarea id="comment-text" name="comment[body]"></textarea>
-          <button type="submit">Submit Comment</button>
-        </div>
-
-        <div class="comments">
-          <h3>Comments</h3>
-          {% for comment in article.comments %}
-            <div class="comment">
-              <p>
-                <strong>{{ comment.author }}</strong> said:
-              </p>
-              <p>{{ comment.body }}</p>
-
-              <div>
-                <label for="comment-name">Name:</label>
-                <input
-                  class="border-[1px] border-secondary w-full py-3 px-3 rounded-md placeholder:text-secondary placeholder:font-light"
-                  type="text"
-                  id="comment-name"
-                  name="comment[author]"
-                >
-                <input
-                  class="border-[1px] border-secondary w-full py-3 px-3 rounded-md placeholder:text-secondary placeholder:font-light"
-                  type="email"
-                  id="comment-name"
-                  name="comment[email]"
-                >
-                <label for="comment-text">Reply:</label>
-                <textarea
-                  class="border-[1px] border-secondary w-full py-3 px-3 rounded-md placeholder:text-secondary placeholder:font-light"
-                  id="comment-text"
-                  name="comment[body]"
-                ></textarea>
-                <button type="submit">Submit Reply</button>
-              </div>
-
-              <!-- Display Replies -->
-              <div class="replies">
-                {% for reply in comment.replies %}
-                  <div class="comment">
-                    <p>
-                      <strong>{{ reply.author }}</strong> replied:
-                    </p>
-                    <p>{{ reply.body }}</p>
-                  </div>
-                {% endfor %}
-              </div>
-            </div>
-          {% endfor %}
-        </div>
-
         <div class="mt-10" id="commentForm">
           <h2 class="section-title !text-[32px]">Leave A Reply</h2>
           <p class="content !text-[18px]">Your Email Address Will Not be Published. Required Fields Are Marketd*</p>
 
           <div class="mt-10">
             <div class="flex justify-between w-full gap-5 mb-5">
+              <input type="hidden" name="parent_comment_id" value="131050537233">
               <input
                 class="border-[1px] border-secondary w-full py-3 px-3 rounded-md placeholder:text-secondary placeholder:font-light"
                 type="text"
