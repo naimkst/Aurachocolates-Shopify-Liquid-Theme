@@ -518,6 +518,9 @@ video {
 .z-50{
   z-index: 50;
 }
+.col-span-1{
+  grid-column: span 1 / span 1;
+}
 .col-span-2{
   grid-column: span 2 / span 2;
 }
@@ -706,6 +709,9 @@ video {
 .h-\[380px\]{
   height: 380px;
 }
+.h-\[40px\]{
+  height: 40px;
+}
 .h-\[450px\]{
   height: 450px;
 }
@@ -720,6 +726,9 @@ video {
 }
 .h-\[96px\]{
   height: 96px;
+}
+.h-\[98px\]{
+  height: 98px;
 }
 .h-auto{
   height: auto;
@@ -817,6 +826,9 @@ video {
 .w-\[96\%\]{
   width: 96%;
 }
+.w-\[98px\]{
+  width: 98px;
+}
 .w-auto{
   width: auto;
 }
@@ -876,9 +888,6 @@ video {
 }
 .snap-x{
   scroll-snap-type: x var(--tw-scroll-snap-strictness);
-}
-.grid-flow-col{
-  grid-auto-flow: column;
 }
 .grid-cols-2{
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -986,6 +995,11 @@ video {
 }
 .overflow-x-scroll{
   overflow-x: scroll;
+}
+.truncate{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .break-all{
   word-break: break-all;
@@ -1349,6 +1363,9 @@ video {
 .pb-20{
   padding-bottom: 5rem;
 }
+.pb-3{
+  padding-bottom: 0.75rem;
+}
 .pb-32{
   padding-bottom: 8rem;
 }
@@ -1424,6 +1441,9 @@ video {
 .text-right{
   text-align: right;
 }
+.font-\[\'Antiqua\'\]{
+  font-family: 'Antiqua';
+}
 .font-content{
   font-family: "Lato", sans-serif;
 }
@@ -1433,11 +1453,20 @@ video {
 .font-title{
   font-family: "Lato", sans-serif;
 }
+.\!text-\[13px\]{
+  font-size: 13px !important;
+}
+.\!text-\[18px\]{
+  font-size: 18px !important;
+}
 .\!text-\[20px\]{
   font-size: 20px !important;
 }
 .\!text-\[22px\]{
   font-size: 22px !important;
+}
+.\!text-\[32px\]{
+  font-size: 32px !important;
 }
 .\!text-\[35px\]{
   font-size: 35px !important;
@@ -1450,6 +1479,9 @@ video {
 }
 .text-\[14px\]{
   font-size: 14px;
+}
+.text-\[15px\]{
+  font-size: 15px;
 }
 .text-\[16px\]{
   font-size: 16px;
@@ -1540,6 +1572,10 @@ video {
 }
 .leading-\[45px\]{
   line-height: 45px;
+}
+.\!text-\[\#EA5329\]{
+  --tw-text-opacity: 1 !important;
+  color: rgb(234 83 41 / var(--tw-text-opacity)) !important;
 }
 .text-black{
   --tw-text-opacity: 1;
@@ -2342,6 +2378,14 @@ img.image-zoom__image {
   }
 }
 
+.placeholder\:font-content::-moz-placeholder{
+  font-family: "Lato", sans-serif;
+}
+
+.placeholder\:font-content::placeholder{
+  font-family: "Lato", sans-serif;
+}
+
 .placeholder\:font-title::-moz-placeholder{
   font-family: "Lato", sans-serif;
 }
@@ -2364,6 +2408,14 @@ img.image-zoom__image {
 
 .placeholder\:text-\[22px\]::placeholder{
   font-size: 22px;
+}
+
+.placeholder\:font-light::-moz-placeholder{
+  font-weight: 300;
+}
+
+.placeholder\:font-light::placeholder{
+  font-weight: 300;
 }
 
 .placeholder\:text-content::-moz-placeholder{

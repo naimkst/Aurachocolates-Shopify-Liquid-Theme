@@ -25,71 +25,252 @@
     padding: 0;
   }
 </style>
-<div class="py-[50px] bg-[#fafafa]">
-  <div class="w-[70%] m-auto tablet:w-full tablet:px-[10px]">
-    <div class="grid grid-cols-5 gap-5">
-      <div class="col-span-4">
-        <div class="mt-10 mb-10">
-          <h2 class="text-[32px] font-title">{{ article.title }}</h2>
-        </div>
-        <div>
-          <img
-            class="w-full h-[380px] object-cover rounded-[10px]"
-            src="{{ article.image.src | img_url: 'large' }}"
-            alt="{{ article.title }}"
-          >
-        </div>
-        <div class="flex items-center justify-between mt-2">
-          <p class="text-[14px] font-content">{{ article.tags }}</p>
-          <p class="text-[14px] font-content">Written By: {{ article.author }}</p>
-        </div>
+{% form 'new_comment', article %}
+  <div class="py-[50px] bg-[#fafafa]">
+    <div class="w-[70%] m-auto tablet:w-full tablet:px-[10px]">
+      <div class="grid grid-cols-5 gap-5">
+        <div class="col-span-4">
+          <div class="mt-10 mb-10">
+            <h2 class="text-[32px] font-title">{{ article.title }}</h2>
+          </div>
+          <div>
+            <img
+              class="w-full h-[380px] object-cover rounded-[10px]"
+              src="{{ article.image.src | img_url: 'large' }}"
+              alt="{{ article.title }}"
+            >
+          </div>
+          <div class="flex items-center justify-between mt-2">
+            <p class="text-[14px] font-content">{{ article.tags }}</p>
+            <p class="text-[14px] font-content">Written By: {{ article.author }}</p>
+          </div>
 
-        <div class="blogContent">
-          {{ article.content }}
-        </div>
-      </div>
-      <div class="col-span-1 tablet:hidden w-full">
-        <div>
-          <div class="bg-white p-[20px] rounded-[10px] mt-[10px] items-center">
-            <h2 class="text-[25px] mb-5">Tags</h2>
-            <ul class="flex flex-col divide-y ">
-              {%- for tag in blog.all_tags -%}
-                <li class="py-2">
-                  <a href="{{ blog.url }}/tagged/{{ tag }}">{{ tag }}</a>
-                </li>
-              {%- endfor -%}
-            </ul>
+          <div class="blogContent">
+            {{ article.content }}
           </div>
         </div>
+        <div class="col-span-1 tablet:hidden w-full">
+          <div>
+            <div class="bg-white p-[20px] rounded-[10px] mt-[10px] items-center">
+              <h2 class="text-[25px] mb-5">Tags</h2>
+              <ul class="flex flex-col divide-y ">
+                {%- for tag in blog.all_tags -%}
+                  <li class="py-2">
+                    <a href="{{ blog.url }}/tagged/{{ tag }}">{{ tag }}</a>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+          </div>
 
-        <div>
-          <div class="bg-white p-[20px] rounded-[10px] mt-[10px] items-center">
-            <h2 class="text-[25px] mb-5">Related Product</h2>
-            <ul class="flex flex-col divide-y ">
-              {% for product in collections[section.settings.related_collection].products %}
-                <li class="py-2">
-                  <a href="{{ product.url }}">
-                    <div class="flex justify-between gap-2 items-center">
-                      <img
-                        src="{{ product.featured_image | product_img_url: 'medium' }}"
-                        alt=""
-                        class="object-cover rounded-[10px] w-[60px] h-[40px]"
-                      >
-                      <div>
-                        <h3 class="text-[13px] font-bold">{{ product.title }}</h3>
-                        <p class="text-[12px]">{{ product.price | money }}</p>
+          <div>
+            <div class="bg-white p-[20px] rounded-[10px] mt-[10px] items-center">
+              <h2 class="text-[25px] mb-5">Related Product</h2>
+              <ul class="flex flex-col divide-y ">
+                {% for product in collections[section.settings.related_collection].products %}
+                  <li class="py-2">
+                    <a href="{{ product.url }}">
+                      <div class="flex justify-between gap-2 items-center">
+                        <img
+                          src="{{ product.featured_image | product_img_url: 'medium' }}"
+                          alt=""
+                          class="object-cover rounded-[10px] w-[60px] h-[40px]"
+                        >
+                        <div>
+                          <h3 class="text-[13px] font-bold">{{ product.title }}</h3>
+                          <p class="text-[12px]">{{ product.price | money }}</p>
+                        </div>
                       </div>
-                    </div>
-                  </a>
-                </li>
-              {% endfor %}
-            </ul>
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
+
+      <div class="bg-white w-full py-10 px-5 rounded-[10px]">
+        <h2 class="text-[30px] font-['Antiqua']">3 Comments</h2>
+
+        <div>
+          <div class="flex gap-3 items-center mt-5 pb-3">
+            <div class="w-[98px] h-[98px] object-cover rounded-full block">
+              <img
+                src="https://photo-cdn2.icons8.com/pDZulNlEd3Jmpgu2s11lnB_KIBFZgQCZUVXwTNJP1gI/rs:fit:288:432/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5h/c3NldHMvYXNzZXRz/L3NhdGEvb3JpZ2lu/YWwvOTAxLzU0ZjNm/ZDZiLTAyOGEtNDUw/OC05N2I1LTUwZDRl/Y2Q2ZTBkMC5qcGc.webp"
+                alt=""
+                class="w-[98px] h-[98px] object-cover rounded-[10px] block"
+              >
+            </div>
+            <div>
+              <div class="flex justify-between items-center">
+                <h2 class="text-normal !font-bold">Same Doe</h2>
+                <div class="flex items-center gap-2">
+                  <img src="{{ 'reply.svg' |  asset_url }}" alt="">
+                  <button class="text-[13px] font-content font-light text-content !text-[#EA5329]">Relpy</button>
+                </div>
+              </div>
+              <span class="font-content font-light text-content !text-[13px]">7 Days Ago</span>
+              <p class="text-[15px] font-content font-light text-content">
+                That far ground rat pure from newt far panther crane lorikeet overlay alas cobra across much gosh less
+                goldfinch ruthlessly alas examined and that more and the ouch jeez.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-3 items-center mt-5 pb-3 pl-5">
+            <div class="w-[98px] h-[98px] object-cover rounded-full block">
+              <img
+                src="https://photo-cdn2.icons8.com/pDZulNlEd3Jmpgu2s11lnB_KIBFZgQCZUVXwTNJP1gI/rs:fit:288:432/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5h/c3NldHMvYXNzZXRz/L3NhdGEvb3JpZ2lu/YWwvOTAxLzU0ZjNm/ZDZiLTAyOGEtNDUw/OC05N2I1LTUwZDRl/Y2Q2ZTBkMC5qcGc.webp"
+                alt=""
+                class="w-[98px] h-[98px] object-cover rounded-[10px] block"
+              >
+            </div>
+            <div>
+              <div class="flex justify-between items-center">
+                <h2 class="text-normal !font-bold">Same Doe</h2>
+                <div class="flex items-center gap-2">
+                  <img src="{{ 'reply.svg' |  asset_url }}" alt="">
+                  <button class="text-[13px] font-content font-light text-content !text-[#EA5329]">Relpy</button>
+                </div>
+              </div>
+              <span class="font-content font-light text-content !text-[13px]">7 Days Ago</span>
+              <p class="text-[15px] font-content font-light text-content">
+                That far ground rat pure from newt far panther crane lorikeet overlay alas cobra across much gosh less
+                goldfinch ruthlessly alas examined and that more and the ouch jeez.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-3 items-center mt-5 pb-3">
+            <div class="w-[98px] h-[98px] object-cover rounded-full block">
+              <img
+                src="https://photo-cdn2.icons8.com/pDZulNlEd3Jmpgu2s11lnB_KIBFZgQCZUVXwTNJP1gI/rs:fit:288:432/czM6Ly9pY29uczgu/bW9vc2UtcHJvZC5h/c3NldHMvYXNzZXRz/L3NhdGEvb3JpZ2lu/YWwvOTAxLzU0ZjNm/ZDZiLTAyOGEtNDUw/OC05N2I1LTUwZDRl/Y2Q2ZTBkMC5qcGc.webp"
+                alt=""
+                class="w-[98px] h-[98px] object-cover rounded-[10px] block"
+              >
+            </div>
+            <div>
+              <div class="flex justify-between items-center">
+                <h2 class="text-normal !font-bold">Same Doe</h2>
+                <div class="flex items-center gap-2">
+                  <img src="{{ 'reply.svg' |  asset_url }}" alt="">
+                  <button class="text-[13px] font-content font-light text-content !text-[#EA5329]">Relpy</button>
+                </div>
+              </div>
+              <span class="font-content font-light text-content !text-[13px]">7 Days Ago</span>
+              <p class="text-[15px] font-content font-light text-content">
+                That far ground rat pure from newt far panther crane lorikeet overlay alas cobra across much gosh less
+                goldfinch ruthlessly alas examined and that more and the ouch jeez.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10">
+          <h2 class="section-title !text-[32px]">Leave A Reply</h2>
+          <p class="content !text-[18px]">Your Email Address Will Not be Published. Required Fields Are Marketd*</p>
+
+          <div class="mt-10">
+            <div class="flex justify-between w-full gap-5 mb-5">
+              <input
+                class="border-[1px] border-secondary w-full py-3 px-3 rounded-md placeholder:text-secondary placeholder:font-light"
+                type="text"
+                name="comment[author]"
+                placeholder="Name*"
+              >
+              <input
+                class="border-[1px] border-secondary w-full py-3 px-3 rounded-md placeholder:text-secondary placeholder:font-content"
+                type="email"
+                name="comment[email]"
+                placeholder="Email*"
+              >
+            </div>
+            <div class="pb-3">
+              <textarea
+                name="comment[body]"
+                id=""
+                cols="30"
+                rows="10"
+                placeholder="Comment"
+                class="w-full border-[1px] border-secondary  py-3 px-3 rounded-md placeholder:text-secondary placeholder:font-light"
+              ></textarea>
+            </div>
+            <div class="">
+              <button type="submit" class="bg-primary py-3 px-8 rounded-lg text-white hover:bg-secondary">
+                Post Comment
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form action="/submit-comment" method="post">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <textarea name="comment" placeholder="Your Comment" required></textarea>
+        <input type="submit" value="Submit Comment">
+      </form>
+
+      <h2>{{ article.comments_count }}</h2>
+
+      <script>
+        console.log({{ article.comments | json}})
+      </script>
+      {%- assign new_comment = false -%}
+      {%- if comment and comment.created_at -%}
+        {%- assign new_comment = true -%}
+        {%- assign new_comment_id = comment.id -%}
+      {%- endif -%}
+
+      {%- if new_comment -%}
+        {%- assign duplicate_comment = false -%}
+        {%- for comment in article.comments -%}
+          {%- if comment.id == new_comment_id -%}
+            {%- assign duplicate_comment = true -%}
+            {% break %}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- if duplicate_comment -%}
+          {%- assign number_of_comments = article.comments_count -%}
+        {%- else -%}
+          {%- assign number_of_comments = article.comments_count | plus: 1 -%}
+        {%- endif -%}
+      {%- else -%}
+        {%- assign number_of_comments = article.comments_count -%}
+      {%- endif -%}
+
+      <!-- Code to output article content can be added here. -->
+
+      {%- if blog.comments_enabled? -%}
+        {%- if number_of_comments > 0 -%}
+          <hr aria-hidden="true">
+          <h2>{{ article.comments_count }}</h2>
+          <ul>
+            <!-- If a comment was just submitted with no blank field, show it. -->
+            {%- if new_comment -%}
+              <li>
+                {{ comment.content }}
+                <span>{{ comment.author }}</span>
+                <span>{{ comment.created_at | time_tag: format: 'month_day_year' }}</span>
+              </li>
+            {%- endif -%}
+
+            {% for comment in article.comments %}
+              {% unless comment.id == new_comment_id %}
+                <li>
+                  {{ comment.content }}
+                  <span>{{ comment.author }}</span>
+                  <span>{{ comment.created_at | time_tag: format: 'month_day_year' }}</span>
+                </li>
+              {% endunless %}
+            {% endfor %}
+          </ul>
+        {%- endif -%}
+      {%- endif -%}
     </div>
   </div>
-</div>
+{% endform %}
 
 {% schema %}
 {
