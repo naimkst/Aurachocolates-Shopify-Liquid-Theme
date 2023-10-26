@@ -332,6 +332,9 @@
     },
     "page": {
       "title": "Titre de la page"
+    },
+    "home": {
+      "customize_subtitle": "Nous proposons 4 tailles de boîtes avec 7 couleurs et motifs différents au choix. Aussi simple que cela! Personnalisez-le à votre goût !"
     }
   },
   "localization": {
@@ -463,6 +466,40 @@
       "expired": "Expiré",
       "copy_code_success": "Le code a bien été copié",
       "print_gift_card": "Imprimer"
+    }
+  },
+  "shopify": {
+    "checkout": {
+      "shipping": {
+        "split_cart_multiple_shipment_label": "Expéditions multiples"
+      },
+      "payment": {
+        "gift_card_wrapper": {
+          "add_label": "Ajouter une carte cadeau",
+          "manage_label": "Gérer les cartes cadeaux"
+        },
+        "gift_card_store_credit": {
+          "add_label": "Ajouter une carte-cadeau ou un crédit en magasin",
+          "manage_label": "Gérer les cartes cadeaux ou le crédit en magasin"
+        }
+      }
+    }
+  },
+  "customer_accounts": {
+    "payment_methods": {
+      "default": "Défaut",
+      "payment_details": {
+        "default_checkbox": "Définir par défaut",
+        "default_checkbox_accessibility_label": "Définir ce mode de paiement par défaut"
+      },
+      "edit_payment_method": {
+        "generic_error": "Un problème est survenu lors de la mise à jour. Veuillez réessayer."
+      },
+      "add_payment_method": {
+        "billing_address": {
+          "default_checkbox": "Définir comme mode de paiement par défaut"
+        }
+      }
     }
   }
 }
