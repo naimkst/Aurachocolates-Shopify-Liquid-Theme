@@ -78,21 +78,16 @@
             <div class="bg-white p-[20px] rounded-[10px] mt-[10px] items-center">
               <h2 class="text-[25px] mb-5">Related Product</h2>
               <ul class="flex flex-col divide-y ">
-                {% for product in collections[section.settings.related_collection].products %}
+                {% for product in collections[section.settings.related_collection].products limit: 5 %}
                   <li class="py-2">
                     <a href="{{ product.url }}">
-                      <div class="gap-2 items-center flex">
-                        <div class="flex-initial w-60">
-                          <img
-                            src="{{ product.featured_image | product_img_url: 'medium' }}"
-                            alt=""
-                            class="object-cover rounded-[10px] w-[60px] h-[60px]"
-                            width=""
-                            height=""
-                            loading="eager"
-                          >
-                        </div>
-                        <div class="flex-1">
+                      <div class="gap-2 items-center flex justify-start">
+                        <img
+                          src="{{ product.featured_image | product_img_url: 'medium' }}"
+                          alt=""
+                          class="rounded-[5px] w-[60px] h-[60px] object-cover"
+                        >
+                        <div class="">
                           <h3 class="text-[13px] font-bold">{{ product.title }}</h3>
                           <p class="text-[12px]">{{ product.price | money }}</p>
                         </div>
@@ -139,8 +134,8 @@
         </div>
 
         <div class="mt-10" id="commentForm">
-          <h2 class="section-title !text-[32px]">Leave A Reply</h2>
-          <p class="content !text-[18px]">Your Email Address Will Not be Published. Required Fields Are Marketd*</p>
+          <h2 class="section-title !text-[32px]">Leave A Comment</h2>
+          <p class="content !text-[18px]">Your Email Address Will Not be Published. Required Fields Are Marked*</p>
 
           <div class="mt-10">
             <div class="flex justify-between w-full gap-5 mb-5">

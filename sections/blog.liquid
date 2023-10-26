@@ -79,7 +79,7 @@
           {% endfor %}
         </div>
       {% else %}
-        <div class="grid grid-cols-4 items-center gap-6 mt-[50px] tablet:grid-cols-2 phone:grid-cols-1 tablet:px-[10px]">
+        <div class="grid grid-cols-4 items-start gap-6 mt-[50px] tablet:grid-cols-2 phone:grid-cols-1 tablet:px-[10px]">
           {% assign limit = section.settings.blog_limit | default: 4 %}
           {% for article in blogs.news.articles limit: limit %}
             <div class="bg-white rounded-[10px] relative">
@@ -101,7 +101,7 @@
                   <h2 class="font-bold text-[18px]">{{ article.title }}</h2>
                 </a>
                 <p class="mt-[10px] font-content font-light">
-                  {{ article.content | strip_html | truncate: 132, '.' }}
+                  {{ article.excerpt }}
                 </p>
               </div>
               <div class="flex gap-2">
