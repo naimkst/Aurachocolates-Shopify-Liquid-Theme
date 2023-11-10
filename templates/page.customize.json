@@ -3,7 +3,7 @@
     "main": {
       "type": "customize",
       "settings": {
-        "tray_title": "Please Select Your Try Size",
+        "tray_title": "Please Select Your Tray Size",
         "try_product": [
           "double-tray-choose-your-color",
           "three-box-choose-your-colors",
