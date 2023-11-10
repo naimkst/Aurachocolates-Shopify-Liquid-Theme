@@ -100,10 +100,15 @@
 </div>
 
 {% if section.settings.popup == 'true' %}
-  <div class="popup">
+  <div
+    class="popup"
+  >
     <div class="before:w-full before:h-[100vh] before:fixed before:left-0 before:top-0 before:z-0 before:bg-black/50">
       <div class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 tablet:w-full">
-        <div class="bg-white max-w-[832.74px] m-auto h-auto flex items-center justify-items-center text-center p-[10px] tablet:max-w-[95%] tablet:h-auto">
+        <div
+          class="bg-white max-w-[832.74px] m-auto h-auto flex items-center justify-items-center text-center p-[10px] tablet:max-w-[95%] tablet:h-auto"
+          style="background-image: url({{ section.settings.popup_image | image_url: width: 835 }}); background-repeat: no-repeat; background-size: cover; background-position: center;"
+        >
           <div class="border-[5px] border-secondary p-[60px] tablet:p-[10px] ">
             <p class="text-[30px] tablet:text-[22px]">
               {{ section.settings.poppup_title }}
@@ -239,6 +244,11 @@
         }
       ],
       "default": "false"
+    },
+    {
+      "type": "image_picker",
+      "id": "popup_image",
+      "label": "Popup Image"
     }
   ],
 
