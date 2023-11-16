@@ -1,12 +1,13 @@
 {
+  "layout": "landing",
   "sections": {
-    "main": {
-      "type": "landing",
+    "hero-section": {
+      "type": "landing-hero",
       "settings": {
       }
     }
   },
   "order": [
-    "main"
+    "hero-section"
   ]
 }
