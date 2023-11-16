@@ -1,5 +1,5 @@
 <div
-  style="background-image: url('https://cdn.shopify.com/s/files/1/0696/0110/0049/files/Background_2.png?v=1700053088'); background-repeat: no-repeat; background-size: cover; background-position: center; padding-bottom: 350px; overflow-x: hidden;"
+  style="background-image: url('{{ section.settings.footer_background_image | image_url: width: 1920 }}'); background-repeat: no-repeat; background-size: cover; background-position: center; padding-bottom: 350px; overflow-x: hidden;"
   class="landingFooter"
 >
   <div class="container">
@@ -228,6 +228,11 @@
       "id": "facebook",
       "label": "Facebook",
       "default": "https://facebook.com"
+    },
+    {
+      "type": "image_picker",
+      "id": "footer_background_image",
+      "label": "Background Image"
     }
   ],
 
