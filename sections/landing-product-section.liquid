@@ -1,0 +1,194 @@
+<div
+  style="background-image: url('https://cdn.shopify.com/s/files/1/0696/0110/0049/files/Background_1.png?v=1700046623'); background-repeat: no-repeat; background-size: cover; background-position: center; padding-bottom: 50px; overflow-x: hidden;"
+>
+  <div class="landingProductSection container">
+    <div class="row">
+      <div>
+        <h2 class="landingPrdTitle">
+          {{ section.settings.title_one }}
+          <span class="landingPrdTitlefont"> {{ section.settings.title_two }}</span>
+        </h2>
+        <h3 class="landingPrdSub">{{ section.settings.prd_sub }}</h3>
+      </div>
+      <div class="row mt-5">
+        {% for product in section.settings.landing_product %}
+          <div class="col-lg-3 col-sm-6 col-6">
+            <div class="prdGrid">
+              <img
+                src="{{ product.featured_image | product_img_url: 'medium' }}"
+                alt=""
+                class="img-fluid"
+                loading="eager"
+                width="auto"
+                height="auto"
+              >
+              <div class="prdContent">
+                <h4 class="landingPrdName">{{ product.title }}</h4>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="callToActionSection">
+    <div class="callBox">
+      <h2>
+        {{ section.settings.cta_title_one }}
+        <span class="callFont"> {{ section.settings.cta_title_two }} </span>
+        <span class="discuountFont"> {{ section.settings.cta_title_three }}</span>
+      </h2>
+    </div>
+  </div>
+
+  <div class="orderExpire mt-5">
+    <h2>{{ section.settings.order_expires_title }}</h2>
+    <div>
+      <div class="countdown mt-4">
+        <div class="countdown-number">
+          <span class="days countdown-time" id="days"></span>
+          <span class="countdown-text">{{ section.settings.days }}</span>
+        </div>
+        <div class="countdown-number">
+          <span class="hours countdown-time" id="hour"></span>
+          <span class="countdown-text">{{ section.settings.hours }}</span>
+        </div>
+        <div class="countdown-number">
+          <span class="minutes countdown-time" id="minutes"></span>
+          <span class="countdown-text">{{ section.settings.minutes }}</span>
+        </div>
+        <div class="countdown-number">
+          <span class="seconds countdown-time" id="seconds"></span>
+          <span class="countdown-text">{{ section.settings.seconds }}</span>
+        </div>
+      </div>
+    </div>
+    <p id="demo"></p>
+  </div>
+</div>
+
+<script>
+  // Set the date we're counting down to
+  var countDownDate = new Date('{{ section.settings.date_picker }}').getTime();
+
+  // Update the count down every 1 second
+  var x = setInterval(function () {
+    // Get today's date and time
+    var now = new Date().getTime();
+
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Output the result in an element with id="demo"
+    document.getElementById('days').innerHTML = days;
+    document.getElementById('hour').innerHTML = hours;
+    document.getElementById('minutes').innerHTML = minutes;
+    document.getElementById('seconds').innerHTML = seconds;
+    // document.getElementById('demo').innerHTML = days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's ';
+
+    // If the count down is over, write some text
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById('demo').innerHTML = 'EXPIRED';
+    }
+  }, 1000);
+</script>
+
+{% schema %}
+{
+  "name": "Landing Product Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title_one",
+      "label": "Title One",
+      "default": "Lorem"
+    },
+    {
+      "type": "text",
+      "id": "title_two",
+      "label": "Title Two",
+      "default": "Title"
+    },
+    {
+      "type": "text",
+      "id": "prd_sub",
+      "label": "Product Subtitle",
+      "default": "Subtitle"
+    },
+    {
+      "type": "text",
+      "id": "cta_title_one",
+      "label": "CTA Title One",
+      "default": "Click here to"
+    },
+    {
+      "type": "text",
+      "id": "cta_title_two",
+      "label": "CTA Title Two",
+      "default": "receive your"
+    },
+    {
+      "type": "text",
+      "id": "cta_title_three",
+      "label": "CTA Title Three",
+      "default": "10% off"
+    },
+    {
+      "type": "text",
+      "id": "order_expires_title",
+      "label": "Order Expires Title",
+      "default": "Order expires in"
+    },
+    {
+      "type": "text",
+      "id": "days",
+      "label": "Days",
+      "default": "Days"
+    },
+    {
+      "type": "text",
+      "id": "hours",
+      "label": "Hours",
+      "default": "Hours"
+    },
+    {
+      "type": "text",
+      "id": "minutes",
+      "label": "Minutes",
+      "default": "Minutes"
+    },
+    {
+      "type": "text",
+      "id": "seconds",
+      "label": "Seconds",
+      "default": "Seconds"
+    },
+    {
+      "type": "text",
+      "id": "date_picker",
+      "label": "Choose date",
+      "default": "Jan 5, 2024 15:37:25",
+      "info": "e.g. Jan 5, 2024 15:37:25"
+    },
+    {
+      "type": "product_list",
+      "id": "landing_product",
+      "label": "Landing Product"
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Landing Product Section"
+    }
+  ]
+}
+{% endschema %}

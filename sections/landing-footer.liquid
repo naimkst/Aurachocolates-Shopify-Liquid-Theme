@@ -1,0 +1,240 @@
+<div
+  style="background-image: url('https://cdn.shopify.com/s/files/1/0696/0110/0049/files/Background_2.png?v=1700053088'); background-repeat: no-repeat; background-size: cover; background-position: center; padding-bottom: 350px; overflow-x: hidden;"
+  class="landingFooter"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <img
+          src="{{ section.settings.footer_logo | img_url: '200x200' }}"
+          alt=""
+          loading="eager"
+          width="200"
+          height="auto"
+        >
+      </div>
+      <div class="col-md-10">
+        <p class="footerAbout">
+          {{ section.settings.footer_about }}
+        </p>
+
+        <div class="row">
+          <div class="col-md-4">
+            <h2 class="footerMenuTitle">{{ section.settings.help_info_text }}</h2>
+            <ul class="menuLink">
+              {% for link in linklists[section.settings.help_menu].links -%}
+                <li>
+                  <a href="{{ link.url }}">{{ link.title }}</a>
+                </li>
+              {%- endfor %}
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h2 class="footerMenuTitle">{{ section.settings.quick_shop_text }}</h2>
+            <ul class="menuLink">
+              {% for link in linklists[section.settings.quick_menu].links -%}
+                <li>
+                  <a href="{{ link.url }}">{{ link.title }}</a>
+                </li>
+              {%- endfor %}
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h2 class="footerMenuTitle">{{ section.settings.contact_us }}</h2>
+            <ul class="menuLink">
+              <li>
+                <a href="#">{{ section.settings.address }}</a>
+              </li>
+              <li>
+                <a href="">{{ section.settings.phone }}</a>
+              </li>
+              <li>
+                <a href="">{{ section.settings.email }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5 ">
+      <div class="d-flex justify-content-between align-items-center footerLogo">
+        <div class="col-md-6 d-flex gap-3">
+          <a href="#">
+            <img
+              src="{{ section.settings.certificate01 | img_url: '' }}"
+              alt=""
+              loading="eager"
+              width="100"
+              height="auto"
+            >
+          </a>
+
+          <a href="#">
+            <img
+              src="{{ section.settings.certificate02 | img_url: '' }}"
+              alt=""
+              loading="eager"
+              width="100"
+              height="auto"
+            >
+          </a>
+        </div>
+        <div class="col-md-6 d-flex gap-2 justify-content-end">
+          {% if section.settings.instagram != blank %}
+            <a href="{{ section.settings.instagram }}">
+              <img
+                src="https://cdn.shopify.com/s/files/1/0696/0110/0049/files/instagram.webp?v=1700056633"
+                alt=""
+                loading="eager"
+                width="40"
+                height="40"
+              >
+            </a>
+          {% endif %}
+
+          {% if section.settings.linkdin != blank %}
+            <a href="{{ section.settings.linkdin }}">
+              <img
+                src="https://cdn.shopify.com/s/files/1/0696/0110/0049/files/linkdin.webp?v=1700056634"
+                alt=""
+                loading="eager"
+                width="40"
+                height="40"
+              >
+            </a>
+          {% endif %}
+
+          {% if section.settings.tiktok != blank %}
+            <a href="{{ section.settings.tiktok }}">
+              <img
+                src="https://cdn.shopify.com/s/files/1/0696/0110/0049/files/Tiktok.webp?v=1700056634"
+                alt=""
+                loading="eager"
+                width="40"
+                height="40"
+              >
+            </a>
+          {% endif %}
+
+          {% if section.settings.facebook != blank %}
+            <a href="{{ section.settings.facebook }}">
+              <img
+                src="https://cdn.shopify.com/s/files/1/0696/0110/0049/files/Facebook.webp?v=1700056634"
+                alt=""
+                loading="eager"
+                width="40"
+                height="40"
+              >
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Landing Footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "footer_logo",
+      "label": "Footer Logo"
+    },
+    {
+      "type": "text",
+      "id": "footer_about",
+      "label": "Footer About",
+      "default": "Aura Delices is know as one of Montreals leading kosher artisanal chocolate stores a family owned business passed down from father to son"
+    },
+    {
+      "type": "text",
+      "id": "help_info_text",
+      "label": "Help & Information",
+      "default": "Help & Information"
+    },
+    {
+      "type": "link_list",
+      "id": "help_menu",
+      "label": "Help Menu"
+    },
+    {
+      "type": "text",
+      "id": "quick_shop_text",
+      "label": "Quick Shop Text",
+      "default": "Quick Shop"
+    },
+    {
+      "type": "link_list",
+      "id": "quick_menu",
+      "label": "Quick Menu"
+    },
+    {
+      "type": "text",
+      "id": "contact_us",
+      "label": "Contact Us Text",
+      "default": "Contact Us"
+    },
+    {
+      "type": "text",
+      "id": "address",
+      "label": "Address",
+      "default": "Address: 371 Rue Bernard O, Montréal, QC H2V 1T6"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone",
+      "default": "Tel: 1(514)-272-2639"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "Email: info@auradelices.ca"
+    },
+    {
+      "type": "image_picker",
+      "id": "certificate01",
+      "label": "Certificate 01"
+    },
+    {
+      "type": "image_picker",
+      "id": "certificate02",
+      "label": "Certificate 02"
+    },
+    {
+      "type": "text",
+      "id": "instagram",
+      "label": "Instagram",
+      "default": "https://instagram.com"
+    },
+    {
+      "type": "text",
+      "id": "linkdin",
+      "label": "Linkdin",
+      "default": "https://linkdin.com"
+    },
+    {
+      "type": "text",
+      "id": "tiktok",
+      "label": "Tiktok",
+      "default": "https://tiktok.com"
+    },
+    {
+      "type": "text",
+      "id": "facebook",
+      "label": "Facebook",
+      "default": "https://facebook.com"
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Landing Footer"
+    }
+  ]
+}
+{% endschema %}

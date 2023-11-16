@@ -1,0 +1,37 @@
+<div class="header-Hero">
+  <div class="landing-hero"></div>
+  <div class="landingHeroBorder"></div>
+  <div class="container">
+    <div class="row">
+      <div class="landingLogo">
+        <a href="/"
+          ><img
+            src="{{ section.settings.landing_logo | img_url: '' }}"
+            width="150"
+            height="auto"
+            alt=""
+            loading="eager"
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Landing Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "landing_logo",
+      "label": "Landing Logo"
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Landing Header"
+    }
+  ]
+}
+{% endschema %}

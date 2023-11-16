@@ -1,13 +1,31 @@
 {
   "layout": "landing",
   "sections": {
-    "hero-section": {
-      "type": "landing-hero",
+    "hero-header": {
+      "type": "landing-header",
+      "settings": {
+      }
+    },
+    "hero-banner": {
+      "type": "landing-hero-banner",
+      "settings": {
+      }
+    },
+    "landing-product": {
+      "type": "landing-product-section",
+      "settings": {
+      }
+    },
+    "landing-footer": {
+      "type": "landing-footer",
       "settings": {
       }
     }
   },
   "order": [
-    "hero-section"
+    "hero-header",
+    "hero-banner",
+    "landing-product",
+    "landing-footer"
   ]
 }
