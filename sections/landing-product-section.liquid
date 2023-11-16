@@ -1,5 +1,5 @@
 <div
-  style="background-image: url('https://cdn.shopify.com/s/files/1/0696/0110/0049/files/Background_1.png?v=1700046623'); background-repeat: no-repeat; background-size: cover; background-position: center; padding-bottom: 50px; overflow-x: hidden;"
+  style="background-image: url('{{ section.settings.prd_background_image | image_url: width: 1920 }}'); background-repeat: no-repeat; background-size: cover; background-position: center; padding-bottom: 50px; overflow-x: hidden;"
 >
   <div class="landingProductSection container">
     <div class="row">
@@ -14,16 +14,23 @@
         {% for product in section.settings.landing_product %}
           <div class="col-lg-3 col-sm-6 col-6">
             <div class="prdGrid">
-              <img
-                src="{{ product.featured_image | product_img_url: 'medium' }}"
-                alt=""
-                class="img-fluid"
-                loading="eager"
-                width="auto"
-                height="auto"
-              >
+              <a href="{{ product.url }}">
+                <img
+                  style="width: 100%; height: 100%; object-fit: cover;"
+                  src="{{ product.featured_image | product_img_url: 'medium' }}"
+                  alt=""
+                  class="img-fluid"
+                  loading="eager"
+                  width="auto"
+                  height="auto"
+                >
+              </a>
               <div class="prdContent">
-                <h4 class="landingPrdName">{{ product.title }}</h4>
+                <a href="{{ product.url }}">
+                  <h4 class="landingPrdName">
+                    {{ product.title }}
+                  </h4>
+                </a>
               </div>
             </div>
           </div>
@@ -182,6 +189,11 @@
       "type": "product_list",
       "id": "landing_product",
       "label": "Landing Product"
+    },
+    {
+      "type": "image_picker",
+      "id": "prd_background_image",
+      "label": "Background Image"
     }
   ],
 

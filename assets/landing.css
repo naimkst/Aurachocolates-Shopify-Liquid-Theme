@@ -25,6 +25,9 @@ ol,
 ul {
   padding-left: 0rem;
 }
+a {
+  text-decoration: none;
+}
 image {
   width: 100%;
   height: auto;
@@ -95,12 +98,12 @@ image {
   );
 }
 .landingPrdName {
-  font-size: 35px;
+  font-size: 25px;
   font-weight: 500;
   color: #fff;
   font-family: "Poppins", sans-serif;
   line-height: 1;
-  padding: 10px 20px;
+  padding: 15px 20px;
 }
 .callToActionSection {
   margin: 0 auto;
