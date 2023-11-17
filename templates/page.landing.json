@@ -4,6 +4,7 @@
     "hero-header": {
       "type": "landing-header",
       "settings": {
+        "landing_logo": "shopify:\/\/shop_images\/Asset_1.png"
       }
     },
     "hero-banner": {
@@ -28,8 +29,15 @@
         "seconds": "Seconds",
         "date_picker": "Jan 5, 2024 15:37:25",
         "landing_product": [
-
-        ]
+          "4-pieces-dairy-truffles",
+          "chocolate-halvah-cake",
+          "hazelnut-halvah-cake",
+          "pecan-halvah-cake",
+          "candy-platter-6-section",
+          "candy-platter-4-section",
+          "3-compartment-candy"
+        ],
+        "prd_background_image": "shopify:\/\/shop_images\/Background_1.png"
       }
     },
     "landing-footer": {
