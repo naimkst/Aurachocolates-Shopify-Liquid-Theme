@@ -43,19 +43,23 @@
     "landing-footer": {
       "type": "landing-footer",
       "settings": {
+        "footer_logo": "shopify:\/\/shop_images\/Logo-2_b3361df2-e40c-49dd-b0c3-341580358aab.png",
         "footer_about": "Aura Delices is know as one of Montreals leading kosher artisanal chocolate stores a family owned business passed down from father to son",
         "help_info_text": "Help & Information",
-        "help_menu": "",
+        "help_menu": "help-information",
         "quick_shop_text": "Quick Shop",
-        "quick_menu": "",
+        "quick_menu": "quick-shop",
         "contact_us": "Contact Us",
         "address": "Address: 371 Rue Bernard O, Montréal, QC H2V 1T6",
         "phone": "Tel: 1(514)-272-2639",
         "email": "Email: info@auradelices.ca",
+        "certificate01": "shopify:\/\/shop_images\/Certificate-logo-1.png",
+        "certificate02": "shopify:\/\/shop_images\/Certificate-logo-2.png",
         "instagram": "https:\/\/instagram.com",
         "linkdin": "https:\/\/linkdin.com",
         "tiktok": "https:\/\/tiktok.com",
-        "facebook": "https:\/\/facebook.com"
+        "facebook": "https:\/\/facebook.com",
+        "footer_background_image": "shopify:\/\/shop_images\/Background_2.png"
       }
     }
   },
