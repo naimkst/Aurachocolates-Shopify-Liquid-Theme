@@ -289,6 +289,8 @@ image {
   border-radius: 10px;
   width: 500px;
   cursor: pointer;
+  border: none;
+  text-align: left;
 }
 .prdImageBox {
   position: relative;

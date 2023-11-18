@@ -135,29 +135,44 @@
   </div>
 
   <div>
-    <form action="">
+    {% form 'customer'
+      , id: "popupForm" %}
       <div class="formTwo">
-        <input
-          class="popupForm"
-          type="text"
-          placeholder="First Name">
-        <input
-          class="popupForm"
-          type="text"
-          placeholder="Last Name">
+        <div style="width: 100%;">
+          <input
+            class="popupForm"
+            type="text"
+            placeholder="First Name"
+            name="firstName"
+            value="">
+          <span id="firstName" style="color:red; font-size: 12px; font-weight:300; display: none">This filed is require</span>
+        </div>
+        <div style="width: 100%;">
+          <input
+            class="popupForm"
+            type="text"
+            placeholder="Last Name"
+            name="lastName"
+            value="">
+          <span id="lastName" style="color:red; font-size: 12px; font-weight:300; display: none">This filed is require</span>
+        </div>
+
       </div>
       <div>
         <input
           class="popupForm"
           type="email"
-          placeholder="Email">
+          placeholder="Email"
+          name="email"
+          value="">
+        <span id="email" style="color:red; font-size: 12px; font-weight:300; display: none">This filed is require</span>
       </div>
 
       <div class="popupButtons">
         <p onclick="hidePopup()" class="popupNo">{{ section.settings.popupNoButtonText }}</p>
-        <p class="popupYes">{{ section.settings.popupButtonText }}</p>
+        <button class="popupYes" onclick="submitForm()">{{ section.settings.popupButtonText }}</button>
       </div>
-    </form>
+    {% endform %}
   </div>
 </div>
 
@@ -168,6 +183,48 @@
 
   function hidePopup() {
     document.getElementById('showPopup').style.display = 'none';
+  }
+
+  function submitForm(data, link) {
+    console.log('form submitted')
+    const form = document.getElementById('popupForm');
+    const formElements = Array.from(form.elements).reduce((acc, element) => {
+      if (element.name) {
+        acc[element.name] = element.value;
+      }
+      return acc;
+    }, {});
+
+     const validateEmail = () => {
+    return String(formElements.email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+    };
+
+    console.log("===", typeof validateEmail());
+
+    if(formElements.firstName === '') {
+      document.getElementById('firstName').style.display = 'block';
+    }else{
+      document.getElementById('firstName').style.display = 'none';
+    }
+
+     if(formElements.lastName === '' ) {
+      document.getElementById('lastName').style.display = 'block';
+    }else{
+      document.getElementById('lastName').style.display = 'none';
+    }
+
+   
+     if( formElements.email === '' || validateEmail() === null ) {
+      document.getElementById('email').style.display = 'block';
+    }else{
+      document.getElementById('email').style.display = 'none';
+    }
+    console.log(formElements.email);
+    // document.getElementById('showPopup').style.display = 'none';
   }
 
   // Set the date we're counting down to
