@@ -115,6 +115,7 @@ image {
   margin: 0 auto;
   padding: 30px 0px;
   border-radius: 10px;
+  cursor: pointer;
 }
 .callBox h2 {
   font-size: 50px;
