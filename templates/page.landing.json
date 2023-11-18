@@ -27,7 +27,7 @@
         "hours": "Hours",
         "minutes": "Minutes",
         "seconds": "Seconds",
-        "date_picker": "Dec 1, 2023 15:37:25",
+        "date_picker": "Jan 5, 2024 15:37:25",
         "landing_product": [
           "4-pieces-dairy-truffles",
           "chocolate-halvah-cake",
@@ -37,7 +37,12 @@
           "candy-platter-4-section",
           "3-compartment-candy"
         ],
-        "prd_background_image": "shopify:\/\/shop_images\/Background_1.png"
+        "prd_background_image": "shopify:\/\/shop_images\/Background_1.png",
+        "popup_background_image": "shopify:\/\/shop_images\/Background_1_1.png",
+        "popupTitle": "Claim Your 10% Off!",
+        "popupSub": "*You will only see this page Once!",
+        "popupNoButtonText": "No Thank You",
+        "popupButtonText": "Yes, Sign me up to Aura Delives Newsletter!"
       }
     },
     "landing-footer": {
