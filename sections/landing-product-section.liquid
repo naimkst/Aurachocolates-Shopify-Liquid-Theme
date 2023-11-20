@@ -126,7 +126,7 @@
   </div>
 
   <div class="callToActionSection">
-    <div class="callBox" onclick="showPopup()">
+    <div class="callBox" onclick="allTimePopUpshow()">
       <h2>
         {{ section.settings.cta_title_one }}
         <span class="callFont">
@@ -227,9 +227,13 @@
 <script>
   var popUpValue = getCookie('isPopup');
 
+
+  function allTimePopUpshow(){
+    document.getElementById('showPopup').style.display = 'block';
+  }
+
   function showPopup() {
 
-  console.log("===",  popUpValue == "true");
     if(popUpValue == "true") {
       document.getElementById('showPopup').style.display = 'none';
     }else{
