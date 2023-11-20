@@ -32,6 +32,10 @@ image {
   width: 100%;
   height: auto;
 }
+.heroImage {
+  width: 100% !important;
+  object-fit: cover;
+}
 .landing-hero {
   background: #3b150a;
   height: 50px;
