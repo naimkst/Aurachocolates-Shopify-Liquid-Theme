@@ -9,6 +9,7 @@
         </h2>
         <h3 class="landingPrdSub">{{ section.settings.prd_sub }}</h3>
       </div>
+
       <div class="row mt-5">
         {% for product in section.settings.landing_product %}
           <div class="col-lg-3 col-sm-6 col-6">
@@ -25,6 +26,7 @@
                     height="auto">
                 </a>
 
+
                 <div class="hoverShoButton">
                   <div class="prdHoverButtons">
                     <form
@@ -32,14 +34,21 @@
                       class="form"
                       action="/cart/add"
                       method="post"
-                      id="addToCart">
+                      id="addToCart"
+                      onsubmit="submitForms(event)">
                       <input
                         type="hidden"
                         class="variant-idss"
                         id="variant-id"
                         name="id"
                         value="{{ product.variants.first.id }}">
-                      <button class="prdButton" type="submit">
+
+
+                      <input
+                        type="hidden"
+                        name="return_to"
+                        value="{{ page.url }}">
+                      <button class="prdButton">
                         <p>
                           Add To <br>
                           Cart
@@ -62,31 +71,48 @@
                     </form>
                     <div class="prdDivider"></div>
 
-                    <div class="prdButton">
-                      <p>
-                        Quick <br>
-                        Checkout
-                      </p>
-                      <div class="iconBox">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke-width="1.5"
-                          stroke="currentColor"
-                          class="prdIcons">
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                        </svg>
-                      </div>
-                    </div>
+                    <form
+                      style="width: 100%;"
+                      class="form"
+                      action="/cart/add"
+                      method="post"
+                      id="addToCart"
+                      onsubmit="submitForms(event)">
+                      <input
+                        type="hidden"
+                        class="variant-idss"
+                        id="variant-id"
+                        name="id"
+                        value="{{ product.variants.first.id }}">
+                      <button
+                        class="prdButton"
+                        id="quickCheckout"
+                        type="submit">
+                        <p>
+                          Quick <br>
+                          Checkout
+                        </p>
+                        <div class="iconBox">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="1.5"
+                            stroke="currentColor"
+                            class="prdIcons">
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                          </svg>
+                        </div>
+                      </button>
+                    </form>
                   </div>
                 </div>
               </div>
               <div class="prdContent">
-                <a href="{{ product.url }}">
+                <a href="{{ product.url }}" onclick="submitForms(event)">
                   <h4 class="landingPrdName">
                     {{ product.title }}
                   </h4>
@@ -188,23 +214,49 @@
         value="true">
 
       <div class="popupButtons">
-        <p onclick="hidePopup()" class="popupNo">{{ section.settings.popupNoButtonText }}</p>
-        <button class="popupYes" onclick="submitForm()">{{ section.settings.popupButtonText }}</button>
+        <p
+          onclick="saveToCookie()"
+          onclick="hidePopup()"
+          class="popupNo">{{ section.settings.popupNoButtonText }}</p>
+        <button class="popupYes" onclick="s()">{{ section.settings.popupButtonText }}</button>
       </div>
     {% endform %}
   </div>
 </div>
 
 <script>
+  var popUpValue = getCookie('isPopup');
+
   function showPopup() {
-    document.getElementById('showPopup').style.display = 'block';
+
+  console.log("===",  popUpValue == "true");
+    if(popUpValue == "true") {
+      document.getElementById('showPopup').style.display = 'none';
+    }else{
+
+      document.getElementById('showPopup').style.display = 'block';
+    }
   }
 
   function hidePopup() {
-    document.getElementById('showPopup').style.display = 'none';
+    if(popUpValue == "true") {
+      document.getElementById('showPopup').style.display = 'none';
+    }else{
+      document.getElementById('showPopup').style.display = 'none';
+    }
   }
 
-  function submitForm(data, link) {
+
+  function submitForms(event){
+     if(popUpValue != "true") {
+       event.preventDefault(); 
+      showPopup()
+     }else{
+      hidePopup()
+     }
+  }
+
+  function s(data, link) {
     console.log('form submitted')
     const form = document.getElementById('popupForm');
     const formElements = Array.from(form.elements).reduce((acc, element) => {
@@ -244,6 +296,31 @@
     }
     console.log(formElements.email);
     // document.getElementById('showPopup').style.display = 'none';
+  }
+
+
+  function saveToCookie() {
+     var expires = new Date();
+    expires.setDate(expires.getDate() + 30);
+    document.cookie = "isPopup" + "=" + "true" + ";" + expires + ";path=/";
+    document.getElementById('showPopup').style.display = 'none';
+    window.location.reload();
+  }
+  function getCookie(name) {
+    var cookies = document.cookie.split(';');
+
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+
+        // Check if the cookie starts with the specified name
+        if (cookie.indexOf(name + '=') === 0) {
+            // Return the value of the cookie
+            return decodeURIComponent(cookie.substring(name.length + 1));
+        }
+    }
+
+    // If the cookie is not found, return null
+    return null;
   }
 
   // Set the date we're counting down to
