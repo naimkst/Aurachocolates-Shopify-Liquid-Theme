@@ -1,3 +1,20 @@
+<style>
+  .landingPopup {
+    background-color: #fff;
+    background-image: url('{{ section.settings.popup_background_image | image_url: width: 1024 }}');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 50px;
+    overflow-x: hidden;
+  }
+  @media screen and (max-width: 600px) {
+    .landingPopup {
+      background-image: url('{{ section.settings.popup_background_mobile_image | image_url: width: 450 }}');
+    }
+  }
+</style>
+
 <div style="background-image: url('{{ section.settings.prd_background_image | image_url: width: 1920 }}'); background-repeat: no-repeat; background-size: cover; background-position: center; padding-bottom: 50px; overflow-x: hidden;">
   <div class="landingProductSection container">
     <div class="row">
@@ -167,7 +184,7 @@
 <div
   id="showPopup"
   class="landingPopup"
-  style="background-color: #fff; background-image: url('{{ section.settings.popup_background_image | image_url: width: 1024 }}'); background-repeat: no-repeat; background-size: cover; background-position: center; padding-bottom: 50px; overflow-x: hidden;">
+  style="">
   <div>
     <h2 class="popupTitle">{{ section.settings.popupTitle }}</h2>
     <p class="popupSub">{{ section.settings.popupSub }}</p>
@@ -450,6 +467,11 @@
         "type": "image_picker",
         "id": "popup_background_image",
         "label": "Popup Background Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "popup_background_mobile_image",
+        "label": "Popup Background Mobile Image"
       },
       {
         "type": "text",
