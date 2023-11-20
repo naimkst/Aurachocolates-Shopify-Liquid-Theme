@@ -345,6 +345,7 @@ image {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.55);
+  border: none;
 }
 .prdButton p {
   font-size: 25px;
