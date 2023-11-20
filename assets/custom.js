@@ -1,3 +1,14 @@
+//Popup show hihde
+
+if (window.location.pathname != "/") {
+  $(".popup").addClass("popupShow");
+}
+
+$("#isPopup").on("click", function (e) {
+  console.log("clicked");
+  $(".popup").toggleClass("popupShow");
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Hello World!");
   var datePickerInput = document.getElementsByClassName("date-");
@@ -266,10 +277,10 @@ function changeCart(id) {
   var datePickerInput = document.getElementsByClassName("date-" + id);
   var giftMessage = document.getElementsByClassName("message-" + id);
 
-  var checkoutBtn = document.getElementById("checkoutBtn");
+  var checkoutBtn = document?.getElementById("checkoutBtn");
 
-  const productList = document.getElementById("product-list");
-  const checkboxes = productList.querySelectorAll('input[type="checkbox"]');
+  const productList = document?.getElementById("product-list");
+  const checkboxes = productList?.querySelectorAll('input[type="checkbox"]');
 
   if (checkboxes[0]?.checked == true) {
     if (RecipientsNumber[0]?.value?.length == 0) {
@@ -524,12 +535,6 @@ function updateQty(id, qty) {
     }
   });
 
-  //Popup show hihde
-  $("#isPopup").on("click", function (e) {
-    console.log("clicked");
-    $(".popup").toggleClass("popupShow");
-  });
-
   //Ajax Search Result
   $(document).ready(function () {
     $("#search-box").keyup(function () {
@@ -588,7 +593,7 @@ function updateQty(id, qty) {
   const datePicker = document.getElementById("date-picker");
   // Set the minimum date to today's date
   const today = new Date().toISOString().split("T")[0];
-  datePicker.setAttribute("min", today);
+  datePicker?.setAttribute("min", today);
 
   // Disable Saturdays
   const disableSaturdays = (date) => {
@@ -596,7 +601,7 @@ function updateQty(id, qty) {
     return day === 6; // 6 represents Saturday (Sunday is 0, Monday is 1, etc.)
   };
 
-  datePicker.addEventListener("input", (event) => {
+  datePicker?.addEventListener("input", (event) => {
     const selectedDate = new Date(event.target.value);
     if (disableSaturdays(selectedDate)) {
       alert("Saturdays are not available. Please select a different date.");
@@ -607,11 +612,11 @@ function updateQty(id, qty) {
 
   //Cart switch button
   const productList = document.getElementById("product-list");
-  const checkboxes = productList.querySelectorAll('input[type="checkbox"]');
+  const checkboxes = productList?.querySelectorAll('input[type="checkbox"]');
   var checkoutBtn = document.getElementById("checkoutBtn");
   var RecipientsNumbers = document.getElementsByClassName("phone-1");
 
-  checkboxes.forEach((checkbox) => {
+  checkboxes?.forEach((checkbox) => {
     checkbox.addEventListener("click", function () {
       const productData = {
         name: checkbox.value,
@@ -623,10 +628,10 @@ function updateQty(id, qty) {
       const pTag = listItem.querySelector("strong");
       if (checkbox.checked) {
         pTag.style.display = "block";
-        checkoutBtn.classList.add("notValid");
+        checkoutBtn?.classList.add("notValid");
       } else {
         pTag.style.display = "none";
-        checkoutBtn.classList.remove("notValid");
+        checkoutBtn?.classList.remove("notValid");
         RecipientsNumbers[0].value = "";
         console.log(RecipientsNumbers[0].value, "#####");
         var debounceTimer;

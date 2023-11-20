@@ -2718,8 +2718,8 @@ img.image-zoom__image {
   .phone\:h-\[100px\]{
     height: 100px;
   }
-  .phone\:h-\[95dvh\]{
-    height: 95dvh;
+  .phone\:h-\[95vh\]{
+    height: 95vh;
   }
   .phone\:h-auto{
     height: auto;
@@ -2801,6 +2801,9 @@ img.image-zoom__image {
     padding-top: 15px;
     padding-bottom: 15px;
   }
+  .phone\:pb-\[200px\]{
+    padding-bottom: 200px;
+  }
   .phone\:pb-\[70px\]{
     padding-bottom: 70px;
   }
@@ -2809,6 +2812,9 @@ img.image-zoom__image {
   }
   .phone\:text-center{
     text-align: center;
+  }
+  .phone\:\!text-\[60px\]{
+    font-size: 60px !important;
   }
   .phone\:text-\[12px\]{
     font-size: 12px;

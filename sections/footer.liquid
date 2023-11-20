@@ -15,6 +15,7 @@
     font-style: italic;
     font-weight: 500;
     color: #ea5329;
+    line-height: 1;
   }
   .pupupTwoDescription{
     font-family: 'Playfair Display', serif;
@@ -23,7 +24,8 @@
     color: #3c1605;
     line-height: 1.2;
     padding: 0;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+  
   }
   .pupupTwobutton{
     font-family: 'Poppins', sans-serif;
@@ -31,13 +33,19 @@
     font-weight: 400;
     color: #fff;
     line-height: 1.2;
-    padding: 15px 10px;
+    padding: 15px 30px;
     width: 100%;
+    display: inline-block;
   }
     @media screen and (max-width: 600px) {
     .mainPopup {
       background-image: url('{{ section.settings.popup_image_mobile | image_url: width: 450 }}');
     }
+    .pupupTwobutton{
+    padding: 15px 15px;
+    text-align: center;
+    font-size: 28px;
+  }
   }
 </style>
 <div
@@ -167,16 +175,16 @@
     class="popup"
   >
     <div class="before:w-full before:h-[100vh] before:fixed before:left-0 before:top-0 before:z-0 before:bg-black/50 phone:p-3">
-      <div class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 tablet:w-full">
+      <div class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 tablet:w-full phone:p-3">
         <div
-          class="bg-white w-[832.74px] m-auto h-[420px] phone:w-full phone:h-[95dvh] flex items-center justify-items-center p-[10px] tablet:max-w-[95%] tablet:h-auto mainPopup"
+          class="bg-white w-[832.74px] m-auto h-[420px] flex items-center justify-items-center mainPopup p-[60px] phone:p-3 phone:w-full phone:pb-[200px] phone:h-[95vh]"
         >
-          <div class="border-[5px p-[60px] tablet:p-[10px]">
-            <p class="text-[30px] tablet:text-[22px] pupupTwoTitle">
+          <div class="">
+            <p class="text-[30px] tablet:text-[22px] pupupTwoTitle phone:text-center phone:!text-[60px]">
               {{ section.settings.poppup_title }}
             </p>
-            <h2 class="py-5 tablet:text-[22px] pupupTwoDescription">{{ section.settings.poppup_description }}</h2>
-            <button class="button pupupTwobutton" id="isPopup">{{ section.settings.poppup_button_text }}</button>
+            <h2 class="py-5 tablet:text-[22px] pupupTwoDescription phone:text-center phone:!text-[60px]">{{ section.settings.poppup_description }}</h2>
+            <a href="{{ section.settings.popup_link }}" class="button pupupTwobutton" id="isPopup">{{ section.settings.poppup_button_text }}</a>
           </div>
         </div>
       </div>
