@@ -10,7 +10,7 @@
     "hero-banner": {
       "type": "landing-hero-banner",
       "settings": {
-        "hero_landing_logo": "shopify:\/\/shop_images\/Header.png"
+        "hero_landing_logo": "shopify:\/\/shop_images\/Header_1.webp"
       }
     },
     "landing-product": {
