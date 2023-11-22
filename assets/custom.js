@@ -9,6 +9,10 @@ $("#isPopup").on("click", function (e) {
   $(".popup").toggleClass("popupShow");
 });
 
+function popupShow() {
+  $(".popup").toggleClass("popupShow");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Hello World!");
   var datePickerInput = document.getElementsByClassName("date-");

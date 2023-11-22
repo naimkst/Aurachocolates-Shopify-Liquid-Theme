@@ -177,7 +177,7 @@
     <div class="before:w-full before:h-[100vh] before:fixed before:left-0 before:top-0 before:z-0 before:bg-black/50 phone:p-3">
       <div class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 tablet:w-full phone:p-3">
         <div
-          class="bg-white w-[832.74px] m-auto h-[420px] flex items-center justify-items-center mainPopup p-[60px] phone:p-3 phone:w-full phone:pb-[200px] phone:h-[95vh]"
+          class="bg-white w-[832.74px] m-auto h-[420px] flex items-center justify-items-center mainPopup p-[60px] phone:p-3 phone:w-full phone:pb-[150px] phone:h-auto"
         >
           <div class="">
             <p class="text-[30px] tablet:text-[22px] pupupTwoTitle phone:text-center phone:!text-[60px]">
@@ -187,11 +187,18 @@
             <a href="{{ section.settings.popup_link }}" class="button pupupTwobutton" id="isPopup">{{ section.settings.poppup_button_text }}</a>
           </div>
         </div>
+           <div onclick="popupShow()" class="h-[40px] w-[40px] bg-primary rounded-full flex items-center justify-center absolute -top-4 -right-4 phone:top-0 phone:right-0 p-1 cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+</svg>
+
       </div>
+      </div>
+
+   
     </div>
   </div>
   {% endif %}
-
 
 {% endif %}
 

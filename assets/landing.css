@@ -50,6 +50,16 @@ image {
     rgba(159, 88, 5, 1) 100%
   );
 }
+.landing-footerBG {
+  height: 6px;
+  background: rgb(91, 29, 20);
+  background: linear-gradient(
+    90deg,
+    rgba(91, 29, 20, 1) 0%,
+    rgba(208, 157, 81, 1) 46%,
+    rgba(159, 88, 5, 1) 100%
+  );
+}
 .landingLogo {
   position: relative;
 }
