@@ -163,7 +163,7 @@
           "poppup_title": "New",
           "poppup_description": "Collection",
           "poppup_button_text": "Shop Our Halva Collection Here!",
-          "popup": "false",
+          "popup": "true",
           "popup_image": "shopify:\/\/shop_images\/crear_del_mismo_fondo_2.jpg",
           "popup_image_mobile": "shopify:\/\/shop_images\/crear_del_mismo_fondo_4.jpg",
           "popup_link": "",
