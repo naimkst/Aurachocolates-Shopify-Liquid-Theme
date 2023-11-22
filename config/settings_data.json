@@ -160,10 +160,14 @@
           "newsletter_text": "Subscribe To Our Newsletter",
           "info_text": "*All wine bottles in product images are for illustration purposes only",
           "copy_right_text": "Copyright © 2023 Aura Delices. All Rights Reserved",
-          "poppup_title": "Our website will be closed from Wednesday, April 5th until Friday, April 14, following the observance of the Pesach (Passover) Holiday!",
-          "poppup_description": "Thank you for visiting today!",
-          "poppup_button_text": "OKAY",
-          "popup": "false"
+          "poppup_title": "New",
+          "poppup_description": "Collection",
+          "poppup_button_text": "Shop Our Halva Collection Here!",
+          "popup": "true",
+          "popup_image": "shopify:\/\/shop_images\/crear_del_mismo_fondo_2.jpg",
+          "popup_image_mobile": "shopify:\/\/shop_images\/crear_del_mismo_fondo_4.jpg",
+          "popup_link": "",
+          "popupTemplate": "template2"
         }
       }
     },
