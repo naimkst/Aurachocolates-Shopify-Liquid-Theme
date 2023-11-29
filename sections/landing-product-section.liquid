@@ -198,7 +198,7 @@
       <input
         type="hidden"
         name="contact[tags]"
-        value="landing_page">
+        value="{{ section.settings.landing_page }}">
       <div class="formTwo">
         <div style="width: 100%;">
           <input
@@ -547,6 +547,12 @@
         "id": "popupSuccessButtonText",
         "label": "Popup Success Button Text",
         "default": "Continue Shopping"
+      },
+      {
+        "type": "text",
+        "id": "segmentName",
+        "label": "Segment Name (Do not use any space)",
+        "default": "landing_page"
       }
     ],
 
