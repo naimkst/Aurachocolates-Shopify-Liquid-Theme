@@ -622,7 +622,7 @@ div#cartTabs p {
   text-align: center;
 }
 .successPopup .successText {
-  font-size: 32px;
+  font-size: 50px;
   text-align: center;
 }
 .successBottomText {
@@ -674,7 +674,8 @@ div#cartTabs p {
     font-size: 22px;
     max-width: 100%;
   }
-  .landingPopup {
+  .landingPopup,
+  .successPopup {
     width: 95%;
     padding: 15px;
   }
@@ -703,6 +704,10 @@ div#cartTabs p {
     padding: 9px 5px;
     border-radius: 10px;
     width: 100%;
+    text-align: center;
+  }
+  .successPopup .successText {
+    font-size: 27px;
     text-align: center;
   }
 }
