@@ -1,5 +1,6 @@
 <style>
-  .landingPopup {
+  .landingPopup,
+  .successPopup {
     background-color: #fff;
     background-image: url('{{ section.settings.popup_background_image | image_url: width: 1024 }}');
     background-repeat: no-repeat;
@@ -9,7 +10,8 @@
     overflow-x: hidden;
   }
   @media screen and (max-width: 600px) {
-    .landingPopup {
+    .landingPopup,
+    .successPopup {
       background-image: url('{{ section.settings.popup_background_mobile_image | image_url: width: 450 }}');
     }
   }
@@ -245,9 +247,36 @@
   </div>
 </div>
 
+<div
+  id="successPopup"
+  class="successPopup"
+  style="">
+
+  <div>
+    <p class="successText">{{ section.settings.popupSucessText }}</p>
+    <p class="successButton" onclick="sucessPopup()">{{ section.settings.popupSuccessButtonText }}</p>
+    <p class="successBottomText">{{ section.settings.popupBottomText }}</p>
+  </div>
+</div>
+
 <script>
   var popUpValue = getCookie('isPopup');
+  var seccessValue = getCookie('isSuccess');
 
+  if(seccessValue == "false") {
+    document.getElementById('successPopup').style.display = 'none';
+  }else{
+    document.getElementById('successPopup').style.display = 'block';
+  }
+
+  function sucessPopup() {
+     var expires = new Date();
+    expires.setDate(expires.getDate() + 30);
+    document.getElementById('successPopup').style.display = 'none';
+    document.cookie = "isSuccess" + "=" + "false" + ";" + expires + ";path=/";
+  window.location.reload();
+
+  }
 
   function allTimePopUpshow(){
     document.getElementById('showPopup').style.display = 'block';
@@ -299,7 +328,6 @@
       );
     };
 
-    console.log("===", typeof validateEmail());
 
     if(formElements.firstName === '') {
       document.getElementById('firstName').style.display = 'block';
@@ -314,7 +342,7 @@
     }
 
    
-     if( formElements.email === '' || validateEmail() === null ) {
+     if( formElements.email === '' ) {
       document.getElementById('email').style.display = 'block';
     }else{
       document.getElementById('email').style.display = 'none';
@@ -328,6 +356,7 @@
      var expires = new Date();
     expires.setDate(expires.getDate() + 30);
     document.cookie = "isPopup" + "=" + "true" + ";" + expires + ";path=/";
+    document.cookie = "isSuccess" + "=" + "true" + ";" + expires + ";path=/";
     document.getElementById('showPopup').style.display = 'none';
     window.location.reload();
   }
@@ -500,6 +529,24 @@
         "id": "popupButtonText",
         "label": "Popup Yes Button Text",
         "default": "Yes, Sign me up to Aura Delives Newsletter!"
+      },
+      {
+        "type": "text",
+        "id": "popupSucessText",
+        "label": "Popup Success Text",
+        "default": "Thank you very much for opting in! You should receive instructions by email to activate your coupon."
+      },
+      {
+        "type": "text",
+        "id": "popupBottomText",
+        "label": "Popup Success Bottom Text",
+        "default": "Happy Holidays!"
+      },
+      {
+        "type": "text",
+        "id": "popupSuccessButtonText",
+        "label": "Popup Success Button Text",
+        "default": "Continue Shopping"
       }
     ],
 
