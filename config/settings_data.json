@@ -166,7 +166,7 @@
           "popup": "true",
           "popup_image_mobile": "shopify:\/\/shop_images\/crear_del_mismo_fondo_4.jpg",
           "popup_link": "shopify:\/\/collections\/halva",
-          "popupTemplate": "template1"
+          "popupTemplate": "template2"
         }
       }
     },
