@@ -9,6 +9,9 @@
     padding-bottom: 50px;
     overflow-x: hidden;
   }
+  .successPopup {
+    display: none;
+  }
   @media screen and (max-width: 600px) {
     .landingPopup,
     .successPopup {
@@ -267,9 +270,15 @@
   var popUpValue = getCookie('isPopup');
   var seccessValue = getCookie('isSuccess');
 
+  console.log("=====",  seccessValue == null);
+
+  
+  if(seccessValue == null) {
+    document.getElementById('successPopup').style.display = 'none';
+  }
   if(seccessValue == "false") {
     document.getElementById('successPopup').style.display = 'none';
-  }else{
+  }else if(seccessValue == "true"){
     document.getElementById('successPopup').style.display = 'block';
   }
 
