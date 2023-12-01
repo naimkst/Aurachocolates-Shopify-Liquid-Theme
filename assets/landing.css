@@ -213,6 +213,7 @@ div#cartTabs p {
     rgb(152, 101, 43) 71%,
     rgba(159, 88, 5, 1) 100%
   );
+  padding: 15px 10px 5px 15px;
 }
 .landingPrdName {
   font-size: 25px;
@@ -220,7 +221,17 @@ div#cartTabs p {
   color: #fff;
   font-family: "Poppins", sans-serif;
   line-height: 1;
-  padding: 15px 20px;
+  padding-bottom: 10px;
+}
+.landingPrice {
+  border-top: 1px solid #fff;
+  padding-top: 10px;
+}
+.landingPrice p {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 200;
+  font-family: "Poppins", sans-serif;
 }
 .callToActionSection {
   margin: 0 auto;
@@ -627,6 +638,8 @@ div#cartTabs p {
 }
 .successBottomText {
   font-size: 30px;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
 }
 @media screen and (max-width: 600px) {
   .landingLogo img {
@@ -650,8 +663,8 @@ div#cartTabs p {
   }
   .landingPrdName {
     font-size: 20px;
-    padding: 10px 10px;
   }
+
   .countdown-number {
     padding: 20px;
     font-size: 30px;
