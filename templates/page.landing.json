@@ -16,9 +16,9 @@
     "landing-product": {
       "type": "landing-product-section",
       "settings": {
-        "title_one": "Lorem",
-        "title_two": "Title",
-        "prd_sub": "Subtitle",
+        "title_one": "Delightful Chocolate Gifts",
+        "title_two": "",
+        "prd_sub": "",
         "cta_title_one": "Click here to",
         "cta_title_two": "receive your",
         "cta_title_three": "10% off",
