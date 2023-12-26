@@ -163,7 +163,7 @@
           "poppup_title": "New",
           "poppup_description": "Collection",
           "poppup_button_text": "Shop Our Chanukah Collection Here!",
-          "popup": "true",
+          "popup": "false",
           "popup_image": "shopify:\/\/shop_images\/Backgdek.jpg",
           "popup_image_mobile": "shopify:\/\/shop_images\/Backg_mobile.jpg",
           "popup_link": "shopify:\/\/collections\/hanukkah",
