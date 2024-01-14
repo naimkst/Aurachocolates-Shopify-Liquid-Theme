@@ -129,20 +129,21 @@
 
         <div>
           {% for comment in article.comments %}
-            <div class="flex gap-3 items-center mt-5 pb-3 w-full">
-              <div class="w-[98px] h-[98px] object-cover rounded-full block">
+
+            <div class="flex gap-3 mt-5 pb-3 w-full">
+              <div class="w-[40px] h-[40px] object-cover rounded-full block">
                 <img
                   src="https://www.gravatar.com/avatar/{{ comment.email | md5 }}"
                   alt=""
-                  class="w-[98px] h-[98px] object-cover rounded-[10px] block">
+                  class="w-[40px] h-[40px] object-cover rounded-[10px] block">
               </div>
               <div class="w-full">
                 <div class="flex justify-between items-center">
                   <h2 class="text-normal !font-bold">{{ comment.author }}</h2>
-                  <div class="flex items-center gap-2">
-                    <img src="{{ 'reply.svg' |  asset_url }}" alt="">
-                    <a href="#commentForm" class="text-[13px] font-content font-light text-content !text-[#EA5329]">Reply</a>
-                  </div>
+                {% comment %} <div class="flex items-center gap-2">
+                                                <img src="{{ 'reply.svg' |  asset_url }}" alt="">
+                                                <a href="#commentForm" class="text-[13px] font-content font-light text-content !text-[#EA5329]">Reply</a>
+                                </div> {% endcomment %}
                 </div>
                 <span class="font-content font-light text-content !text-[13px]">
                   {{- comment.created_at | date: '%a, %b %d, %Y' -}}
