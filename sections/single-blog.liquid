@@ -124,74 +124,7 @@
         </div>
       </div>
 
-      <div class="bg-white w-full py-10 px-5 rounded-[10px] mt-10">
-        <h2 class="text-[30px] font-['Antiqua']">{{ article.comments_count }} Comments</h2>
 
-        <div>
-          {% for comment in article.comments %}
-
-            <div class="flex gap-3 mt-5 pb-3 w-full">
-              <div class="w-[40px] h-[40px] object-cover rounded-full block">
-                <img
-                  src="https://www.gravatar.com/avatar/{{ comment.email | md5 }}"
-                  alt=""
-                  class="w-[40px] h-[40px] object-cover rounded-[10px] block">
-              </div>
-              <div class="w-full">
-                <div class="flex justify-between items-center">
-                  <h2 class="text-normal !font-bold">{{ comment.author }}</h2>
-                {% comment %} <div class="flex items-center gap-2">
-                                                <img src="{{ 'reply.svg' |  asset_url }}" alt="">
-                                                <a href="#commentForm" class="text-[13px] font-content font-light text-content !text-[#EA5329]">Reply</a>
-                                </div> {% endcomment %}
-                </div>
-                <span class="font-content font-light text-content !text-[13px]">
-                  {{- comment.created_at | date: '%a, %b %d, %Y' -}}
-                </span>
-                <span class="text-[15px] font-content font-light text-content">{{ comment.content }}</span>
-              </div>
-            </div>
-          {% endfor %}
-        </div>
-
-        <div class="mt-10" id="commentForm">
-          <h2 class="section-title !text-[32px]">Leave A Comment</h2>
-          <p class="content !text-[18px]">Your Email Address Will Not be Published. Required Fields Are Marked*</p>
-
-          <div class="mt-10">
-            <div class="flex justify-between w-full gap-5 mb-5">
-              <input
-                class="border-[1px] border-secondary w-full py-3 px-3 rounded-md placeholder:text-secondary placeholder:font-light"
-                type="text"
-                name="comment[author]"
-                placeholder="Name*">
-              <input
-                class="border-[1px] border-secondary w-full py-3 px-3 rounded-md placeholder:text-secondary placeholder:font-content"
-                type="email"
-                name="comment[email]"
-                placeholder="Email*">
-            </div>
-            <div class="pb-3">
-              <textarea
-                name="comment[body]"
-                id=""
-                cols="30"
-                rows="10"
-                placeholder="Comment"
-                class="w-full border-[1px] border-secondary  py-3 px-3 rounded-md placeholder:text-secondary placeholder:font-light"></textarea>
-            </div>
-            <div class="">
-              <button type="submit" class="bg-primary py-3 px-8 rounded-lg text-white hover:bg-secondary">
-                Post Comment
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <script>
-        console.log({{ article.comments | json }})
-      </script>
     </div>
   </div>
 {% endform %}
