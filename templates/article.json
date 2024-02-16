@@ -13,10 +13,10 @@
         "related_collection": "baby-boy-girl"
       }
     },
-    "17080781035e0be532": {
+    "17080774313ad3e6c2": {
       "type": "apps",
       "blocks": {
-        "comment_manager_blog_comment_KJzYfP": {
+        "comment_manager_blog_comment_cc34FX": {
           "type": "shopify:\/\/apps\/comment-manager\/blocks\/blogComment\/9d0fc783-ee92-4ee7-bb0b-e90cb1067c91",
           "settings": {
             "leavComment": "Leave A Comment",
@@ -25,7 +25,7 @@
         }
       },
       "block_order": [
-        "comment_manager_blog_comment_KJzYfP"
+        "comment_manager_blog_comment_cc34FX"
       ],
       "settings": {
       }
@@ -34,6 +34,6 @@
   "order": [
     "hero",
     "main",
-    "17080781035e0be532"
+    "17080774313ad3e6c2"
   ]
 }
