@@ -160,14 +160,14 @@
           "newsletter_text": "Subscribe To Our Newsletter",
           "info_text": "*All wine bottles in product images are for illustration purposes only",
           "copy_right_text": "Copyright © 2023 Aura Delices. All Rights Reserved",
-          "poppup_title": "New",
-          "poppup_description": "Collection",
-          "poppup_button_text": "Shop Our Chanukah Collection Here!",
-          "popup": "false",
-          "popup_image": "shopify:\/\/shop_images\/Backgdek.jpg",
+          "poppup_title": "Purim 2024",
+          "poppup_description": "",
+          "poppup_button_text": "Shop Our Purim Collection Now!",
+          "popup": "true",
+          "popup_image": "shopify:\/\/shop_images\/Purim2024smallbluebox.jpg",
           "popup_image_mobile": "shopify:\/\/shop_images\/Backg_mobile.jpg",
-          "popup_link": "shopify:\/\/collections\/hanukkah",
-          "popupTemplate": "template2"
+          "popup_link": "shopify:\/\/collections\/purim",
+          "popupTemplate": "template1"
         }
       }
     },
