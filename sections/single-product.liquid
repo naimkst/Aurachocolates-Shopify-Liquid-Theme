@@ -1,4 +1,4 @@
-<script>
+<s<p></p>cript>
   window.product = {{ product | json }} || {}
 </script>
 <script type="application/json">
@@ -16,6 +16,9 @@
   .slick-slide.slick-current.slick-active img {
     border: 1px solid #ea5329;
     border-radius: 5px;
+  }
+  .noteMessage{
+    margin: 20px 0px;
   }
 </style>
 
@@ -176,7 +179,7 @@
             </div>
           {% endif %}
 
-          <div>Note:{{ product.metafields.custom.product_note }}</div>
+          <div><p class="noteMessage">Note:{{ product.metafields.custom.product_note }}</p></div>
 
           <div class="cart-buttons"></div>
         </div>
