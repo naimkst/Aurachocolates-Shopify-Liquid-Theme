@@ -1,4 +1,4 @@
-<s<p></p>cript>
+<script>
   window.product = {{ product | json }} || {}
 </script>
 <script type="application/json">
@@ -179,10 +179,8 @@
             </div>
           {% endif %}
 
-          {% if  product.metafields.custom.product_note  %}
-          <div class="noteMessage">
-            Note: {{ product.metafields.custom.product_note }}
-          </div>
+          {% if product.metafields.custom.product_note %}
+            <div class="noteMessage">Note: {{ product.metafields.custom.product_note }}</div>
           {% endif %}
 
           <div class="cart-buttons"></div>
