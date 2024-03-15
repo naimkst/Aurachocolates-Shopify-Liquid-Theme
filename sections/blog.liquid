@@ -7,15 +7,18 @@
         <div class="flex items-center gap-4 phone:gap-1">
           <p class="font-bold font-content text-[12px]">Filter By</p>
           <form action="" class="bg-white py-2 px-[15px] rounded-[5px] font-content">
-            <select name="" id="" class="w-[150px] phone:w-auto" onchange="location = this.value">
+            <select
+              name=""
+              id=""
+              class="w-[150px] phone:w-auto"
+              onchange="location = this.value">
               <option value="#">Select Option</option>
               {%- for tag in blog.all_tags -%}
                 <option
                   value="{{ blog.url }}/tagged/{{ tag }}"
                   {% if curentTag == tag %}
-                    selected
-                  {% endif %}
-                >
+                  selected
+                  {% endif %}>
                   {{ tag }}
                 </option>
               {%- endfor -%}
@@ -23,19 +26,19 @@
           </form>
         </div>
 
-        {% comment %}
-          <div class="flex items-center gap-4 phone:gap-1">
-            <p class="font-bold font-content text-[12px]">Sort By</p>
-            <form action="" class="bg-white py-2 px-[15px] rounded-[5px] font-content">
-              <select name="" id="" class="w-[150px] phone:w-auto">
-                <option value="" class="phone:text-[12px]">Select Option</option>
-                <option value="">Price</option>
-                <option value="">Name</option>
-                <option value="">Date</option>
-              </select>
-            </form>
-          </div>
-        {% endcomment %}
+      {% comment %}
+        <div class="flex items-center gap-4 phone:gap-1">
+        <p class="font-bold font-content text-[12px]">Sort By</p>
+        <form action="" class="bg-white py-2 px-[15px] rounded-[5px] font-content">
+        <select name="" id="" class="w-[150px] phone:w-auto">
+        <option value="" class="phone:text-[12px]">Select Option</option>
+        <option value="">Price</option>
+        <option value="">Name</option>
+        <option value="">Date</option>
+        </select>
+        </form>
+        </div>
+      {% endcomment %}
       </div>
 
       {% if current_tags %}
@@ -53,8 +56,7 @@
                         alt=""
                         width=""
                         height=""
-                        loading="eager"
-                      >
+                        loading="eager">
                     </div>
                   </a>
 
@@ -81,7 +83,7 @@
       {% else %}
         <div class="grid grid-cols-4 items-start gap-6 mt-[50px] tablet:grid-cols-2 phone:grid-cols-1 tablet:px-[10px]">
           {% assign limit = section.settings.blog_limit | default: 4 %}
-          {% for article in blogs.news.articles limit: limit %}
+          {% for article in blogs.discover.articles limit: limit %}
             <div class="bg-white rounded-[10px] relative">
               <a class="" href="{{ article.url }}">
                 <div>
@@ -91,8 +93,7 @@
                     alt=""
                     width=""
                     height=""
-                    loading="eager"
-                  >
+                    loading="eager">
                 </div>
               </a>
 
@@ -117,44 +118,45 @@
       {% endif %}
 
       {%- if paginate.pages > 1 -%}
-        {%- render 'pagination', paginate: paginate -%}
+        {%- render 'pagination'
+          , paginate: paginate -%}
       {%- endif -%}
     </div>
   </div>
 {%- endpaginate -%}
 
 {% schema %}
-{
-  "name": "Blog Grid",
-  "settings": [
-    {
-      "type": "text",
-      "id": "hero_title",
-      "label": "Hero Title",
-      "default": "Shop"
-    },
-    {
-      "type": "image_picker",
-      "id": "hero_image",
-      "label": "Hero Image"
-    },
-    {
-      "type": "text",
-      "id": "hero_subtitle_title",
-      "label": "Hero Subtitle",
-      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci, porttitor quis est purus eu. Scelerisque proin ornare bibendum facilisi elementum. "
-    },
-    {
-      "type": "text",
-      "id": "blog_limit",
-      "label": "Blog Limit",
-      "default": "8"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Blog Grid"
-    }
-  ]
-}
+  {
+    "name": "Blog Grid",
+    "settings": [
+      {
+        "type": "text",
+        "id": "hero_title",
+        "label": "Hero Title",
+        "default": "Shop"
+      },
+      {
+        "type": "image_picker",
+        "id": "hero_image",
+        "label": "Hero Image"
+      },
+      {
+        "type": "text",
+        "id": "hero_subtitle_title",
+        "label": "Hero Subtitle",
+        "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci, porttitor quis est purus eu. Scelerisque proin ornare bibendum facilisi elementum. "
+      },
+      {
+        "type": "text",
+        "id": "blog_limit",
+        "label": "Blog Limit",
+        "default": "8"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Blog Grid"
+      }
+    ]
+  }
 {% endschema %}
