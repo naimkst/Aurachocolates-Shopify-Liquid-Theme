@@ -43,8 +43,8 @@
 
       {% if current_tags %}
         <div class="grid grid-cols-4 items-center gap-6 mt-[50px] tablet:grid-cols-2 phone:grid-cols-1 tablet:px-[10px]">
-          {% assign limit = section.settings.blog_limit | default: 4 %}
-          {% for article in blogs.news.articles limit: limit %}
+          {% assign limit = section.settings.blog_limit | default: 12 %}
+          {% for article in blogs.discover.articles limit: limit %}
             {% for tag in current_tags %}
               {% if article.tags contains tag %}
                 <div class="bg-white rounded-[10px] relative">

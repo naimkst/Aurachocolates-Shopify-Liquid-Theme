@@ -95,7 +95,7 @@
               <ul class="flex flex-col divide-y ">
                 {%- for tag in blog.all_tags -%}
                   <li class="py-2">
-                    <a href="{{ blog.url }}/tagged/{{ tag }}">{{ tag }}</a>
+                    <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
                   </li>
                 {%- endfor -%}
               </ul>
