@@ -15,7 +15,7 @@
               <option value="#">Select Option</option>
               {%- for tag in blog.all_tags -%}
                 <option
-                  value="{{ blog.url }}/tagged/{{ tag }}"
+                  value="{{ blog.url }}/tagged/{{ tag | handle }}"
                   {% if curentTag == tag %}
                   selected
                   {% endif %}>
