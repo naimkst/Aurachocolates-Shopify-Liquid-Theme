@@ -3,16 +3,16 @@
     "hero": {
       "type": "blog-hero",
       "settings": {
-        "hero_title": "Aura delices",
+        "hero_title": "Let's Talk Chocolate!",
         "hero_image": "shopify:\/\/shop_images\/single_blog.png",
-        "hero_subtitle_title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci, porttitor quis est purus eu. Scelerisque proin ornare bibendum facilisi elementum."
+        "hero_subtitle_title": "Articles in and around chocolate; event planning , gifting, and more..."
       }
     },
     "main": {
       "type": "blog",
       "settings": {
         "hero_title": "Shop",
-        "hero_subtitle_title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci, porttitor quis est purus eu. Scelerisque proin ornare bibendum facilisi elementum.",
+        "hero_subtitle_title": "",
         "blog_limit": "8"
       }
     }
