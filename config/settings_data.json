@@ -163,7 +163,7 @@
           "poppup_title": "Purim 2024",
           "poppup_description": "",
           "poppup_button_text": "Have a Freilichen Purim",
-          "popup": "true",
+          "popup": "false",
           "popup_image": "shopify:\/\/shop_images\/Purim2024smallbluebox.jpg",
           "popup_image_mobile": "shopify:\/\/shop_images\/Backg_mobile.jpg",
           "popup_link": "shopify:\/\/collections\/purim",
