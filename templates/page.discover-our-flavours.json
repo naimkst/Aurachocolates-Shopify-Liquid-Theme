@@ -2,11 +2,21 @@
   "sections": {
     "main": {
       "type": "cart",
+      "disabled": true,
       "settings": {
+      }
+    },
+    "blog_hero_JT79Bk": {
+      "type": "blog-hero",
+      "settings": {
+        "hero_title": "Aura delices",
+        "hero_image": "shopify:\/\/shop_images\/DSC_2806-Pano-Edit-Edit-_1.webp",
+        "hero_subtitle_title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci, porttitor quis est purus eu. Scelerisque proin ornare bibendum facilisi elementum."
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "blog_hero_JT79Bk"
   ]
 }
