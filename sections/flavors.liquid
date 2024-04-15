@@ -1,8 +1,16 @@
-<style></style>
+<style>
+  .flavors .section-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 0;
+  }
+</style>
 
 <div class="flavors">
-  <div section-title>
-    <h2>{{ section.settings.secton_title }}</h2>
+  <div class="section-title">
+    <h2 class="title-lx">{{ section.settings.secton_title }}</h2>
     <p>{{ section.settings.section_subtitle }}</p>
   </div>
 
@@ -419,7 +427,7 @@
         "type": "text",
         "id": "secton_title",
         "label": "Section Title",
-        "default": "All hand made in our factory"
+        "default": "Discover Our Flavors"
       },
       {
         "type": "text",

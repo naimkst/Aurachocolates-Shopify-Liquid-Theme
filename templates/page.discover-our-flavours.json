@@ -1,11 +1,5 @@
 {
   "sections": {
-    "main": {
-      "type": "cart",
-      "disabled": true,
-      "settings": {
-      }
-    },
     "blog_hero_JT79Bk": {
       "type": "blog-hero",
       "settings": {
@@ -23,7 +17,6 @@
     }
   },
   "order": [
-    "main",
     "blog_hero_JT79Bk",
     "flavors_DhrWBB"
   ]
