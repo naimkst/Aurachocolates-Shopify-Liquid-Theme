@@ -13,10 +13,18 @@
         "hero_image": "shopify:\/\/shop_images\/DSC_2806-Pano-Edit-Edit-_1.webp",
         "hero_subtitle_title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci, porttitor quis est purus eu. Scelerisque proin ornare bibendum facilisi elementum."
       }
+    },
+    "flavors_XejYAe": {
+      "type": "flavors",
+      "settings": {
+        "secton_title": "All hand made in our factory",
+        "section_subtitle": "All hand made in our factory"
+      }
     }
   },
   "order": [
     "main",
-    "blog_hero_JT79Bk"
+    "blog_hero_JT79Bk",
+    "flavors_XejYAe"
   ]
 }
