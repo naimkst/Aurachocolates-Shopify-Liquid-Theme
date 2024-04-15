@@ -1,0 +1,65 @@
+<style></style>
+
+<div class="flavors">
+  <div section-title>
+    <h2>{{ section.settings.secton_title }}</h2>
+    <p>{{ section.settings.section_subtitle }}</p>
+  </div>
+
+  <div class="flavors-products">
+    <div class="flavors-item">
+      <h2>Truffles</h2>
+
+      <div class="flavors-grid">
+        <div class="flavors-icon">
+          <img
+            src="{{ 'food.png' |  asset_url }}"
+            width=""
+            height=""
+            alt="">
+          <img
+            src="{{ 'plant-based.png' |  asset_url }}"
+            width=""
+            height=""
+            alt="">
+        </div>
+        <img
+          src="{{ 'product.webp' |  asset_url }}"
+          width=""
+          height=""
+          alt="">
+
+        <div class="flvors-content">
+          <h2>Title</h2>
+          <p>Here will be some of description</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Discover Our Flavors",
+    "settings": [
+      {
+        "type": "text",
+        "id": "secton_title",
+        "label": "Section Title",
+        "default": "All hand made in our factory"
+      },
+      {
+        "type": "text",
+        "id": "section_subtitle",
+        "label": "Section Subtitle",
+        "default": "All hand made in our factory"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Discover Our Flavors"
+      }
+    ]
+  }
+{% endschema %}
