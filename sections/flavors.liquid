@@ -67,10 +67,14 @@
   @media only screen and (max-width: 500px) {
     .gridItems {
       grid-gap: 10px;
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
-    .featureImage {
-      height: 300px;
+    .featureImage,
+    .hoverImage {
+      height: 130px;
+    }
+    .flavors-grid {
+      margin-bottom: 10px;
     }
 
   }
@@ -135,7 +139,7 @@
 
                 <div class="flvors-content">
                   <h2 class="text-center text-[18px] font-bold my-4">
-                    <a href="{{ product.url }}">{{ product.title }}</a>
+                    {{ product.title }}
                   </h2>
                   <p class="text-center text-[14px] mt-2">{{ product.description | strip_html | truncate: "80" }}</p>
                 </div>
