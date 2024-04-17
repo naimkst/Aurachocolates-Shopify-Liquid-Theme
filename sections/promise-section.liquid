@@ -1,6 +1,25 @@
 {% comment %} our Promise Section {% endcomment %}
+<style>
+  div#shopify-section-template--22386211094801__promise_section_jTqeqf .promiseGrid {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    align-items: center;
+  }
+  div#shopify-section-template--22386211094801__promise_section_jTqeqf .promiseGrid div {
+    width: 100%;
+  }
+  div#shopify-section-template--22386211094801__promise_section_jTqeqf .promiseGrid h3 {
+    font-size: 30px !important;
+  }
+  @media only screen and (max-width: 600px) {
+    div#shopify-section-template--22386211094801__promise_section_jTqeqf .promiseGrid {
+      flex-wrap: wrap;
+    }
+  }
+</style>
 
-<div class="py-20 tablet:px-3 phone:overflow-hidden laptop:px-4 promiseBlock">
+<div class="py-20 tablet:px-3 phone:overflow-hidden laptop:px-4">
   <div class="container m-auto">
     <div class="text-center max-w-[750px] m-auto">
       <h2 class="section-title border-b-primary border-b-4 inline-block mb-11">{{ section.settings.promise_title }}</h2>
@@ -8,7 +27,7 @@
         {{ section.settings.promise_description }}
       </p>
     </div>
-    <div class="pt-[40px] grid grid-cols-3 items-stretch gap-10 text-center laptop:gap-4 tablet:grid-cols-1">
+    <div class="pt-[40px] grid grid-cols-3 items-stretch gap-10 text-center laptop:gap-4 tablet:grid-cols-1 promiseGrid">
       {% for block in section.blocks %}
         <div class="boxShadow bg-white py-14 rounded-lg px-7">
           <div>
