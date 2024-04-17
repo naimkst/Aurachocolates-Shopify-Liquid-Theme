@@ -61,7 +61,14 @@
       ],
       "settings": {
         "promise_title": "Learn What Our Icons Mean",
-        "promise_description": "*Please note that all our chocolates are produced in a facility that also processes nuts and gluten."
+        "promise_description": ""
+      }
+    },
+    "mom_allow_section_Lyfxhj": {
+      "type": "mom-allow-section",
+      "settings": {
+        "allowed_title": "",
+        "allowed_description": "*Please note that all our chocolates are produced in a facility that also processes nuts and gluten."
       }
     },
     "flavors_DhrWBB": {
@@ -125,6 +132,7 @@
   "order": [
     "blog_hero_JT79Bk",
     "promise_section_jTqeqf",
+    "mom_allow_section_Lyfxhj",
     "flavors_DhrWBB",
     "instagram_section_G3y38d",
     "map_section_QMaXmT"
