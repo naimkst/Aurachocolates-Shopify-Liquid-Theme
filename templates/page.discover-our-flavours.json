@@ -3,9 +3,9 @@
     "blog_hero_JT79Bk": {
       "type": "blog-hero",
       "settings": {
-        "hero_title": "Aura delices",
+        "hero_title": "Discover Our Flavors",
         "hero_image": "shopify:\/\/shop_images\/DSC_2806-Pano-Edit-Edit-_1.webp",
-        "hero_subtitle_title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "hero_subtitle_title": ""
       }
     },
     "promise_section_jTqeqf": {
@@ -60,8 +60,8 @@
         "slider_iXctVt"
       ],
       "settings": {
-        "promise_title": "Discover Our Flavors",
-        "promise_description": "Lookout For These Icons Throughout The Page!"
+        "promise_title": "Lookout For These Icons!",
+        "promise_description": ""
       }
     },
     "flavors_DhrWBB": {
@@ -70,11 +70,58 @@
         "secton_title": "Chocolates That Tell A Story",
         "section_subtitle": "All Our Chocolates Are Hand Crafted By Our Chocolatiers With Passion And Love"
       }
+    },
+    "instagram_section_G3y38d": {
+      "type": "instagram-section",
+      "blocks": {
+        "slider_7Nqdqk": {
+          "type": "slider",
+          "settings": {
+          }
+        },
+        "slider_npz6y4": {
+          "type": "slider",
+          "settings": {
+          }
+        },
+        "slider_NkkLmY": {
+          "type": "slider",
+          "settings": {
+          }
+        },
+        "slider_tcNBNr": {
+          "type": "slider",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "slider_7Nqdqk",
+        "slider_npz6y4",
+        "slider_NkkLmY",
+        "slider_tcNBNr"
+      ],
+      "settings": {
+        "instagram_slug": "Instagram",
+        "instagram_title": "Follow us on Instagram",
+        "instagram_description": "Check us out on instagram, we love to see our follower base grow! We constantly work on showing you our latest chocolate trends.. come check us out!",
+        "instagram_link": ""
+      }
+    },
+    "map_section_QMaXmT": {
+      "type": "map-section",
+      "settings": {
+        "map_title": "Stop by for a visit at our boutique store",
+        "map_description": "We have this little Montreal cozy store, hey we dont bite! Come say hi!!",
+        "map_link": "https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d369110.4158473942!2d-79.95232726694726!3d43.71730014289388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d4cb90d7c63ba5%3A0x323555502ab4c477!2sToronto%2C%20ON%2C%20Canada!5e0!3m2!1sen!2sbd!4v1666895295601!5m2!1sen!2sbd"
+      }
     }
   },
   "order": [
     "blog_hero_JT79Bk",
     "promise_section_jTqeqf",
-    "flavors_DhrWBB"
+    "flavors_DhrWBB",
+    "instagram_section_G3y38d",
+    "map_section_QMaXmT"
   ]
 }
