@@ -18,16 +18,16 @@
     width: 100%;
     height: 210px;
     object-fit: cover;
-    margin-bottom: 10px;
     border-radius: 10px;
+    z-index: 1;
   }
   .hoverImage {
     display: none;
     width: 100%;
     height: 210px;
     object-fit: cover;
-    margin-bottom: 10px;
     border-radius: 10px;
+    z-index: 1;
   }
   .flavors-grid:hover {
     cursor: pointer;
@@ -47,6 +47,13 @@
     grid-template-columns: repeat(5, 1fr);
 
   }
+  .flavors-icon img {
+    /* filter: brightness(0) invert(1); */
+    background: #fff;
+    padding: 3px;
+    border-radius: 50px;
+  }
+
   @media only screen and (max-width: 800px) {
     .gridItems {
       grid-gap: 10px;
@@ -91,63 +98,94 @@
   <div class="flavors-products">
     {% for collection in collect %}
       {% if collection.products.size != 0 %}
-        <div class="flavors-item mb-10">
-          <h2 class="text-[25px] font-bold mb-5">{{ collection.title }} ({{ collection.products.size }})</h2>
-          <div class="gridItems">
+        {% if collection.title == "Tutti Fruity" or collection.title == "Mini Logs" %}
+          <div class="flavors-item mb-10">
+            <h2 class="text-[25px] font-bold mb-5">{{ collection.title }} ({{ collection.products.size }})</h2>
+            <div class="gridItems">
+              {% for product in collection.products %}
+                <div class="flavors-grid relative shadow-md rounded-md group">
+                  <div class="flavors-icon absolute top-2 right-2 flex items-center justify-end gap-2 z-50">
+                    {% if product.metafields.custom.alcohol.value == true %}
+                      <img
+                        class=""
+                        src="{{ 'cocktail.png' |  asset_url }}"
+                        width="30px"
+                        height="30px"
+                        alt="">
+                    {% endif %}
 
-            {% for product in collection.products %}
-              <div class="flavors-grid relative shadow-md p-[20px] rounded-md group">
-                <div class="flavors-icon absolute top-2 right-2 flex items-center justify-end gap-3">
-                  {% if product.metafields.custom.isvegan.value != true %}
-                    <img
-                      class=""
-                      src="{{ 'food.png' |  asset_url }}"
-                      width="30px"
-                      height="30px"
-                      alt="">
-                  {% else %}
-                    <img
-                      class=""
-                      src="{{ 'plant-based.png' |  asset_url }}"
-                      width="30px"
-                      height="30px"
-                      alt="">
-                  {% endif %}
-                </div>
-                <img
-                  class="featureImage"
-                  src="{{ product.featured_image | image_url: width: 500  }}"
-                  width=""
-                  height=""
-                  alt="">
+                    {% if product.metafields.custom.gluten_free.value == true %}
+                      <img
+                        class=""
+                        src="{{ 'wheat.png' |  asset_url }}"
+                        width="30px"
+                        height="30px"
+                        alt="">
+                    {% endif %}
 
-                {% if product.images[1] %}
+                    {% if product.metafields.custom.nut_free.value == true %}
+                      <img
+                        class=""
+                        src="{{ 'nut.png' |  asset_url }}"
+                        width="30px"
+                        height="30px"
+                        alt="">
+                    {% endif %}
+
+                    {% if product.metafields.custom.dairy.value == true %}
+                      <img
+                        class=""
+                        src="{{ 'cow.png' |  asset_url }}"
+                        width="30px"
+                        height="30px"
+                        alt="">
+                    {% endif %}
+
+                    {% if product.metafields.custom.vegan == true %}
+                      <img
+                        class=""
+                        src="{{ 'vegan.png' |  asset_url }}"
+                        width="30px"
+                        height="30px"
+                        alt="">
+                    {% endif %}
+
+                  </div>
                   <img
-                    class="hoverImage"
-                    src="{{ product.images[1] | image_url: width: 500 }}"
-                    width=""
-                    height=""
-                    alt="">
-                {% else %}
-                  <img
-                    class="hoverImage"
+                    class="featureImage"
                     src="{{ product.featured_image | image_url: width: 500  }}"
                     width=""
                     height=""
                     alt="">
-                {% endif %}
 
-                <div class="flvors-content">
-                  <h2 class="text-center text-[18px] font-bold my-4">
-                    {{ product.title }}
-                  </h2>
-                  <p class="text-center text-[14px] mt-2">{{ product.description | strip_html | truncate: "80" }}</p>
+                  {% if product.images[1] %}
+                    <img
+                      class="hoverImage"
+                      src="{{ product.images[1] | image_url: width: 500 }}"
+                      width=""
+                      height=""
+                      alt="">
+                  {% else %}
+                    <img
+                      class="hoverImage"
+                      src="{{ product.featured_image | image_url: width: 500  }}"
+                      width=""
+                      height=""
+                      alt="">
+                  {% endif %}
+
+                  <div class="flvors-content px-3 py-5">
+                    <h2 class="text-center text-[18px] font-bold my-4">
+                      {{ product.title }}
+                    </h2>
+                    <p class="text-center text-[14px] mt-2">{{ product.description | strip_html | truncate: "80" }}</p>
+                  </div>
+
                 </div>
-
-              </div>
-            {% endfor %}
+              {% endfor %}
+            </div>
           </div>
-        </div>
+        {% endif %}
       {% endif %}
 
     {% endfor %}
