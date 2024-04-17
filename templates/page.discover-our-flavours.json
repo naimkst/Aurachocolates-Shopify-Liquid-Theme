@@ -77,21 +77,25 @@
         "slider_7Nqdqk": {
           "type": "slider",
           "settings": {
+            "instagram_image": "shopify:\/\/shop_images\/01.svg"
           }
         },
         "slider_npz6y4": {
           "type": "slider",
           "settings": {
+            "instagram_image": "shopify:\/\/shop_images\/02.svg"
           }
         },
         "slider_NkkLmY": {
           "type": "slider",
           "settings": {
+            "instagram_image": "shopify:\/\/shop_images\/03.svg"
           }
         },
         "slider_tcNBNr": {
           "type": "slider",
           "settings": {
+            "instagram_image": "shopify:\/\/shop_images\/04.svg"
           }
         }
       },
