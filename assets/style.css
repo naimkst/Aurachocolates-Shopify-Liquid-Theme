@@ -66,3 +66,27 @@ body#product\.custom-six .wishlist-whale-button-container-float-right {
   background: rgba(253, 253, 253, 0.67);
   z-index: 0;
 }
+
+div#shopify-section-template--22386211094801__promise_section_jTqeqf
+  .promiseGrid {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  align-items: center;
+}
+div#shopify-section-template--22386211094801__promise_section_jTqeqf
+  .promiseGrid
+  div {
+  width: 100%;
+}
+div#shopify-section-template--22386211094801__promise_section_jTqeqf
+  .promiseGrid
+  h3 {
+  font-size: 30px !important;
+}
+@media only screen and (max-width: 600px) {
+  div#shopify-section-template--22386211094801__promise_section_jTqeqf
+    .promiseGrid {
+    flex-wrap: wrap;
+  }
+}
