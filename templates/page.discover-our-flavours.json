@@ -64,6 +64,62 @@
         "promise_description": ""
       }
     },
+    "flavors_icon_cgif3r": {
+      "type": "flavors-icon",
+      "blocks": {
+        "slider_iLqTry": {
+          "type": "slider",
+          "settings": {
+            "promise_item_title": "Vegan",
+            "promise_item_description": "",
+            "promise_item_image": "shopify:\/\/shop_images\/vegan_1.png"
+          }
+        },
+        "slider_VgLq6a": {
+          "type": "slider",
+          "settings": {
+            "promise_item_title": "Contains Alcohol",
+            "promise_item_description": "",
+            "promise_item_image": "shopify:\/\/shop_images\/cocktail.png"
+          }
+        },
+        "slider_PqX74c": {
+          "type": "slider",
+          "settings": {
+            "promise_item_title": "Nut-Free",
+            "promise_item_description": "",
+            "promise_item_image": "shopify:\/\/shop_images\/nut.png"
+          }
+        },
+        "slider_Bq8rpC": {
+          "type": "slider",
+          "settings": {
+            "promise_item_title": "Gluten-Free",
+            "promise_item_description": "",
+            "promise_item_image": "shopify:\/\/shop_images\/wheat.png"
+          }
+        },
+        "slider_LDqxz4": {
+          "type": "slider",
+          "settings": {
+            "promise_item_title": "Dairy",
+            "promise_item_description": "",
+            "promise_item_image": "shopify:\/\/shop_images\/cow.png"
+          }
+        }
+      },
+      "block_order": [
+        "slider_iLqTry",
+        "slider_VgLq6a",
+        "slider_PqX74c",
+        "slider_Bq8rpC",
+        "slider_LDqxz4"
+      ],
+      "settings": {
+        "promise_title": "Our Promise",
+        "promise_description": "There is a reason we have established a strong following in Montreal and all over the world for our beloved Kosher artisanal Belgium chocolates."
+      }
+    },
     "mom_allow_section_Lyfxhj": {
       "type": "mom-allow-section",
       "settings": {
@@ -132,6 +188,7 @@
   "order": [
     "blog_hero_JT79Bk",
     "promise_section_jTqeqf",
+    "flavors_icon_cgif3r",
     "mom_allow_section_Lyfxhj",
     "flavors_DhrWBB",
     "instagram_section_G3y38d",
