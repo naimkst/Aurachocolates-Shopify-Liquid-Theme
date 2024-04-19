@@ -48,6 +48,12 @@
         </div>
       {% endfor %}
     </div>
+
+    <div>
+      <div class="text-center mt-10">
+        <p class="section-content">{{ section.settings.flavor_note }}</p>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -66,6 +72,12 @@
         "id": "promise_description",
         "label": "Description",
         "default": "There is a reason we have established a strong following in Montreal and all over the world for our beloved Kosher artisanal Belgium chocolates."
+      },
+      {
+        "type": "text",
+        "id": "flavor_note",
+        "label": "Flavor Note",
+        "default": "*please note that all of our chocolates are..."
       }
     ],
     "blocks": [
