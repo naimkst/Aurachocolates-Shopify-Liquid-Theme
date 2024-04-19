@@ -66,21 +66,3 @@ body#product\.custom-six .wishlist-whale-button-container-float-right {
   background: rgba(253, 253, 253, 0.67);
   z-index: 0;
 }
-
-body#page\.discover-our-flavours .promiseGrid {
-  display: flex;
-  justify-content: space-around;
-  gap: 20px;
-  align-items: center;
-}
-body#page\.discover-our-flavours .promiseGrid div {
-  width: 100%;
-}
-body#page\.discover-our-flavours .promiseGrid h3 {
-  font-size: 30px !important;
-}
-@media only screen and (max-width: 600px) {
-  body#page\.discover-our-flavours .promiseGrid {
-    flex-wrap: wrap;
-  }
-}

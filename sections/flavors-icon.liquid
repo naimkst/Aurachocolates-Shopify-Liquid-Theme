@@ -1,4 +1,17 @@
 <style>
+  .promiseGrid {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    align-items: center;
+  }
+  .promiseGrid div {
+    width: 100%;
+  }
+  .promiseGrid h3 {
+    font-size: 30px !important;
+  }
+
   @media screen and (max-width: 768px) {
     .promiseGrid {
       display: grid;
@@ -21,6 +34,15 @@
       font-size: 12px !important;
       line-height: 20px !important;
     }
+    .lastGridItem {
+      grid-column: 1 / span 2;
+      grid-row: 3;
+    }
+    .lastGridItem {
+      width: 50% !important;
+      margin: 0 auto !important;
+    }
+
   }
 </style>
 <div class="py-20 tablet:px-3 phone:overflow-hidden laptop:px-4">
@@ -33,7 +55,7 @@
     </div>
     <div class="pt-[40px] grid grid-cols-3 items-stretch gap-10 text-center laptop:gap-4 tablet:grid-cols-1 promiseGrid">
       {% for block in section.blocks %}
-        <div class="boxShadow bg-white py-14 rounded-lg px-7">
+        <div class="boxShadow bg-white py-14 rounded-lg px-7 {% if forloop.last %} lastGridItem {% endif %}">
           <div>
             <img
               src="{{ block.settings.promise_item_image | img_url: 'original' }}"
