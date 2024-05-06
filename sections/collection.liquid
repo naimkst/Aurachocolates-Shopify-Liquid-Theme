@@ -34,7 +34,7 @@
 
 {% comment %} Shop Main Layout {% endcomment %}
 
-{% assign limit_product = 20 %}
+{% assign limit_product = section.settings.product_limit %}
 {%- paginate collections.all.products by limit_product -%}
   <div class="relative left-0 tablet:px-3 laptop:px-4 bg-[#FAFAFA] pt-7">
     <div class="container m-auto">
