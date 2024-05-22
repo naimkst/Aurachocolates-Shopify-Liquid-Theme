@@ -78,7 +78,7 @@
           "settings": {
             "tab_title": "Seasonal",
             "tab_description": "Check out our seasonal selection below.. these are the hot items that occasionally show up!",
-            "tab_collection": "mothers-day"
+            "tab_collection": "shavous"
           }
         },
         "8725ec87-e5c6-4af4-8c8c-ccea42cec133": {
@@ -104,7 +104,7 @@
         "d0a80cb9-1cdf-4522-b708-ea3c02571349"
       ],
       "settings": {
-        "prd_tab_link": "shopify:\/\/collections\/mothers-day",
+        "prd_tab_link": "shopify:\/\/collections\/shavous",
         "prd_button_text": "View More"
       }
     },
